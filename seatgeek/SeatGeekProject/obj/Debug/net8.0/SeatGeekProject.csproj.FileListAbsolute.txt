@@ -1,0 +1,8 @@
+C:\Users\hristina\Desktop\seatgeek\SeatGeekProject\obj\Debug\net8.0\SeatGeekProject.csproj.AssemblyReference.cache
+C:\Users\hristina\Desktop\seatgeek\SeatGeekProject\obj\Debug\net8.0\SeatGeekProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hristina\Desktop\seatgeek\SeatGeekProject\obj\Debug\net8.0\SeatGeekProject.AssemblyInfoInputs.cache
+C:\Users\hristina\Desktop\seatgeek\SeatGeekProject\obj\Debug\net8.0\SeatGeekProject.AssemblyInfo.cs
+C:\Users\hristina\Desktop\seatgeek\SeatGeekProject\obj\Debug\net8.0\SeatGeekProject.csproj.CoreCompileInputs.cache
+C:\Users\hristina\Desktop\seatgeek\SeatGeekProject\obj\Debug\net8.0\SeatGeekProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\hristina\Desktop\seatgeek\SeatGeekProject\obj\Debug\net8.0\SeatGeekProject.RazorAssemblyInfo.cache
+C:\Users\hristina\Desktop\seatgeek\SeatGeekProject\obj\Debug\net8.0\SeatGeekProject.RazorAssemblyInfo.cs

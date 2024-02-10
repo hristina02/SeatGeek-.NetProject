@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SeatGeek.Web.props" />
+</Project>
