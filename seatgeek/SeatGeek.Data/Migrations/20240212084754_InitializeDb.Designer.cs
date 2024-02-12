@@ -12,7 +12,7 @@ using SeatGeekProject.Data;
 namespace SeatGeek.Data.Migrations
 {
     [DbContext(typeof(SeatGeekDbContext))]
-    [Migration("20240208093112_InitializeDb")]
+    [Migration("20240212084754_InitializeDb")]
     partial class InitializeDb
     {
         /// <inheritdoc />
@@ -267,8 +267,8 @@ namespace SeatGeek.Data.Migrations
                     b.Property<int>("ChildCategoryId")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("EventId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
 
                     b.HasKey("ChildCategoryId", "EventId");
 
@@ -302,9 +302,11 @@ namespace SeatGeek.Data.Migrations
 
             modelBuilder.Entity("SeatGeek.Data.Models.Event", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -325,7 +327,7 @@ namespace SeatGeek.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 8, 9, 31, 11, 698, DateTimeKind.Utc).AddTicks(6115));
+                        .HasDefaultValue(new DateTime(2024, 2, 12, 8, 47, 54, 203, DateTimeKind.Utc).AddTicks(5722));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -380,8 +382,8 @@ namespace SeatGeek.Data.Migrations
                     b.Property<Guid>("ApplicationUser")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("EventId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");

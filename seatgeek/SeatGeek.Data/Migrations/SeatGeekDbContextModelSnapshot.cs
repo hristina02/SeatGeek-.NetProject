@@ -264,8 +264,8 @@ namespace SeatGeek.Data.Migrations
                     b.Property<int>("ChildCategoryId")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("EventId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
 
                     b.HasKey("ChildCategoryId", "EventId");
 
@@ -295,13 +295,35 @@ namespace SeatGeek.Data.Migrations
                     b.HasIndex("ParentCategoryId");
 
                     b.ToTable("ChildCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Pop",
+                            ParentCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Rock",
+                            ParentCategoryId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Football",
+                            ParentCategoryId = 2
+                        });
                 });
 
             modelBuilder.Entity("SeatGeek.Data.Models.Event", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -322,7 +344,7 @@ namespace SeatGeek.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 8, 9, 31, 11, 698, DateTimeKind.Utc).AddTicks(6115));
+                        .HasDefaultValue(new DateTime(2024, 2, 12, 9, 1, 32, 285, DateTimeKind.Utc).AddTicks(5452));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -346,6 +368,20 @@ namespace SeatGeek.Data.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Events");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "North London, UK (near the border)",
+                            AgentId = new Guid("4bb6ee6b-0068-4112-91d5-475706808d40"),
+                            CategoryId = 1,
+                            City = "London",
+                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Dara Ekimova ushers in 2024. with a concept show event on Valentine's Day. Spend February 14 at Bar Petak with the pop girl of the Bulgarian scene and your favorite songs of hers.",
+                            ImageUrl = "https://bg.content.eventim.com/static/uploaded/bg/3/v/9/g/3v9g_300_300.jpeg",
+                            Title = "Dara Ekimova"
+                        });
                 });
 
             modelBuilder.Entity("SeatGeek.Data.Models.ParentCategory", b =>
@@ -364,6 +400,23 @@ namespace SeatGeek.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ParentCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Music"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Sport"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Theatre"
+                        });
                 });
 
             modelBuilder.Entity("SeatGeek.Data.Models.Ticket", b =>
@@ -377,8 +430,8 @@ namespace SeatGeek.Data.Migrations
                     b.Property<Guid>("ApplicationUser")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("EventId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -395,6 +448,17 @@ namespace SeatGeek.Data.Migrations
                     b.HasIndex("EventId");
 
                     b.ToTable("Tickets");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ApplicationUser = new Guid("00000000-0000-0000-0000-000000000000"),
+                            EventId = 1,
+                            Price = 250m,
+                            Quantity = 1,
+                            Type = 2
+                        });
                 });
 
             modelBuilder.Entity("ApplicationUserTicket", b =>

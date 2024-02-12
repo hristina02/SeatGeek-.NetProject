@@ -8,7 +8,7 @@
         [ForeignKey(nameof(ChildCategoryId))]
         public ChildCategory ChildCategory { get; set; } = null!;
 
-        public Guid EventId { get; set; }
+        public int EventId { get; set; }
 
         [ForeignKey(nameof(EventId))]
         public Event Event { get; set; }=null!;

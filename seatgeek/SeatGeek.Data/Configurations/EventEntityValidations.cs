@@ -29,23 +29,24 @@
             builder.HasData(this.GenerateEventModel());
         }
 
-        private Event [] GenerateEventModel()
+        private Event[] GenerateEventModel()
         {
-            
+
             ICollection<Event> events = new HashSet<Event>();
 
             Event eventModel;
 
             eventModel = new Event()
             {
-                Id=1,
+                Id = 1,
                 Title = "Dara Ekimova",
                 Address = "North London, UK (near the border)",
-                Description = " ",
+                City = "London",
+                Description = "Dara Ekimova ushers in 2024. with a concept show event on Valentine's Day. Spend February 14 at Bar Petak with the pop girl of the Bulgarian scene and your favorite songs of hers.",
                 ImageUrl = "https://bg.content.eventim.com/static/uploaded/bg/3/v/9/g/3v9g_300_300.jpeg",
-                AgentId=Guid.Parse("1F531742-1E18-4D11-8FF6-5E82C8108944"),
-                CategoryId=1
-                
+                AgentId = Guid.Parse("4BB6EE6B-0068-4112-91D5-475706808D40"),
+                CategoryId = 1
+
             };
 
 

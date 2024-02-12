@@ -21,7 +21,7 @@
         public virtual ICollection<ApplicationUser> TicketOwners { get; set; } = null!;
 
         [Required]
-        public Guid EventId { get; set; }
+        public int EventId { get; set; }
       
         [ForeignKey(nameof(EventId))]
 
