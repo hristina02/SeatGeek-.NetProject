@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SeatGeek.Common\SeatGeek.Common.csproj" />
+    <ProjectReference Include="..\SeatGeek.Data.Models\SeatGeek.Data.Models.csproj" />
+    <ProjectReference Include="..\SeatGeek.Data\SeatGeek.Data.csproj" />
+    <ProjectReference Include="..\SeatGeek.Web.ViewModels\SeatGeek.Web.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

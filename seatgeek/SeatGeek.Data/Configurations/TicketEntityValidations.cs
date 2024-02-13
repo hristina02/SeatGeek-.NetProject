@@ -4,7 +4,7 @@
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using SeatGeek.Data.Models;
     using SeatGeek.Data.Models.Enums;
-    using SeatGeekProject.Data;
+    using SeatGeek.Data;
 
     public class TicketEntityValidations : IEntityTypeConfiguration<Ticket>
     {

@@ -1,23 +1,28 @@
-using Microsoft.AspNetCore.Mvc;
-using SeatGeek.Web.ViewModels;
-using System.Diagnostics;
-
 namespace SeatGeek.Web.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+    using SeatGeek.Services.Data.Interfaces;
+    using SeatGeek.Web.ViewModels;
+    using SeatGeek.Web.ViewModels.Home;
+    using System.Diagnostics;
+
     public class HomeController : Controller
     {
-       
-        public HomeController()
+
+        private readonly IEventService eventService;
+
+        public HomeController(IEventService eventService)
         {
-           
+            this.eventService = eventService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
+            IEnumerable<IndexViewModel> viewModel =
+                await this.eventService.LastFiveEventsAsync();
 
-        
+            return View(viewModel);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

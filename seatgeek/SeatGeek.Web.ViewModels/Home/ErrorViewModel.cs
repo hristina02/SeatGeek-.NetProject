@@ -1,4 +1,4 @@
-namespace SeatGeek.Web.ViewModels
+namespace SeatGeek.Web.ViewModels.Home
 {
     public class ErrorViewModel
     {

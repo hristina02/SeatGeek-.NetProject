@@ -1,4 +1,4 @@
-﻿namespace SeatGeekProject.Data
+﻿namespace SeatGeek.Data
 {
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SeatGeek.Data\SeatGeek.Data.csproj" />
+    <ProjectReference Include="..\SeatGeek.Services.Data\SeatGeek.Services.Data.csproj" />
   </ItemGroup>
 
 </Project>

@@ -13,11 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeatGeek.Data", "SeatGeek.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeatGeek.Data.Models", "SeatGeek.Data.Models\SeatGeek.Data.Models.csproj", "{6DC921A5-DA26-458D-84A6-A817B6F83D47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeatGeek.Web.Infrastructure", "SeatGeek.Web.Infrastructure\SeatGeek.Web.Infrastructure.csproj", "{A0FBB580-4310-4A47-B848-511D3F4A5EE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeatGeek.Web.Infrastructure", "SeatGeek.Web.Infrastructure\SeatGeek.Web.Infrastructure.csproj", "{A0FBB580-4310-4A47-B848-511D3F4A5EE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeatGeek.Web", "SeatGeek.Web\SeatGeek.Web.csproj", "{8C0C7787-86CD-4A41-906E-EE3B9BCEC6D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeatGeek.Web", "SeatGeek.Web\SeatGeek.Web.csproj", "{8C0C7787-86CD-4A41-906E-EE3B9BCEC6D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeatGeek.Web.ViewModels", "SeatGeek.Web.ViewModels\SeatGeek.Web.ViewModels.csproj", "{75BCC8B1-8BD5-4AFB-A959-CC361C6E686B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeatGeek.Web.ViewModels", "SeatGeek.Web.ViewModels\SeatGeek.Web.ViewModels.csproj", "{75BCC8B1-8BD5-4AFB-A959-CC361C6E686B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeatGeek.Services.Data", "SeatGeek.Services.Data\SeatGeek.Services.Data.csproj", "{C7A00EB8-2C6A-47C9-87BC-896B67FC7B4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{75BCC8B1-8BD5-4AFB-A959-CC361C6E686B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75BCC8B1-8BD5-4AFB-A959-CC361C6E686B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75BCC8B1-8BD5-4AFB-A959-CC361C6E686B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7A00EB8-2C6A-47C9-87BC-896B67FC7B4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7A00EB8-2C6A-47C9-87BC-896B67FC7B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7A00EB8-2C6A-47C9-87BC-896B67FC7B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7A00EB8-2C6A-47C9-87BC-896B67FC7B4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{A0FBB580-4310-4A47-B848-511D3F4A5EE4} = {F7EC5A69-1995-45F4-B342-68A2226414F4}
 		{8C0C7787-86CD-4A41-906E-EE3B9BCEC6D9} = {F7EC5A69-1995-45F4-B342-68A2226414F4}
 		{75BCC8B1-8BD5-4AFB-A959-CC361C6E686B} = {F7EC5A69-1995-45F4-B342-68A2226414F4}
+		{C7A00EB8-2C6A-47C9-87BC-896B67FC7B4A} = {7B910E4E-4D2E-4E9E-808C-AED59BE9F6A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93430258-FAB1-48AF-8FB8-EBF0F6ACE4A4}

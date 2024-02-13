@@ -313,3 +313,5 @@ C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\obj\Debug\n
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\obj\Debug\net8.0\SeatGeek.Web.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\obj\Debug\net8.0\SeatGeek.Web.genruntimeconfig.cache
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\obj\Debug\net8.0\ref\SeatGeek.Web.dll
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\net8.0\SeatGeek.Services.Data.dll
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\net8.0\SeatGeek.Services.Data.pdb

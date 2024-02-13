@@ -16,6 +16,7 @@
           "SeatGeek.Common": "1.0.0",
           "SeatGeek.Data": "1.0.0",
           "SeatGeek.Data.Models": "1.0.0",
+          "SeatGeek.Services.Data": "1.0.0",
           "SeatGeek.Web.Infrastructure": "1.0.0",
           "SeatGeek.Web.ViewModels": "1.0.0"
         },
@@ -982,7 +983,21 @@
           "SeatGeek.Data.Models.dll": {}
         }
       },
+      "SeatGeek.Services.Data/1.0.0": {
+        "dependencies": {
+          "SeatGeek.Common": "1.0.0",
+          "SeatGeek.Data": "1.0.0",
+          "SeatGeek.Data.Models": "1.0.0",
+          "SeatGeek.Web.ViewModels": "1.0.0"
+        },
+        "runtime": {
+          "SeatGeek.Services.Data.dll": {}
+        }
+      },
       "SeatGeek.Web.Infrastructure/1.0.0": {
+        "dependencies": {
+          "SeatGeek.Services.Data": "1.0.0"
+        },
         "runtime": {
           "SeatGeek.Web.Infrastructure.dll": {}
         }
@@ -1599,6 +1614,11 @@
       "sha512": ""
     },
     "SeatGeek.Data.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SeatGeek.Services.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

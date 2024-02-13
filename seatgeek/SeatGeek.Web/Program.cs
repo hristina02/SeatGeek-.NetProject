@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SeatGeek.Data.Models;
-using SeatGeekProject.Data;
+using SeatGeek.Data;
+using SeatGeek.Web.Infrastructure.Extensions;
+using SeatGeek.Services.Data.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +30,9 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 
 })
     .AddEntityFrameworkStores<SeatGeekDbContext>();
+
+builder.Services.AddApplicationServices(typeof(IEventService));
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
