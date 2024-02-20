@@ -1,5 +1,4 @@
-﻿
-namespace SeatGeek.Common
+﻿namespace SeatGeek.Common
 {
    
     public static class EntityValidationConstants

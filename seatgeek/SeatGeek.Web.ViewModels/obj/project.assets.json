@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "SeatGeek.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/SeatGeek.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SeatGeek.Common.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "SeatGeek.Common/1.0.0": {
+      "type": "project",
+      "path": "../SeatGeek.Common/SeatGeek.Common.csproj",
+      "msbuildProject": "../SeatGeek.Common/SeatGeek.Common.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "SeatGeek.Common >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\hristina\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Common\\SeatGeek.Common.csproj": {
+              "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Common\\SeatGeek.Common.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

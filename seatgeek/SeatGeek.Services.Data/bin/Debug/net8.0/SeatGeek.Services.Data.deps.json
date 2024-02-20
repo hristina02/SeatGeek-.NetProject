@@ -636,6 +636,9 @@
         }
       },
       "SeatGeek.Web.ViewModels/1.0.0": {
+        "dependencies": {
+          "SeatGeek.Common": "1.0.0"
+        },
         "runtime": {
           "SeatGeek.Web.ViewModels.dll": {}
         }

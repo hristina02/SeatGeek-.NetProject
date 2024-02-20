@@ -1086,6 +1086,9 @@
       "SeatGeek.Web.ViewModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "SeatGeek.Common": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/SeatGeek.Web.ViewModels.dll": {}
         },

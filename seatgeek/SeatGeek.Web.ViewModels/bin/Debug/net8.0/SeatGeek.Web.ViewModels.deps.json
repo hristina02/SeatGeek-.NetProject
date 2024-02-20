@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {
       "SeatGeek.Web.ViewModels/1.0.0": {
+        "dependencies": {
+          "SeatGeek.Common": "1.0.0"
+        },
         "runtime": {
           "SeatGeek.Web.ViewModels.dll": {}
+        }
+      },
+      "SeatGeek.Common/1.0.0": {
+        "runtime": {
+          "SeatGeek.Common.dll": {}
         }
       }
     }
   },
   "libraries": {
     "SeatGeek.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SeatGeek.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
