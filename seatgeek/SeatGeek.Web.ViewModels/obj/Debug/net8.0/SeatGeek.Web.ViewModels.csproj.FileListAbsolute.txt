@@ -25,3 +25,5 @@ C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web.ViewModels\
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web.ViewModels\bin\Debug\net8.0\SeatGeek.Common.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web.ViewModels\obj\Debug\net8.0\SeatGeek.Web.ViewModels.csproj.AssemblyReference.cache
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web.ViewModels\obj\Debug\net8.0\SeatGeek.Web.ViewModels.csproj.CopyComplete
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web.ViewModels\bin\Debug\net8.0\SeatGeek.Data.Models.dll
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web.ViewModels\bin\Debug\net8.0\SeatGeek.Data.Models.pdb

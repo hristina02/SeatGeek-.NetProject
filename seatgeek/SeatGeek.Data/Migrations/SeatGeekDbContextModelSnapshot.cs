@@ -259,6 +259,41 @@ namespace SeatGeek.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("SeatGeek.Data.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Music"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Sport"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Theatre"
+                        });
+                });
+
             modelBuilder.Entity("SeatGeek.Data.Models.CategoryEvent", b =>
                 {
                     b.Property<int>("ChildCategoryId")
@@ -272,49 +307,6 @@ namespace SeatGeek.Data.Migrations
                     b.HasIndex("EventId");
 
                     b.ToTable("CategoryEvents");
-                });
-
-            modelBuilder.Entity("SeatGeek.Data.Models.ChildCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<int>("ParentCategoryId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ParentCategoryId");
-
-                    b.ToTable("ChildCategories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Pop",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Rock",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Football",
-                            ParentCategoryId = 2
-                        });
                 });
 
             modelBuilder.Entity("SeatGeek.Data.Models.Event", b =>
@@ -338,13 +330,13 @@ namespace SeatGeek.Data.Migrations
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 12, 9, 1, 32, 285, DateTimeKind.Utc).AddTicks(5452));
+                        .HasDefaultValue(new DateTime(2024, 2, 29, 14, 23, 7, 558, DateTimeKind.Utc).AddTicks(6779));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -355,6 +347,9 @@ namespace SeatGeek.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(2048)
                         .HasColumnType("nvarchar(2048)");
+
+                    b.Property<int>("MaxCapacity")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -380,43 +375,41 @@ namespace SeatGeek.Data.Migrations
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Dara Ekimova ushers in 2024. with a concept show event on Valentine's Day. Spend February 14 at Bar Petak with the pop girl of the Bulgarian scene and your favorite songs of hers.",
                             ImageUrl = "https://bg.content.eventim.com/static/uploaded/bg/3/v/9/g/3v9g_300_300.jpeg",
+                            MaxCapacity = 100,
                             Title = "Dara Ekimova"
                         });
                 });
 
-            modelBuilder.Entity("SeatGeek.Data.Models.ParentCategory", b =>
+            modelBuilder.Entity("SeatGeek.Data.Models.Order", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OrderID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderID"));
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                    b.Property<int>("EventID")
+                        .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<int>("NumberTickets")
+                        .HasColumnType("int");
 
-                    b.ToTable("ParentCategories");
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Music"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Sport"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Theatre"
-                        });
+                    b.Property<float>("OrderTotal")
+                        .HasColumnType("real");
+
+                    b.Property<Guid?>("userId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("OrderID");
+
+                    b.HasIndex("EventID");
+
+                    b.HasIndex("userId");
+
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("SeatGeek.Data.Models.Ticket", b =>
@@ -540,7 +533,7 @@ namespace SeatGeek.Data.Migrations
 
             modelBuilder.Entity("SeatGeek.Data.Models.CategoryEvent", b =>
                 {
-                    b.HasOne("SeatGeek.Data.Models.ChildCategory", "ChildCategory")
+                    b.HasOne("SeatGeek.Data.Models.Category", "ChildCategory")
                         .WithMany()
                         .HasForeignKey("ChildCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -557,17 +550,6 @@ namespace SeatGeek.Data.Migrations
                     b.Navigation("Event");
                 });
 
-            modelBuilder.Entity("SeatGeek.Data.Models.ChildCategory", b =>
-                {
-                    b.HasOne("SeatGeek.Data.Models.ParentCategory", "ParentCategory")
-                        .WithMany("ChildCategories")
-                        .HasForeignKey("ParentCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ParentCategory");
-                });
-
             modelBuilder.Entity("SeatGeek.Data.Models.Event", b =>
                 {
                     b.HasOne("SeatGeek.Data.Models.Agent", "Agent")
@@ -576,7 +558,7 @@ namespace SeatGeek.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("SeatGeek.Data.Models.ChildCategory", "Category")
+                    b.HasOne("SeatGeek.Data.Models.Category", "Category")
                         .WithMany("Events")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -585,6 +567,23 @@ namespace SeatGeek.Data.Migrations
                     b.Navigation("Agent");
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("SeatGeek.Data.Models.Order", b =>
+                {
+                    b.HasOne("SeatGeek.Data.Models.Event", "Event")
+                        .WithMany()
+                        .HasForeignKey("EventID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SeatGeek.Data.Models.ApplicationUser", "user")
+                        .WithMany()
+                        .HasForeignKey("userId");
+
+                    b.Navigation("Event");
+
+                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("SeatGeek.Data.Models.Ticket", b =>
@@ -603,7 +602,7 @@ namespace SeatGeek.Data.Migrations
                     b.Navigation("OwnedEvents");
                 });
 
-            modelBuilder.Entity("SeatGeek.Data.Models.ChildCategory", b =>
+            modelBuilder.Entity("SeatGeek.Data.Models.Category", b =>
                 {
                     b.Navigation("Events");
                 });
@@ -611,11 +610,6 @@ namespace SeatGeek.Data.Migrations
             modelBuilder.Entity("SeatGeek.Data.Models.Event", b =>
                 {
                     b.Navigation("Tickets");
-                });
-
-            modelBuilder.Entity("SeatGeek.Data.Models.ParentCategory", b =>
-                {
-                    b.Navigation("ChildCategories");
                 });
 #pragma warning restore 612, 618
         }

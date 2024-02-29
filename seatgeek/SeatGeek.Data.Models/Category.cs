@@ -2,9 +2,9 @@
 {
     using System.ComponentModel.DataAnnotations;
     using static Common.EntityValidationConstants.Category;
-    public class ChildCategory
+    public class Category
     {
-        public ChildCategory()
+        public Category()
         {
             Events = new HashSet<Event>();
         }
@@ -17,8 +17,6 @@
         [MaxLength(NameMaxLength)]
         public string Name { get; set; } = null!;
 
-        public int ParentCategoryId { get; set; }
-        public virtual ParentCategory ParentCategory { get; set; } = null!;
 
         public virtual ICollection<Event> Events { get; set; } = null!;
     }

@@ -6,7 +6,7 @@
         public int ChildCategoryId { get; set; }
        
         [ForeignKey(nameof(ChildCategoryId))]
-        public ChildCategory ChildCategory { get; set; } = null!;
+        public Category ChildCategory { get; set; } = null!;
 
         public int EventId { get; set; }
 

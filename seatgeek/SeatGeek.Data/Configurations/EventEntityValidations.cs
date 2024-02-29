@@ -20,6 +20,8 @@
                 .HasForeignKey(h => h.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+           
+
             builder
                 .HasOne(h => h.Agent)
                 .WithMany(a => a.OwnedEvents)
@@ -43,10 +45,11 @@
                 Address = "North London, UK (near the border)",
                 City = "London",
                 Description = "Dara Ekimova ushers in 2024. with a concept show event on Valentine's Day. Spend February 14 at Bar Petak with the pop girl of the Bulgarian scene and your favorite songs of hers.",
+                MaxCapacity = 100,
                 ImageUrl = "https://bg.content.eventim.com/static/uploaded/bg/3/v/9/g/3v9g_300_300.jpeg",
                 AgentId = Guid.Parse("4BB6EE6B-0068-4112-91D5-475706808D40"),
-                CategoryId = 1
-
+               CategoryId = 1,
+                
             };
 
 

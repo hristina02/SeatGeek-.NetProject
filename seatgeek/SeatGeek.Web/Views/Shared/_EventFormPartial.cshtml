@@ -1,0 +1,81 @@
+﻿@model EventFormModel
+
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" placeholder="Title...">
+                <span asp-validation-for="Title" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address"></label>
+                <input asp-for="Address" class="form-control" placeholder="Address...">
+                <span asp-validation-for="Address" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City"></label>
+                <input asp-for="City" class="form-control" placeholder="City...">
+                <span asp-validation-for="City" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" rows="4" class="form-control" placeholder="Two bedrooms..."></textarea>
+                <span asp-validation-for="Description" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl"></label>
+                <input asp-for="ImageUrl" class="form-control" placeholder="Your fine URL here...">
+                <span asp-validation-for="ImageUrl" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxCapacity"></label>
+                <input asp-for="MaxCapacity" class="form-control" placeholder="Your fine URL here...">
+                <span asp-validation-for="MaxCapacity" class="small text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="CategoryId"></label>
+                <select asp-for="CategoryId" class="form-control" id="ParentCategoryId">
+                    @foreach (var parentCategory in Model.Categories)
+                    {
+                        <option value="@parentCategory.Id">@parentCategory.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryId" class="small text-danger"></span>
+            </div>
+            <h6>Tickets</h6>
+            @for (var i = 0; i < Model.Tickets.Count; i++)
+            {
+                <div class="ticket-container">
+                    <h4>Ticket Template @Model.Tickets[i].Type</h4>
+                    <div class="form-group">
+                        <label asp-for="Tickets[i].Type"></label>
+                        <input asp-for="Tickets[i].Type" class="form-control" />
+                        <span asp-validation-for="Tickets[i].Type" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Tickets[i].Quantity"></label>
+                        <input asp-for="Tickets[i].Quantity" class="form-control" />
+                        <span asp-validation-for="Tickets[i].Quantity" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Tickets[i].Price"></label>
+                        <input asp-for="Tickets[i].Price" class="form-control" />
+                        <span asp-validation-for="Tickets[i].Price" class="text-danger"></span>
+                    </div>
+                </div>
+            }
+
+            <div class="text-center">
+                <input class="btn btn-primary mt-3" type="submit" value="Save" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

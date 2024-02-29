@@ -11,6 +11,7 @@
                 .HasKey(x => new { x.ChildCategoryId, x.EventId });
 
 
+
         }
     }
 }

@@ -14,9 +14,7 @@
 
         }
 
-        public DbSet<ChildCategory> ChildCategories{ get; set; } = null!;
-
-        public DbSet<ParentCategory> ParentCategories { get; set; }=null!;
+        public DbSet<Category> Categories{ get; set; } = null!;
 
         public DbSet<Ticket> Tickets { get; set; } = null!;
 
@@ -24,6 +22,9 @@
         public DbSet<CategoryEvent> CategoryEvents { get; set; } = null!;
 
         public DbSet<Agent> Agents { get; set; } = null!;
+
+
+        public DbSet<Order> Orders { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

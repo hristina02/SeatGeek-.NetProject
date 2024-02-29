@@ -293,6 +293,9 @@
             "projectReferences": {
               "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Common\\SeatGeek.Common.csproj": {
                 "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Common\\SeatGeek.Common.csproj"
+              },
+              "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Data.Models\\SeatGeek.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Data.Models\\SeatGeek.Data.Models.csproj"
               }
             }
           }

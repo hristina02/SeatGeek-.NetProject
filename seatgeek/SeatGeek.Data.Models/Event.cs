@@ -1,6 +1,6 @@
 ﻿namespace SeatGeek.Data.Models
 {
-    using System.Collections;
+   
     using System.ComponentModel.DataAnnotations;
     using static Common.EntityValidationConstants.Event;
 
@@ -9,7 +9,7 @@
 
         public Event()
         {
-            this.Tickets=new HashSet<Ticket>();
+            this.Tickets=new List<Ticket>();
         }
 
         [Key]
@@ -24,12 +24,16 @@
         public string Address { get; set; } = null!;
 
         [Required]
-        [MaxLength(AddressMaxLength)]
+        [MaxLength(CityMaxLength)]
         public string City { get; set; } = null!;
 
         [Required]
         [MaxLength(DescriptionMaxLength)]
         public string Description { get; set; } = null!;
+
+        [Required]
+        [MaxLength(MaxCapacityConst)]
+        public int MaxCapacity {  get; set; } 
 
         [Required]
         [MaxLength(ImageUrlMaxLength)]
@@ -41,7 +45,8 @@
 
         public int CategoryId { get; set; }
 
-        public virtual ChildCategory Category { get; set; } = null!;
+        public virtual Category Category { get; set; } = null!;
+
 
         public Guid AgentId { get; set; }
 

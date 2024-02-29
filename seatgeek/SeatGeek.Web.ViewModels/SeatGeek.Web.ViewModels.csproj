@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SeatGeek.Common\SeatGeek.Common.csproj" />
+    <ProjectReference Include="..\SeatGeek.Data.Models\SeatGeek.Data.Models.csproj" />
   </ItemGroup>
 
 </Project>

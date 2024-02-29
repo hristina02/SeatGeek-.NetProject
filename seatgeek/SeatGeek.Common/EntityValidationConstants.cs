@@ -23,6 +23,8 @@
             public const int DescriptionMinLength = 30;
             public const int DescriptionMaxLength = 1000;
 
+            public const int MaxCapacityConst = 1000;
+
             public const int ImageUrlMaxLength = 2048;
 
             public const string PricePerMonthMinValue = "0";
@@ -37,11 +39,11 @@
 
         public  static class Ticket
         {
-            public const int MinQuantity = 3;
+           
             public const int MaxQuantity = 10000;
            
-            public const decimal MinPrice =0;
-            public const decimal MaxPrice = 1000;
+            public const string MinPrice ="0";
+            public const string MaxPrice = "1000";
 
         }
     }

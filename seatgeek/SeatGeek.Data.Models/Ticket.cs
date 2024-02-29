@@ -30,7 +30,7 @@
         [Required]
         public decimal Price { get; set; }
 
-        [Required]
+   
         public TicketTypeEnum Type { get; set; }
 
         [Required]
