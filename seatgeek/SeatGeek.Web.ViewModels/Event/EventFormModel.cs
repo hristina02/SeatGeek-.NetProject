@@ -30,7 +30,7 @@
         public string Description { get; set; } = null!;
 
         [Required]
-        [Range(1, MaxCapacityConst, ErrorMessage = "Quantity must be between 1 and {1}")]
+        [Range(1, MaxCapacityConst, ErrorMessage = "Quantity must be between 1 and {2}")]
         public int MaxCapacity { get; set; } 
 
         [Required]
@@ -41,7 +41,7 @@
         [Required]
         [Display(Name = "Category")]
         public int CategoryId { get; set; }
-        public List<TicketFormModel> Tickets{ get; set; } = null!;
+        //public List<TicketFormModel> Tickets{ get; set; } = null!;
 
        public IEnumerable<IndexCategoryFormModel> Categories { get; set; } = null!;
 

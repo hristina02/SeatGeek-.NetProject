@@ -42,6 +42,7 @@
             // Create the Event entity
             Event eventModel = new Event
             {
+                
                 Title = formModel.Title,
                 Address = formModel.Address,
                 Description = formModel.Description,
@@ -51,33 +52,12 @@
                 AgentId = Guid.Parse(agentId),
             };
 
-            // Create and add tickets to the event
-            foreach (var ticketModel in formModel.Tickets)
-            {
-                TicketTypeEnum ticketType ;
-                if (Enum.TryParse(ticketModel.Type, out ticketType))
-                {
-                    Ticket ticket = new Ticket
-                    {
-                        Type = ticketType,
-                        Quantity = ticketModel.Quantity,
-                        Price = ticketModel.Price,
-                    };
-
-                    eventModel.Tickets.Add(ticket);
-                }
-
-              
-            }
-
-            int totalTicketQuantity = eventModel.Tickets.Sum(ticket => ticket.Quantity);
-            if (totalTicketQuantity <= eventModel.MaxCapacity)
-            {
+            
 
                 await this.dbContext.Events.AddAsync(eventModel);
                 await this.dbContext.SaveChangesAsync();
 
-            }
+            
 
 
             return eventModel.Id.ToString();

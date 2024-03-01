@@ -45,7 +45,7 @@
                 </select>
                 <span asp-validation-for="CategoryId" class="small text-danger"></span>
             </div>
-            <h6>Tickets</h6>
+           @*  <h6>Tickets</h6>
             @for (var i = 0; i < Model.Tickets.Count; i++)
             {
                 <div class="ticket-container">
@@ -68,7 +68,7 @@
                         <span asp-validation-for="Tickets[i].Price" class="text-danger"></span>
                     </div>
                 </div>
-            }
+            } *@
 
             <div class="text-center">
                 <input class="btn btn-primary mt-3" type="submit" value="Save" />
