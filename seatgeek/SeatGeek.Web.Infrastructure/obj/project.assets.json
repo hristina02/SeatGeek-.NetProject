@@ -642,6 +642,18 @@
           }
         }
       },
+      "Mvc.ModelBinding.MultiParameter/1.1.8": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Mvc.ModelBinding.MultiParameter.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Mvc.ModelBinding.MultiParameter.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "System.Configuration.ConfigurationManager/6.0.1": {
         "type": "package",
         "dependencies": {
@@ -2078,6 +2090,20 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Mvc.ModelBinding.MultiParameter/1.1.8": {
+      "sha512": "aBvh2bcjh8WzPmuXQWxAzxgseNrIaV1j+nHMmYZseRD1AA0hQn10qtaufaSKCs+egQ5G78oODu+vgTj178rNJg==",
+      "type": "package",
+      "path": "mvc.modelbinding.multiparameter/1.1.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net8.0/Mvc.ModelBinding.MultiParameter.dll",
+        "mvc.modelbinding.multiparameter.1.1.8.nupkg.sha512",
+        "mvc.modelbinding.multiparameter.nuspec"
+      ]
+    },
     "System.Configuration.ConfigurationManager/6.0.1": {
       "sha512": "jXw9MlUu/kRfEU0WyTptAVueupqIeE3/rl0EZDMlf8pcvJnitQ8HeVEp69rZdaStXwTV72boi/Bhw8lOeO+U2w==",
       "type": "package",
@@ -2923,6 +2949,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Mvc.ModelBinding.MultiParameter >= 1.1.8",
       "SeatGeek.Services.Data >= 1.0.0"
     ]
   },
@@ -2968,6 +2995,12 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "Mvc.ModelBinding.MultiParameter": {
+            "target": "Package",
+            "version": "[1.1.8, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

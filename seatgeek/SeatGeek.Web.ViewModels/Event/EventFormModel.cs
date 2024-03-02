@@ -9,8 +9,8 @@
         public EventFormModel()
         {
 
-            Categories = new List<IndexCategoryFormModel>();
-           // Tickets=new List<TicketFormModel>();
+           Categories = new List<IndexCategoryFormModel>();
+           Tickets=new List<TicketFormModel>();
         }
 
         [Required]
@@ -41,7 +41,7 @@
         [Required]
         [Display(Name = "Category")]
         public int CategoryId { get; set; }
-        //public List<TicketFormModel> Tickets{ get; set; } = null!;
+        public List<TicketFormModel> Tickets{ get; set; } = null!;
 
        public IEnumerable<IndexCategoryFormModel> Categories { get; set; } = null!;
 

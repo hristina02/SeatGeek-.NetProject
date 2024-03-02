@@ -46,21 +46,41 @@
                 Title = formModel.Title,
                 Address = formModel.Address,
                 Description = formModel.Description,
+                City=formModel.City,
                 ImageUrl = formModel.ImageUrl,
                 MaxCapacity= formModel.MaxCapacity,
                 CategoryId = formModel.CategoryId,
-                AgentId = Guid.Parse(agentId),
+                AgentId = Guid.Parse(agentId)
             };
 
-            
 
+            // Create and add tickets to the event
+            foreach (var ticketModel in formModel.Tickets)
+            {
+                TicketTypeEnum ticketType;
+                if (Enum.TryParse(ticketModel.Type, out ticketType))
+                {
+                    Ticket ticket = new Ticket
+                    {
+                        Type = ticketType,
+                        Quantity = ticketModel.Quantity,
+                        Price = ticketModel.Price,
+                    };
+
+                    eventModel.Tickets.Add(ticket);
+                }
+            }
+
+            int totalTicketQuantity = eventModel.Tickets.Sum(ticket => ticket.Quantity);
+            if (totalTicketQuantity <= eventModel.MaxCapacity) // Use MaxCapacity for comparison
+            {
                 await this.dbContext.Events.AddAsync(eventModel);
                 await this.dbContext.SaveChangesAsync();
+                return eventModel.Id.ToString();
+            }
 
-            
-
-
-            return eventModel.Id.ToString();
+            // If the total ticket quantity exceeds the event's capacity, return null or handle the error
+            return null;
 
 
 

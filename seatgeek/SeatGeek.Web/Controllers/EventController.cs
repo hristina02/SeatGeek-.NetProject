@@ -46,7 +46,7 @@
                 {
 
                     Categories = await this.categoryService.AllCategoriesAsync(),
-                     Tickets = new List<TicketFormModel>
+                    Tickets = new List<TicketFormModel>
                      {
                          new TicketFormModel { Type = "Gold" },
                          new TicketFormModel { Type = "Silver" },

@@ -4,6 +4,7 @@ using SeatGeek.Data.Models;
 using SeatGeek.Data;
 using SeatGeek.Web.Infrastructure.Extensions;
 using SeatGeek.Services.Data.Interfaces;
+using SeatGeek.Web.Infrastructure.ModelBinders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,7 +34,11 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 
 builder.Services.AddApplicationServices(typeof(IEventService));
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+ .AddMvcOptions(options =>
+  {
+      options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+  });
 
 var app = builder.Build();
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4aUi22OZKTPH1RDjA6wJyC6rWSq+U6aKYFtQCjgmq+93ZO/GcbsjwjuV5jCPBDMQ+Zfa+DYW7ry7stvf/E+jIA==",
+  "dgSpecHash": "JXVzugbvTwvWFswRZhRAksAPdp3LWxJy/YnJOHsp6bhlww7Z3q6YViKh97DbRqOxaKpNTvT2a8VSfmyHFdJz8A==",
   "success": true,
   "projectFilePath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Web.Infrastructure\\SeatGeek.Web.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,7 @@
     "C:\\Users\\hristina\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\hristina\\.nuget\\packages\\mvc.modelbinding.multiparameter\\1.1.8\\mvc.modelbinding.multiparameter.1.1.8.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
