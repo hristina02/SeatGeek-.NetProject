@@ -2,6 +2,7 @@
 {
     using Microsoft.Extensions.Logging.Abstractions;
     using SeatGeek.Web.ViewModels.Category;
+    using SeatGeek.Web.ViewModels.Ticket;
     using System.ComponentModel.DataAnnotations;
     using static Common.EntityValidationConstants.Event;
     public class EventFormModel

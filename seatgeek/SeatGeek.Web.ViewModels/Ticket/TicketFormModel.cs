@@ -1,4 +1,4 @@
-﻿namespace SeatGeek.Web.ViewModels.Event
+﻿namespace SeatGeek.Web.ViewModels.Ticket
 {
     using SeatGeek.Data.Models.Enums;
     using System.ComponentModel.DataAnnotations;
@@ -16,7 +16,7 @@
         public string Type { get; set; } = null!;
 
         [Required(ErrorMessage = "Quantity is required")]
-        [Range(1,MaxQuantity, ErrorMessage = "Quantity must be between 1 and {1}")]
+        [Range(1, MaxQuantity, ErrorMessage = "Quantity must be between 1 and {1}")]
         public int Quantity { get; set; }
 
 

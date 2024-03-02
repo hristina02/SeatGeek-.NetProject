@@ -711,6 +711,14 @@
           }
         }
       },
+      "Mvc.ModelBinding.MultiParameter/1.1.8": {
+        "runtime": {
+          "lib/net8.0/Mvc.ModelBinding.MultiParameter.dll": {
+            "assemblyVersion": "8.0.1.0",
+            "fileVersion": "8.0.1.0"
+          }
+        }
+      },
       "System.CodeDom/4.4.0": {
         "runtime": {
           "lib/netstandard2.0/System.CodeDom.dll": {
@@ -988,14 +996,24 @@
           "SeatGeek.Common": "1.0.0",
           "SeatGeek.Data": "1.0.0",
           "SeatGeek.Data.Models": "1.0.0",
+          "SeatGeek.Services.Data.Model.Event": "1.0.0",
           "SeatGeek.Web.ViewModels": "1.0.0"
         },
         "runtime": {
           "SeatGeek.Services.Data.dll": {}
         }
       },
+      "SeatGeek.Services.Data.Model.Event/1.0.0": {
+        "dependencies": {
+          "SeatGeek.Web.ViewModels": "1.0.0"
+        },
+        "runtime": {
+          "SeatGeek.Services.Data.Model.Event.dll": {}
+        }
+      },
       "SeatGeek.Web.Infrastructure/1.0.0": {
         "dependencies": {
+          "Mvc.ModelBinding.MultiParameter": "1.1.8",
           "SeatGeek.Services.Data": "1.0.0"
         },
         "runtime": {
@@ -1376,6 +1394,13 @@
       "path": "mono.texttemplating/2.2.1",
       "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
     },
+    "Mvc.ModelBinding.MultiParameter/1.1.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aBvh2bcjh8WzPmuXQWxAzxgseNrIaV1j+nHMmYZseRD1AA0hQn10qtaufaSKCs+egQ5G78oODu+vgTj178rNJg==",
+      "path": "mvc.modelbinding.multiparameter/1.1.8",
+      "hashPath": "mvc.modelbinding.multiparameter.1.1.8.nupkg.sha512"
+    },
     "System.CodeDom/4.4.0": {
       "type": "package",
       "serviceable": true,
@@ -1623,6 +1648,11 @@
       "sha512": ""
     },
     "SeatGeek.Services.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SeatGeek.Services.Data.Model.Event/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hf/BxWfbyEJyNWcTeIxLj2cyz5n+2VXAJHyfRjHqZwWY04Kdp+mjWg13j7Ji/dNC2FWBPV/BBW0/Rr+7S8rdxQ==",
+  "dgSpecHash": "5fpciyxwkHLpkSLLBMPWvtxMLYIH4PexsvrdGvLDO7dh0+Ej2krqC6kOVzE1gTYPz9MRS+xCo04/MOl3SqkhYg==",
   "success": true,
   "projectFilePath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Web\\SeatGeek.Web.csproj",
   "expectedPackageFiles": [
@@ -55,6 +55,7 @@
     "C:\\Users\\hristina\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\hristina\\.nuget\\packages\\mvc.modelbinding.multiparameter\\1.1.8\\mvc.modelbinding.multiparameter.1.1.8.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\system.composition\\6.0.0\\system.composition.6.0.0.nupkg.sha512",

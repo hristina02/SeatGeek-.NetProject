@@ -9,6 +9,8 @@
     using System.Net.Sockets;
     using SeatGeek.Data.Models.Enums;
     using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
+    using SeatGeek.Services.Data.Model.Event;
+    using SeatGeek.Web.ViewModels.Event.Enums;
 
     public class EventService:IEventService
     {
@@ -85,5 +87,61 @@
 
 
         }
+
+        
+
+        public async Task<AllEventsFilteredAndPagedServiceModel> AllAsync(AllEventsQueryModel queryModel)
+        {
+            IQueryable<Event> eventsQuery = this.dbContext
+                .Events
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(queryModel.Category))
+            {
+                eventsQuery = eventsQuery
+                    .Where(h => h.Category.Name == queryModel.Category);
+            }
+
+            if (!string.IsNullOrWhiteSpace(queryModel.SearchString))
+            {
+                string wildCard = $"%{queryModel.SearchString.ToLower()}%";
+
+                eventsQuery = eventsQuery
+                    .Where(h => EF.Functions.Like(h.Title, wildCard) ||
+                                EF.Functions.Like(h.City, wildCard) ||
+                                EF.Functions.Like(h.Description, wildCard));
+            }
+
+            eventsQuery = queryModel.EventSorting switch
+            {
+                EventSorting.Newest => eventsQuery
+                    .OrderByDescending(e => e.CreatedOn),
+                EventSorting.Oldest => eventsQuery
+                    .OrderBy(e => e.CreatedOn),
+               
+            };
+
+            IEnumerable<EventAllViewModel>allEvents= await eventsQuery
+                //.Where(h => h.IsActive)
+                .Skip((queryModel.CurrentPage - 1) * queryModel.EventsPerPage)
+                .Take(queryModel.EventsPerPage)
+                .Select(h => new EventAllViewModel
+                {
+                    Id = h.Id,
+                    Title = h.Title,
+                    City = h.City,
+                    ImageUrl = h.ImageUrl,
+                    
+                })
+                .ToArrayAsync();
+            int totalHouses = eventsQuery.Count();
+
+            return new AllEventsFilteredAndPagedServiceModel()
+            {
+                TotalEventsCount = totalHouses,
+                Events = allEvents
+            };
+        }
+
     }
 }

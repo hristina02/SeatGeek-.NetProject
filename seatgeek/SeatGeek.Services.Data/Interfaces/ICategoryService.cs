@@ -13,6 +13,8 @@
     {
         Task<IEnumerable<IndexCategoryFormModel>> AllCategoriesAsync();
 
+        Task<IEnumerable<string>> AllCategoryNamesAsync();
+
         Task<bool> ExistsByIdAsync(int id);
 
     }

@@ -1,0 +1,5 @@
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Service.Data.Models\obj\Debug\net8.0\SeatGeek.Service.Data.Models.Event.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Service.Data.Models\obj\Debug\net8.0\SeatGeek.Service.Data.Models.Event.AssemblyInfoInputs.cache
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Service.Data.Models\obj\Debug\net8.0\SeatGeek.Service.Data.Models.Event.AssemblyInfo.cs
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Service.Data.Models\obj\Debug\net8.0\SeatGeek.Service.Data.Models.Event.csproj.CoreCompileInputs.cache
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Service.Data.Models\obj\Debug\net8.0\SeatGeek.Service.Data.Models.Event.sourcelink.json

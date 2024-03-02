@@ -1102,6 +1102,7 @@
           "SeatGeek.Common": "1.0.0",
           "SeatGeek.Data": "1.0.0",
           "SeatGeek.Data.Models": "1.0.0",
+          "SeatGeek.Services.Data.Model.Event": "1.0.0",
           "SeatGeek.Web.ViewModels": "1.0.0"
         },
         "compile": {
@@ -1109,6 +1110,19 @@
         },
         "runtime": {
           "bin/placeholder/SeatGeek.Services.Data.dll": {}
+        }
+      },
+      "SeatGeek.Services.Data.Model.Event/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "SeatGeek.Web.ViewModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SeatGeek.Services.Data.Model.Event.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SeatGeek.Services.Data.Model.Event.dll": {}
         }
       },
       "SeatGeek.Web.ViewModels/1.0.0": {
@@ -2940,6 +2954,11 @@
       "type": "project",
       "path": "../SeatGeek.Services.Data/SeatGeek.Services.Data.csproj",
       "msbuildProject": "../SeatGeek.Services.Data/SeatGeek.Services.Data.csproj"
+    },
+    "SeatGeek.Services.Data.Model.Event/1.0.0": {
+      "type": "project",
+      "path": "../SeatGeek.Services.Data.Model.Event/SeatGeek.Services.Data.Model.Event.csproj",
+      "msbuildProject": "../SeatGeek.Services.Data.Model.Event/SeatGeek.Services.Data.Model.Event.csproj"
     },
     "SeatGeek.Web.ViewModels/1.0.0": {
       "type": "project",

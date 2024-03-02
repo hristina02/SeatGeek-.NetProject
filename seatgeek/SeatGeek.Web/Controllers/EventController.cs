@@ -3,9 +3,11 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using SeatGeek.Services.Data.Interfaces;
+    using SeatGeek.Services.Data.Model.Event;
     using SeatGeek.Web.Infrastructure.Extensions;
     using SeatGeek.Web.ViewModels.Category;
     using SeatGeek.Web.ViewModels.Event;
+    using SeatGeek.Web.ViewModels.Ticket;
     using static Common.NotificationMessagesConstants;
     [Authorize]
     public class EventController : Controller
@@ -21,10 +23,18 @@
             this.eventService = eventService;
         }
 
+        [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> All()
+        public async Task<IActionResult> All([FromQuery] AllEventsQueryModel queryModel)
         {
-            return View();
+            AllEventsFilteredAndPagedServiceModel serviceModel =
+                await this.eventService.AllAsync(queryModel);
+
+            queryModel.Events = serviceModel.Events;
+            queryModel.TotalEvents = serviceModel.TotalEventsCount;
+            queryModel.Categories = await this.categoryService.AllCategoryNamesAsync();
+
+            return this.View(queryModel);
         }
 
 
