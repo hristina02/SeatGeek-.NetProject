@@ -5,6 +5,7 @@
     using SeatGeek.Data.Models;
     using SeatGeek.Services.Data.Interfaces;
     using SeatGeek.Web.ViewModels.Agent;
+    using SeatGeek.Web.ViewModels.Event;
 
     public class AgentService : IAgentService
     {
@@ -22,6 +23,25 @@
                 .AnyAsync(a => a.UserId.ToString() == userId);
 
             return result;
+        }
+
+        public async Task<IEnumerable<EventAllViewModel>> AllByAgentIdAsync(string agentId)
+        {
+            IEnumerable<EventAllViewModel> allAgentEvents = await this.dbContext
+                .Events
+                .Where(e => e.IsActive &&
+                            e.AgentId.ToString() == agentId)
+                .Select(e => new EventAllViewModel
+                {
+                    Id = e.Id,
+                    Title = e.Title,
+                    City = e.City,
+                    ImageUrl = e.ImageUrl,
+                   
+                })
+                .ToArrayAsync();
+
+            return allAgentEvents;
         }
 
         public async Task<bool> AgentExistsByPhoneNumberAsync(string phoneNumber)

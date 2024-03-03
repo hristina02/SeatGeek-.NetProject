@@ -20,11 +20,12 @@
         {
             this.dbContext = dbContext;
         }
-
+        
         public async Task<IEnumerable<IndexViewModel>> LastFiveEventsAsync()
         {
-            IEnumerable<IndexViewModel> lastFiveEvents = await this.dbContext
+            IEnumerable<IndexViewModel> lastFiveEvents = await this.dbContext              
               .Events
+              .Where(h=>h.IsActive)
               .OrderByDescending(h => h.CreatedOn)
               .Take(3)
               .Select(h => new IndexViewModel()
@@ -38,6 +39,27 @@
             return lastFiveEvents;
 
         }
+        public async Task<IEnumerable<EventAllViewModel>> AllByUserIdAsync(string userId)
+        {
+
+            IEnumerable<EventAllViewModel> allUserEvents = await this.dbContext
+            .Events
+            .Include(t=>t.Tickets)
+            .ThenInclude(u=>u.ApplicationUser)
+             .Where(e => e.IsActive &&
+                    e.Tickets.Any(t => t.TicketOwners.Any(u => u.Id.ToString() == userId)))
+                .Select(h => new EventAllViewModel
+                {
+                     Id = h.Id,
+                     Title = h.Title,
+                     City = h.Address,
+                    ImageUrl = h.ImageUrl,
+                })
+               .ToArrayAsync();
+
+            return allUserEvents;
+        }
+
 
         public async Task<string> CreateAndReturnIdAsync(EventFormModel formModel, string agentId)
         {
@@ -52,6 +74,7 @@
                 ImageUrl = formModel.ImageUrl,
                 MaxCapacity= formModel.MaxCapacity,
                 CategoryId = formModel.CategoryId,
+                IsActive=true,
                 AgentId = Guid.Parse(agentId)
             };
 
@@ -88,6 +111,8 @@
 
         }
 
+
+
         
 
         public async Task<AllEventsFilteredAndPagedServiceModel> AllAsync(AllEventsQueryModel queryModel)
@@ -122,7 +147,7 @@
             };
 
             IEnumerable<EventAllViewModel>allEvents= await eventsQuery
-                //.Where(h => h.IsActive)
+                .Where(h => h.IsActive)
                 .Skip((queryModel.CurrentPage - 1) * queryModel.EventsPerPage)
                 .Take(queryModel.EventsPerPage)
                 .Select(h => new EventAllViewModel
@@ -143,5 +168,23 @@
             };
         }
 
+        public async Task<IEnumerable<EventAllViewModel>> AllByAgentIdAsync(string agentId)
+        {
+            IEnumerable<EventAllViewModel> allAgentEvents = await this.dbContext
+               .Events
+               .Where(h => h.IsActive &&
+                           h.AgentId.ToString() == agentId)
+               .Select(h => new EventAllViewModel
+               {
+                   Id = h.Id,
+                   Title = h.Title,
+                   City = h.City,
+                   ImageUrl = h.ImageUrl,
+                  
+               })
+               .ToArrayAsync();
+
+            return allAgentEvents;
+        }
     }
 }

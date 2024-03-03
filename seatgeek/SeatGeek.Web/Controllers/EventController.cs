@@ -120,5 +120,34 @@
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Mine()
+        {
+            List<EventAllViewModel> myEvents =
+                new List<EventAllViewModel>();
+
+            string userId = this.User.GetId()!;
+            bool isUserAgent = await this.agentService
+                .AgentExistsByUserIdAsync(userId);
+
+             
+                if (isUserAgent)
+                {
+                    string? agentId =
+                        await this.agentService.GetAgentIdByUserIdAsync(userId);
+
+                    myEvents.AddRange(await this.eventService.AllByAgentIdAsync(agentId!));
+                }
+                else
+                {
+                    myEvents.AddRange(await this.eventService.AllByUserIdAsync(userId));
+                }
+
+                
+            
+
+
+            return this.View(myEvents);
+        }
     }
 }

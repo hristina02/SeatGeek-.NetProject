@@ -9,5 +9,9 @@
         Task<string> CreateAndReturnIdAsync(EventFormModel formModel, string agentId);
 
         Task<AllEventsFilteredAndPagedServiceModel> AllAsync(AllEventsQueryModel queryModel);
+
+        Task<IEnumerable<EventAllViewModel>> AllByAgentIdAsync(string agentId);
+
+        Task<IEnumerable<EventAllViewModel>> AllByUserIdAsync(string userId);
     }
 }

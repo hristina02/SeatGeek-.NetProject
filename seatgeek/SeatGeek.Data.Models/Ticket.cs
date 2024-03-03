@@ -36,5 +36,8 @@
         [Required]
         [MaxLength(MaxQuantity)]
         public int Quantity { get; set; }
+
+        
+        
     }
 }

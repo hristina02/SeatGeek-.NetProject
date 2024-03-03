@@ -336,7 +336,7 @@ namespace SeatGeek.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 29, 14, 23, 7, 558, DateTimeKind.Utc).AddTicks(6779));
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -348,7 +348,13 @@ namespace SeatGeek.Data.Migrations
                         .HasMaxLength(2048)
                         .HasColumnType("nvarchar(2048)");
 
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
                     b.Property<int>("MaxCapacity")
+                        .HasMaxLength(1000)
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -375,6 +381,7 @@ namespace SeatGeek.Data.Migrations
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Dara Ekimova ushers in 2024. with a concept show event on Valentine's Day. Spend February 14 at Bar Petak with the pop girl of the Bulgarian scene and your favorite songs of hers.",
                             ImageUrl = "https://bg.content.eventim.com/static/uploaded/bg/3/v/9/g/3v9g_300_300.jpeg",
+                            IsActive = true,
                             MaxCapacity = 100,
                             Title = "Dara Ekimova"
                         });

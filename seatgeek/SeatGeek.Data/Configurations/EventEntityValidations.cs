@@ -12,8 +12,10 @@
         {
             builder
                 .Property(h => h.CreatedOn)
-                .HasDefaultValue(DateTime.UtcNow);
-
+                .HasDefaultValueSql("GETDATE()");
+            builder
+                .Property(h => h.IsActive)
+                .HasDefaultValue(true);
             builder
                 .HasOne(h => h.Category)
                 .WithMany(c => c.Events)
@@ -49,6 +51,7 @@
                 ImageUrl = "https://bg.content.eventim.com/static/uploaded/bg/3/v/9/g/3v9g_300_300.jpeg",
                 AgentId = Guid.Parse("4BB6EE6B-0068-4112-91D5-475706808D40"),
                CategoryId = 1,
+               IsActive = true
                 
             };
 
