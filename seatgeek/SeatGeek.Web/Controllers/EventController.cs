@@ -121,6 +121,26 @@
         }
 
         [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> Details(string id)
+        {
+            EventDetailsViewModel? viewModel = await this.eventService
+                .GetDetailsByIdAsync(id);
+            if (viewModel==null)
+            {
+                this.TempData[ErrorMessage] = "Event with the provided id does not exist!";
+
+                return this.RedirectToAction("All", "Event");
+            }
+
+            
+                    //EventDetailsViewModel viewModel = await this.eventService
+                    //.GetDetailsByIdAsync(id);
+
+                return View(viewModel);
+           
+        }
+        [HttpGet]
         public async Task<IActionResult> Mine()
         {
             List<EventAllViewModel> myEvents =

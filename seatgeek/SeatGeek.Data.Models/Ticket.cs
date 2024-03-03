@@ -31,7 +31,7 @@
         public decimal Price { get; set; }
 
    
-        public TicketTypeEnum Type { get; set; }
+       public TicketTypeEnum Type { get; set; }
 
         [Required]
         [MaxLength(MaxQuantity)]

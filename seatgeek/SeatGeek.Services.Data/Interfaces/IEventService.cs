@@ -13,5 +13,7 @@
         Task<IEnumerable<EventAllViewModel>> AllByAgentIdAsync(string agentId);
 
         Task<IEnumerable<EventAllViewModel>> AllByUserIdAsync(string userId);
+
+        Task<EventDetailsViewModel> GetDetailsByIdAsync(string eventId);
     }
 }

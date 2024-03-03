@@ -11,6 +11,7 @@
     using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
     using SeatGeek.Services.Data.Model.Event;
     using SeatGeek.Web.ViewModels.Event.Enums;
+    using SeatGeek.Web.ViewModels.Agent;
 
     public class EventService:IEventService
     {
@@ -185,6 +186,33 @@
                .ToArrayAsync();
 
             return allAgentEvents;
+        }
+
+        public async Task<EventDetailsViewModel> GetDetailsByIdAsync(string eventId)
+        {
+            Event eventModel = await this.dbContext
+                .Events
+                .Include(h => h.Category)
+                .Include(h => h.Agent)
+                .ThenInclude(a => a.User)
+                .Where(h => h.IsActive)
+                .FirstAsync(h => h.Id.ToString() == eventId);
+
+            return new EventDetailsViewModel
+            {
+                Id = eventModel.Id,
+                Title = eventModel.Title,
+                Address = eventModel.Address,
+                ImageUrl = eventModel.ImageUrl,
+                City = eventModel.City,
+                Description = eventModel.Description,
+                Category = eventModel.Category.Name,
+                Agent = new AgentInfoOnHouseViewModel()
+                {
+                    Email = eventModel.Agent.User.Email,
+                    PhoneNumber =eventModel.Agent.PhoneNumber
+                }
+            };
         }
     }
 }
