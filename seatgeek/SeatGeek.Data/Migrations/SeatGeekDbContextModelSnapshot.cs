@@ -404,8 +404,8 @@ namespace SeatGeek.Data.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<float>("OrderTotal")
-                        .HasColumnType("real");
+                    b.Property<decimal>("OrderTotal")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<Guid?>("userId")
                         .HasColumnType("uniqueidentifier");

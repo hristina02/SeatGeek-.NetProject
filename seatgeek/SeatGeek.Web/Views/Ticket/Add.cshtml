@@ -1,0 +1,38 @@
+﻿@model TicketFormModel
+
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form method="post">
+            <div class="form-group">
+            <h6>Tickets</h6>
+            @for (var i = 0; i < Model.Quantity; i++)
+            {
+                <div class="ticket-container">
+                    <h4>Ticket Template @Model.Tickets[i].Type</h4>
+                    <div class="form-group">
+                        <label asp-for="Tickets[i].Type"></label>
+                        <input asp-for="Tickets[i].Type" class="form-control" />
+                        <span asp-validation-for="Tickets[i].Type" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Tickets[i].Quantity"></label>
+                        <input asp-for="Tickets[i].Quantity" class="form-control" />
+                        <span asp-validation-for="Tickets[i].Quantity" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Tickets[i].Price"></label>
+                        <input asp-for="Tickets[i].Price" class="form-control" />
+                        <span asp-validation-for="Tickets[i].Price" class="text-danger"></span>
+                    </div>
+                </div>
+            }
+
+            <div class="text-center">
+                <input class="btn btn-primary mt-3" type="submit" value="Save" />
+            </div>
+        </form>
+    </div>
+</div>

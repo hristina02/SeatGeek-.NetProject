@@ -9,6 +9,13 @@
             public const int NameMaxLength = 30;
         }
 
+        public static class Order
+        {
+           
+            public const int OrderMaxNumber = 1000;
+        }
+
+
         public static class Event
         {
             public const int TitleMinLength = 10;

@@ -9,7 +9,7 @@
 @if (!events.Any())
 {
     <div class="mt-4 p-5 bg-light">
-        <h1 class="display-4">Welcome to the best place for renting houses!</h1>
+        <h1 class="display-4">Welcome to the best place events!</h1>
         <p class="lead">
             There are no houses in the system currently available
             so why don't you just add one?
@@ -37,8 +37,14 @@
                      src="@eventModel.ImageUrl" alt="@eventModel.Title">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>
-                        <a class="btn btn-primary" asp-controller="Event" asp-action="Details"
-                           asp-route-id="@eventModel.Id"> @eventModel.Title</a>
+                        <div>
+                            <a class="btn btn-primary" asp-controller="Event" asp-action="Details"
+                               asp-route-id="@eventModel.Id"> @eventModel.Title</a>
+
+                            <a class="btn btn-primary" asp-controller="Ticket" asp-action="BuyTicket"
+                               asp-route-id="@eventModel.Id"> Buy Ticket</a>
+                        </div>
+                   
                     </h5>
                 </div>
             </div>

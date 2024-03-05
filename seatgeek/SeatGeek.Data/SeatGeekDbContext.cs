@@ -19,6 +19,7 @@
         public DbSet<Ticket> Tickets { get; set; } = null!;
 
         public DbSet<Event> Events { get; set; } = null!;
+     
         public DbSet<CategoryEvent> CategoryEvents { get; set; } = null!;
 
         public DbSet<Agent> Agents { get; set; } = null!;

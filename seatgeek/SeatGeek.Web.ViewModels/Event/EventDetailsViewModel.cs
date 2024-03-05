@@ -1,6 +1,7 @@
 ﻿namespace SeatGeek.Web.ViewModels.Event
 {
     using SeatGeek.Web.ViewModels.Agent;
+    using SeatGeek.Web.ViewModels.Ticket;
 
     public class EventDetailsViewModel:EventAllViewModel
     {
@@ -9,6 +10,8 @@
         public string Category { get; set; } = null!;
 
         public string Address { get; set; }
+
+        public List<TicketFormModel> TicketList { get; set; } = new List<TicketFormModel>();
 
         public AgentInfoOnHouseViewModel Agent { get; set; } = null!;
     }

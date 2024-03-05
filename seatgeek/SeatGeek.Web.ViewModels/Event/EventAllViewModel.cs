@@ -1,4 +1,6 @@
-﻿namespace SeatGeek.Web.ViewModels.Event
+﻿using SeatGeek.Web.ViewModels.Ticket;
+
+namespace SeatGeek.Web.ViewModels.Event
 {
     public class EventAllViewModel
     {
@@ -10,6 +12,8 @@
         public string Description { get; set; } = null!;
 
         public string ImageUrl { get; set; } = null!;
+
+        public List<TicketFormModel> Tickets { get; set; } = null!;
 
 
     }

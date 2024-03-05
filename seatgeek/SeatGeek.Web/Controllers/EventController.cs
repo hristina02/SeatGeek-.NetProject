@@ -69,7 +69,7 @@
             }
             catch (Exception)
             {
-                return this.View();
+                return this.GeneralError();
             }
         }
 
@@ -91,6 +91,14 @@
             {
                 // Adding model error to ModelState automatically makes ModelState Invalid
                 this.ModelState.AddModelError(nameof(model.CategoryId), "Selected category does not exist!");
+            }
+
+            int totalTicketQuantity = model.Tickets.Sum(ticket => ticket.Quantity);
+            if (totalTicketQuantity >model.MaxCapacity) // Use MaxCapacity for comparison
+            {
+                this.TempData[ErrorMessage] = "Yout Tickets are more than the evenr quantity!";
+                model.Categories = await this.categoryService.AllCategoriesAsync();
+                return this.View(model);
             }
 
             if (!this.ModelState.IsValid)
@@ -140,6 +148,117 @@
                 return View(viewModel);
            
         }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(string id)
+        {
+            bool eventExists = await this.eventService
+                .ExistsByIdAsync(id);
+            if (!eventExists)
+            {
+                this.TempData[ErrorMessage] = "Event with the provided id does not exist!";
+
+                return this.RedirectToAction("All", "Event");
+            }
+
+            bool isUserAgent = await this.agentService
+                .AgentExistsByUserIdAsync(this.User.GetId()!);
+            if (!isUserAgent)
+            {
+                this.TempData[ErrorMessage] = "You must become an agent in order to edit event info!";
+
+                return this.RedirectToAction("Become", "Agent");
+            }
+
+            string? agentId =
+                await this.agentService.GetAgentIdByUserIdAsync(this.User.GetId()!);
+            bool isAgentOwner = await this.eventService
+                .IsAgentWithIdOwnerOfEventWithIdAsync(id, agentId!);
+            if (!isAgentOwner)
+            {
+                this.TempData[ErrorMessage] = "You must be the agent owner of the Event you want to edit!";
+
+                return this.RedirectToAction("Mine", "Event");
+            }
+
+            try
+            {
+
+                EventFormModel formModel = await this.eventService
+                .GetEventForEditByIdAsync(id);
+                formModel.Categories = await this.categoryService.AllCategoriesAsync();
+
+                return this.View(formModel);
+            }
+            catch(Exception ) 
+            {
+                return this.GeneralError();            
+            
+            } 
+            
+            
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(string id, EventFormModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                model.Categories = await this.categoryService.AllCategoriesAsync();
+
+                return this.View(model);
+            }
+
+            bool eventExists = await this.eventService
+                .ExistsByIdAsync(id);
+            if (!eventExists)
+            {
+                this.TempData[ErrorMessage] = "Even with the provided id does not exist!";
+
+                return this.RedirectToAction("All", "Event");
+            }
+
+            bool isUserAgent = await this.agentService
+                .AgentExistsByUserIdAsync(this.User.GetId()!);
+            if (!isUserAgent)
+            {
+                this.TempData[ErrorMessage] = "You must become an agent in order to edit Event info!";
+
+                return this.RedirectToAction("Become", "Agent");
+            }
+
+            string? agentId =
+                await this.agentService.GetAgentIdByUserIdAsync(this.User.GetId()!);
+            bool isAgentOwner = await this.eventService
+                .IsAgentWithIdOwnerOfEventWithIdAsync(id, agentId!);
+            if (!isAgentOwner)
+            {
+                this.TempData[ErrorMessage] = "You must be the agent owner of the event you want to edit!";
+
+                return this.RedirectToAction("Mine", "Event");
+            }
+
+            try
+            {
+                await this.eventService.EditEventByIdAndFormModelAsync(id, model);
+            }
+            catch (Exception)
+            {
+                this.ModelState.AddModelError(string.Empty,
+                    "Unexpected error occurred while trying to update the event. Please try again later or contact administrator!");
+                model.Categories = await this.categoryService.AllCategoriesAsync();
+
+                return this.View(model);
+            }
+
+            this.TempData[SuccessMessage] = "Event was edited successfully!";
+            return this.RedirectToAction("Details", "Event", new { id });
+        }
+
+
+
         [HttpGet]
         public async Task<IActionResult> Mine()
         {
@@ -150,7 +269,9 @@
             bool isUserAgent = await this.agentService
                 .AgentExistsByUserIdAsync(userId);
 
-             
+
+            try
+            {
                 if (isUserAgent)
                 {
                     string? agentId =
@@ -163,11 +284,121 @@
                     myEvents.AddRange(await this.eventService.AllByUserIdAsync(userId));
                 }
 
-                
-            
 
 
-            return this.View(myEvents);
+
+
+                return this.View(myEvents);
+
+            }
+            catch(Exception)
+            {
+              return this.GeneralError();
+
+            }
+
+
+
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(string id)
+        {
+            bool houseExists = await this.eventService
+                .ExistsByIdAsync(id);
+            if (!houseExists)
+            {
+                this.TempData[ErrorMessage] = "Evant with the provided id does not exist!";
+
+                return this.RedirectToAction("All", "Event");
+            }
+
+            bool isUserAgent = await this.agentService
+                .AgentExistsByUserIdAsync(this.User.GetId()!);
+            if (!isUserAgent)
+            {
+                this.TempData[ErrorMessage] = "You must become an agent in order to edit event info!";
+
+                return this.RedirectToAction("Become", "Agent");
+            }
+
+            string? agentId =
+                await this.agentService.GetAgentIdByUserIdAsync(this.User.GetId()!);
+            bool isAgentOwner = await this.eventService
+                .IsAgentWithIdOwnerOfEventWithIdAsync(id, agentId!);
+            if (!isAgentOwner)
+            {
+                this.TempData[ErrorMessage] = "You must be the agent owner of the house you want to edit!";
+
+                return this.RedirectToAction("Mine", "House");
+            }
+
+            try
+            {
+                EventPreDeleteDetailsViewModel viewModel =
+                    await this.eventService.GetEventForDeleteByIdAsync(id);
+
+                return this.View(viewModel);
+            }
+            catch (Exception)
+            {
+                return this.GeneralError();
+            }
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(string id, EventPreDeleteDetailsViewModel model)
+        {
+            bool eventExists = await this.eventService
+                .ExistsByIdAsync(id);
+            if (!eventExists)
+            {
+                this.TempData[ErrorMessage] = "Event with the provided id does not exist!";
+
+                return this.RedirectToAction("All", "Event");
+            }
+
+            bool isUserAgent = await this.agentService
+                .AgentExistsByUserIdAsync(this.User.GetId()!);
+            if (!isUserAgent)
+            {
+                this.TempData[ErrorMessage] = "You must become an agent in order to edit event info!";
+
+                return this.RedirectToAction("Become", "Agent");
+            }
+
+            string? agentId =
+                await this.agentService.GetAgentIdByUserIdAsync(this.User.GetId()!);
+            bool isAgentOwner = await this.eventService
+                .IsAgentWithIdOwnerOfEventWithIdAsync(id, agentId!);
+            if (!isAgentOwner)
+            {
+                this.TempData[ErrorMessage] = "You must be the agent owner of the event you want to edit!";
+
+                return this.RedirectToAction("Mine", "Event");
+            }
+
+            try
+            {
+                await this.eventService.DeleteEventByIdAsync(id);
+
+                this.TempData[WarningMessage] = "The event was successfully deleted!";
+                return this.RedirectToAction("Mine", "Event");
+            }
+            catch (Exception)
+            {
+                return this.GeneralError();
+            }
+        }
+
+        private IActionResult GeneralError()
+        {
+            this.TempData[ErrorMessage] =
+                "Unexpected error occurred! Please try again later or contact administrator";
+
+            return this.RedirectToAction("Index", "Home");
         }
     }
 }

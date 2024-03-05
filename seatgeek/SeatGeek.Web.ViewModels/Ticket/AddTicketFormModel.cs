@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SeatGeek.Web.ViewModels.Ticket
 {
-    public class TicketAllViewModel
+    public class AddTicketFormModel
     {
     }
 }

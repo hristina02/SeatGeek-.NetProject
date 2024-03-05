@@ -1,13 +1,7 @@
-﻿using SeatGeek.Web.ViewModels.Event.Enums;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SeatGeek.Web.ViewModels.Event
+﻿namespace SeatGeek.Web.ViewModels.Event
 {
+
+    using System.ComponentModel.DataAnnotations;
     using Enums;
     using static Common.GeneralValidationConstants;
     public class AllEventsQueryModel

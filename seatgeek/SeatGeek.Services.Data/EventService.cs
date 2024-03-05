@@ -12,6 +12,7 @@
     using SeatGeek.Services.Data.Model.Event;
     using SeatGeek.Web.ViewModels.Event.Enums;
     using SeatGeek.Web.ViewModels.Agent;
+    using SeatGeek.Web.ViewModels.Ticket;
 
     public class EventService:IEventService
     {
@@ -97,24 +98,75 @@
                 }
             }
 
-            int totalTicketQuantity = eventModel.Tickets.Sum(ticket => ticket.Quantity);
-            if (totalTicketQuantity <= eventModel.MaxCapacity) // Use MaxCapacity for comparison
-            {
+            
                 await this.dbContext.Events.AddAsync(eventModel);
                 await this.dbContext.SaveChangesAsync();
                 return eventModel.Id.ToString();
-            }
+            
 
-            // If the total ticket quantity exceeds the event's capacity, return null or handle the error
-            return null;
-
+          
 
 
         }
 
 
 
-        
+        public async Task<EventFormModel> GetEventForEditByIdAsync(string eventId)
+        {
+            Event eventModel = await this.dbContext
+                .Events
+                .Include(h => h.Category)
+                .Where(h => h.IsActive)
+                .FirstAsync(h => h.Id.ToString() == eventId);
+
+            return new EventFormModel
+            {
+                Title = eventModel.Title,
+                Address = eventModel.Address,
+                City = eventModel.City,
+                Description = eventModel.Description,
+                ImageUrl = eventModel.ImageUrl,
+                CategoryId = eventModel.CategoryId
+            };
+        }
+
+
+        public async Task<bool> ExistsByIdAsync(string eventId)
+        {
+            bool result = await this.dbContext
+                .Events
+                .Where(h => h.IsActive)
+                .AnyAsync(h => h.Id.ToString() == eventId);
+
+            return result;
+        }
+
+        public async Task<EventPreDeleteDetailsViewModel> GetEventForDeleteByIdAsync(string eventId)
+        {
+            Event eventModel = await this.dbContext
+                .Events
+                .Where(h => h.IsActive)
+                .FirstAsync(h => h.Id.ToString() == eventId);
+
+            return new EventPreDeleteDetailsViewModel
+            {
+                Title = eventModel.Title,
+                Address = eventModel.Address,
+                ImageUrl = eventModel.ImageUrl
+            };
+        }
+
+        public async Task DeleteEventByIdAsync(string eventId)
+        {
+            Event eventToDelete = await this.dbContext
+                .Events
+                .Where(h => h.IsActive)
+                .FirstAsync(h => h.Id.ToString() == eventId);
+
+            eventToDelete.IsActive = false;
+
+            await this.dbContext.SaveChangesAsync();
+        }
 
         public async Task<AllEventsFilteredAndPagedServiceModel> AllAsync(AllEventsQueryModel queryModel)
         {
@@ -188,15 +240,34 @@
             return allAgentEvents;
         }
 
+        public async Task<bool> IsAgentWithIdOwnerOfEventWithIdAsync(string eventId, string agentId)
+        {
+            Event eventModel = await this.dbContext
+                .Events
+                .Where(h => h.IsActive)
+                .FirstAsync(h => h.Id.ToString() == eventId);
+
+            return eventModel.AgentId.ToString() == agentId;
+        }
+
+
         public async Task<EventDetailsViewModel> GetDetailsByIdAsync(string eventId)
         {
             Event eventModel = await this.dbContext
                 .Events
-                .Include(h => h.Category)
-                .Include(h => h.Agent)
+                .Include(e => e.Category)
+                .Include(e => e.Tickets)
+                .Include(e => e.Agent)
                 .ThenInclude(a => a.User)
-                .Where(h => h.IsActive)
-                .FirstAsync(h => h.Id.ToString() == eventId);
+                .Where(e => e.IsActive)
+                .FirstAsync(e => e.Id.ToString() == eventId);
+
+            var ticketModels = eventModel.Tickets.Select(t => new TicketFormModel
+            {
+                Type = t.Type.ToString(),
+                Price = t.Price
+                // Add other ticket properties as needed
+            }).ToList();
 
             return new EventDetailsViewModel
             {
@@ -211,8 +282,30 @@
                 {
                     Email = eventModel.Agent.User.Email,
                     PhoneNumber =eventModel.Agent.PhoneNumber
-                }
+                },
+                TicketList = ticketModels
+
             };
         }
+
+        public async Task EditEventByIdAndFormModelAsync(string eventId, EventFormModel formModel)
+        {
+            Event eventModel = await this.dbContext
+                 .Events
+                 .Where(h => h.IsActive)
+                 .FirstAsync(h => h.Id.ToString() == eventId);
+
+            eventModel.Title = formModel.Title;
+            eventModel.Address = formModel.Address;
+            eventModel.City=formModel.City;
+            eventModel.Description = formModel.Description;
+            eventModel.ImageUrl = formModel.ImageUrl;
+            eventModel.CategoryId = formModel.CategoryId;
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
+
+       
     }
 }

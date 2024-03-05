@@ -25,7 +25,7 @@ namespace SeatGeek.Data.Models
         public int NumberTickets {  get; set; }
 
         [Required]
-        public float OrderTotal { get; set; }
+        public decimal OrderTotal { get; set; }
 
         public ApplicationUser? user { get; set; }
 

@@ -15,5 +15,17 @@
         Task<IEnumerable<EventAllViewModel>> AllByUserIdAsync(string userId);
 
         Task<EventDetailsViewModel> GetDetailsByIdAsync(string eventId);
+
+        Task<bool> ExistsByIdAsync(string eventId);
+
+        Task<bool> IsAgentWithIdOwnerOfEventWithIdAsync(string eventId, string agentId);
+
+        Task<EventFormModel> GetEventForEditByIdAsync(string eventId);
+
+        Task EditEventByIdAndFormModelAsync(string eventId, EventFormModel formModel);
+
+        Task<EventPreDeleteDetailsViewModel> GetEventForDeleteByIdAsync(string eventId);
+
+        Task DeleteEventByIdAsync(string eventId);
     }
 }
