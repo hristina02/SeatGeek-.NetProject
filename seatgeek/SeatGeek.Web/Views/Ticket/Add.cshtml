@@ -1,38 +1,40 @@
-﻿@model TicketFormModel
+﻿@using SeatGeek.Data.Models.Enums
+@model IEnumerable<TicketFormModel>
+@{
+    ViewBag.Title = "Add Tickets";
+}
 
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
 
-<div class="row">
-    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
-        <form method="post">
-            <div class="form-group">
-            <h6>Tickets</h6>
-            @for (var i = 0; i < Model.Quantity; i++)
-            {
-                <div class="ticket-container">
-                    <h4>Ticket Template @Model.Tickets[i].Type</h4>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <form asp-controller="Ticket" asp-action="AddTickets" method="post">
+                <h4>Add Tickets</h4>
+
+                @foreach (var ticketModel in Model)
+                {
                     <div class="form-group">
-                        <label asp-for="Tickets[i].Type"></label>
-                        <input asp-for="Tickets[i].Type" class="form-control" />
-                        <span asp-validation-for="Tickets[i].Type" class="text-danger"></span>
-                    </div>
+                        <label asp-for="@ticketModel.Type">@ticketModel.Type</label>
+                        <input type="hidden" asp-for="@ticketModel.Type" value="@ticketModel.Type" />
 
-                    <div class="form-group">
-                        <label asp-for="Tickets[i].Quantity"></label>
-                        <input asp-for="Tickets[i].Quantity" class="form-control" />
-                        <span asp-validation-for="Tickets[i].Quantity" class="text-danger"></span>
-                    </div>
+                        <div class="form-group">
+                            <label asp-for="@ticketModel.Price">@ticketModel.Price</label>
+                            @* <input asp-for="@ticketModel.Price" class="form-control" readonly /> *@
+                        </div>
 
-                    <div class="form-group">
-                        <label asp-for="Tickets[i].Price"></label>
-                        <input asp-for="Tickets[i].Price" class="form-control" />
-                        <span asp-validation-for="Tickets[i].Price" class="text-danger"></span>
-                    </div>
-                </div>
-            }
+                        <div class="form-group">
+                            <label asp-for="@ticketModel.Quantity">Quantity</label>
+                            <input asp-for="@ticketModel.Quantity" class="form-control" />
+                            <span asp-validation-for="@ticketModel.Quantity" class="text-danger"></span>
+                        </div>
 
-            <div class="text-center">
-                <input class="btn btn-primary mt-3" type="submit" value="Save" />
-            </div>
-        </form>
+                    </div>
+                }
+               
+                <button type="submit" class="btn btn-primary">Buy it </button>
+            </form>
+        </div>
     </div>
 </div>

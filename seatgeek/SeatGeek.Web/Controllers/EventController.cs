@@ -2,6 +2,7 @@
 {
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using SeatGeek.Data.Models.Enums;
     using SeatGeek.Services.Data.Interfaces;
     using SeatGeek.Services.Data.Model.Event;
     using SeatGeek.Web.Infrastructure.Extensions;
@@ -56,14 +57,20 @@
                 {
 
                     Categories = await this.categoryService.AllCategoriesAsync(),
-                    Tickets = new List<TicketFormModel>
-                     {
-                         new TicketFormModel { Type = "Gold" },
-                         new TicketFormModel { Type = "Silver" },
-                         new TicketFormModel { Type = "Bronze" }
-                         // Добавете други видове билети, ако е необходимо
-                     }
+                    Tickets = new List<TicketFormModel>()
+                    //Tickets = new List<TicketFormModel>
+                    // {
+                    //     new TicketFormModel { Type = "Gold" },
+                    //     new TicketFormModel { Type = "Silver" },
+                    //     new TicketFormModel { Type = "Bronze" }
+                    //     // Добавете други видове билети, ако е необходимо
+                    // }
                 };
+
+                foreach (TicketTypeEnum type in Enum.GetValues(typeof(TicketTypeEnum)))
+                {
+                    formModel.Tickets.Add(new TicketFormModel { Type = type.ToString() });
+                }
 
                 return View(formModel);
             }

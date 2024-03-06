@@ -8,5 +8,6 @@ namespace SeatGeek.Web.ViewModels.Ticket
 {
     public class AddTicketFormModel
     {
+
     }
 }
