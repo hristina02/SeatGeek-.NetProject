@@ -10,7 +10,7 @@ namespace SeatGeek.Data.Models
 {
     public class Order
     {
-        public int OrderID { get; set; }
+        public int OrderId { get; set; }
 
         //foreign key
         [Required]
@@ -27,7 +27,10 @@ namespace SeatGeek.Data.Models
         [Required]
         public decimal OrderTotal { get; set; }
 
-        public ApplicationUser? user { get; set; }
+        public Guid UserId { get; set; } // Assuming UserId is a string in your ApplicationUser class
+
+        [ForeignKey("UserId")]
+        public virtual ApplicationUser? User { get; set; }
 
         public virtual Event Event { get; set; } = null!;
     }

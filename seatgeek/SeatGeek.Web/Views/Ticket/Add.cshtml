@@ -1,5 +1,4 @@
-﻿@using SeatGeek.Data.Models.Enums
-@model IEnumerable<TicketFormModel>
+﻿@model OrderFormModel
 @{
     ViewBag.Title = "Add Tickets";
 }
@@ -10,31 +9,31 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <form asp-controller="Ticket" asp-action="AddTickets" method="post">
+            <form asp-controller="Ticket" asp-action="Add" asp-route-id="@Model.EventID" method="post">
                 <h4>Add Tickets</h4>
 
-                @foreach (var ticketModel in Model)
+                @for (int i = 0; i < Model.Tickets.Count; i++)
                 {
                     <div class="form-group">
-                        <label asp-for="@ticketModel.Type">@ticketModel.Type</label>
-                        <input type="hidden" asp-for="@ticketModel.Type" value="@ticketModel.Type" />
+                        <label asp-for="Tickets[i].Type">@Model.Tickets[i].Type</label>
+                        <input type="hidden" asp-for="Tickets[i].Type" value="@Model.Tickets[i].Type" />
 
                         <div class="form-group">
-                            <label asp-for="@ticketModel.Price">@ticketModel.Price</label>
-                            @* <input asp-for="@ticketModel.Price" class="form-control" readonly /> *@
+                            <label asp-for="Tickets[i].Price">@Model.Tickets[i].Price</label>
+                            <input type"hidden" asp-for="Tickets[i].Price" class="form-control" readonly />
                         </div>
 
                         <div class="form-group">
-                            <label asp-for="@ticketModel.Quantity">Quantity</label>
-                            <input asp-for="@ticketModel.Quantity" class="form-control" />
-                            <span asp-validation-for="@ticketModel.Quantity" class="text-danger"></span>
+                            <label asp-for="Tickets[i].NumberForEveryModel" asp-route="Tickets[i].NumberForEveryModel">Quantity</label>
+                            <input asp-for="Tickets[i].NumberForEveryModel" asp-route="Tickets[i].NumberForEveryModel" class="form-control" />
+                            <span asp-validation-for="Tickets[i].NumberForEveryModel" class="text-danger"></span>
                         </div>
-
                     </div>
                 }
-               
-                <button type="submit" class="btn btn-primary">Buy it </button>
+
+                <button type="submit" class="btn btn-primary">Buy it</button>
             </form>
         </div>
     </div>
 </div>
+

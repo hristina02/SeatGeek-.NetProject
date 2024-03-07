@@ -389,11 +389,11 @@ namespace SeatGeek.Data.Migrations
 
             modelBuilder.Entity("SeatGeek.Data.Models.Order", b =>
                 {
-                    b.Property<int>("OrderID")
+                    b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
 
                     b.Property<int>("EventID")
                         .HasColumnType("int");
@@ -407,14 +407,14 @@ namespace SeatGeek.Data.Migrations
                     b.Property<decimal>("OrderTotal")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<Guid?>("userId")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("OrderID");
+                    b.HasKey("OrderId");
 
                     b.HasIndex("EventID");
 
-                    b.HasIndex("userId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -584,13 +584,15 @@ namespace SeatGeek.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SeatGeek.Data.Models.ApplicationUser", "user")
+                    b.HasOne("SeatGeek.Data.Models.ApplicationUser", "User")
                         .WithMany()
-                        .HasForeignKey("userId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Event");
 
-                    b.Navigation("user");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SeatGeek.Data.Models.Ticket", b =>

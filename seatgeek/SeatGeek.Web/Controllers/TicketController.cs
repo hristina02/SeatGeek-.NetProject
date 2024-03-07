@@ -11,6 +11,7 @@
     using SeatGeek.Web.ViewModels.Event;
     using SeatGeek.Web.ViewModels.Order;
     using SeatGeek.Web.ViewModels.Ticket;
+   
     using static Common.NotificationMessagesConstants;
     
     [Authorize]
@@ -36,66 +37,93 @@
 
 
              try
-            {
+             {
                 // Assuming id is the eventId and it's not null or empty
                 if (string.IsNullOrEmpty(id))
                 {
                     return BadRequest("Invalid eventId");
                 }
 
-                IEnumerable<TicketFormModel> formModels = await ticketService.GetTicketsAsync(id);
+                IEnumerable<TicketFormModel> ticketFormModels = await ticketService.GetTicketsAsync(id);
 
+                OrderFormModel orderFormModel = new OrderFormModel()
+                { 
+                    EventID=int.Parse(id),
+                    Tickets = ticketFormModels.ToList()
+                };
                 // Retrieve ticket details based on the eventId
 
-                if (formModels == null || !formModels.Any())
+                if (orderFormModel == null)
                 {
                     // Handle the case where the ticket details are not found
                     return NotFound("Ticket not found");
                 }
 
-                return View(formModels.ToList()); // Convert to List<TicketFormModel> if needed
-            }
-            catch (Exception)
-            {
+                return View(orderFormModel); // Convert to List<TicketFormModel> if needed
+             }
+             catch (Exception)
+             {
                 // Log the exception or handle it as needed
                 return this.GeneralError();
-            }
+             }
 
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(IEnumerable<TicketFormModel> ticketModels,string id)
+        public async Task<IActionResult> Add(OrderFormModel orderFormModel,string id)
         {
+
+
+            bool eventExists = await this.eventService
+               .ExistsByIdAsync(id);
+            if (!eventExists)
+            {
+                this.TempData[ErrorMessage] = "Even with the provided id does not exist!";
+
+                return this.RedirectToAction("All", "Event");
+            }
+
+
+            var userId = this.User.GetId();
+
             try
             {
                 // Validate the ticketModels
-                if (ticketModels == null || !ticketModels.Any())
+                if (orderFormModel == null )
                 {
-                    // Handle the case where no ticket models are provided
                     return BadRequest("No ticket models provided");
                 }
 
-                // Convert each TicketFormModel to OrderViewModel
-                OrderViewModel orderViewModels =new OrderViewModel()
-                {
-                   EventID=id,
-                   OrderDate = DateTime.Now,
+                // Assuming EventId is already a string
+                var eventId = orderFormModel.EventID;
 
-                }).ToList();
+                decimal totalSum = 0;
+                int num = 0;
+                //OrderViewModel orderViewModel = new OrderViewModel();
+
+                foreach (var ticketModel in orderFormModel.Tickets)
+                {
+                    totalSum += ticketModel.Price * ticketModel.NumberForEveryModel;
+
+                    num += ticketModel.NumberForEveryModel;
+                }
+                OrderFormModel orderViewModel = new OrderFormModel()
+                {
+                    EventID = int.Parse(id),
+                    OrderDate = DateTime.Now,
+                    NumberTickets=num,
+                    OrderTotal = totalSum
+                    // Include other properties from TicketFormModel as needed
+                };
 
                 // Call the service method to create the orders
-                string result = await ticketService.CreateOrdersAsync(orderViewModels);
+                string result = await ticketService.CreateOrderIdAsync(orderViewModel, userId);
 
-                if (result == "Orders created successfully")
-                {
-                    // Redirect to a success page or another action after handling the purchase
-                    return RedirectToAction("PurchaseSuccess");
-                }
-                else
-                {
-                    // Handle the case where order creation failed
-                    return View("ErrorView"); // Replace "ErrorView" with your error view name or logic
-                }
+
+                this.TempData[SuccessMessage] = "You Add tickets succesfully!";
+
+                return this.RedirectToAction("DetailsOrder", "Ticket");
+
             }
             catch (Exception)
             {
@@ -103,7 +131,6 @@
                 return this.GeneralError();
             }
         }
-
         private IActionResult GeneralError()
         {
             this.TempData[ErrorMessage] =

@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using SeatGeek.Data;
 using SeatGeek.Data.Models;
 using SeatGeek.Data.Models.Enums;
@@ -54,48 +55,29 @@ namespace SeatGeek.Services.Data
         }
 
 
-        public async Task<OrderViewModel> CreateOrderAndReturnIdAsync(TicketFormModel formModel, string agentId)
-        {
-            // Create the Event entity
-            OrderViewModel orderModel = new Event
-            {
 
-                Title = formModel.Title,
-                Address = formModel.Address,
-                Description = formModel.Description,
-                City = formModel.City,
-                ImageUrl = formModel.ImageUrl,
-                MaxCapacity = formModel.MaxCapacity,
-                CategoryId = formModel.CategoryId,
-                IsActive = true,
-                AgentId = Guid.Parse(agentId)
+
+        public async Task<string> CreateOrderIdAsync(OrderFormModel orderModel, string userId)
+        {
+
+
+            Order order = new Order
+            {
+                OrderId = orderModel.OrderID,
+                EventID = orderModel.EventID,
+                UserId = Guid.Parse(userId),
+                OrderDate = orderModel.OrderDate,
+                NumberTickets = orderModel.NumberTickets,
+                OrderTotal = orderModel.OrderTotal
             };
 
 
-            // Create and add tickets to the event
-            foreach (var ticketModel in formModel.Tickets)
-            {
-                TicketTypeEnum ticketType;
-                if (Enum.TryParse(ticketModel.Type, out ticketType))
-                {
-                    Ticket ticket = new Ticket
-                    {
-                        Type = ticketType,
-                        Quantity = ticketModel.Quantity,
-                        Price = ticketModel.Price,
-                    };
-
-                    eventModel.Tickets.Add(ticket);
-                }
-            }
 
 
-            await this.dbContext.Events.AddAsync(eventModel);
+
+            await this.dbContext.Orders.AddAsync(order);
             await this.dbContext.SaveChangesAsync();
-            return eventModel.Id.ToString();
-
-
-
+            return orderModel.OrderID.ToString();
 
 
         }

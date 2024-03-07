@@ -11,7 +11,8 @@
         [Required(ErrorMessage = "Price is required")]
         public decimal Price { get; set; }
 
-
+        public int NumberForEveryModel { get; set; }
+       
         [EnumDataType(typeof(TicketTypeEnum), ErrorMessage = "Type is unvalid")]
         public string Type { get; set; } = null!;
 
