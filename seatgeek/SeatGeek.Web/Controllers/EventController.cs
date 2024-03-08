@@ -338,7 +338,7 @@
             {
                 this.TempData[ErrorMessage] = "You must be the agent owner of the house you want to edit!";
 
-                return this.RedirectToAction("Mine", "House");
+                return this.RedirectToAction("Mine", "Event");
             }
 
             try
