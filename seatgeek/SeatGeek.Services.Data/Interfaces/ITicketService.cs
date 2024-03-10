@@ -1,4 +1,5 @@
-﻿using SeatGeek.Web.ViewModels.Order;
+﻿using SeatGeek.Web.ViewModels.Event;
+using SeatGeek.Web.ViewModels.Order;
 using SeatGeek.Web.ViewModels.Ticket;
 using System;
 using System.Collections.Generic;
@@ -13,5 +14,7 @@ namespace SeatGeek.Services.Data.Interfaces
 
         Task<IEnumerable<TicketFormModel>> GetTicketsAsync(string eventId);
         Task<string>CreateOrderIdAsync(OrderFormModel orderModel,string userId);
+
+        Task<OrderDetailsViewModel> GetDetailsByIdAsync(string orderId);
     }
 }

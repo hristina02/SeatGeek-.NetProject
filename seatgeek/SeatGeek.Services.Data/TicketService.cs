@@ -5,6 +5,7 @@ using SeatGeek.Data;
 using SeatGeek.Data.Models;
 using SeatGeek.Data.Models.Enums;
 using SeatGeek.Services.Data.Interfaces;
+using SeatGeek.Web.ViewModels.Agent;
 using SeatGeek.Web.ViewModels.Event;
 using SeatGeek.Web.ViewModels.Order;
 using SeatGeek.Web.ViewModels.Ticket;
@@ -26,6 +27,32 @@ namespace SeatGeek.Services.Data
 
         //    return result;
         //}
+
+
+        public async Task<OrderDetailsViewModel> GetDetailsByIdAsync(string orderId)
+        {
+            Order orderModel = await this.dbContext
+                .Orders
+                .FirstAsync(e => e.OrderId.ToString() == orderId);
+
+            //var ticketModels = eventModel.Tickets.Select(t => new TicketFormModel
+            //{
+            //    Type = t.Type.ToString(),
+            //    Price = t.Price
+            //    // Add other ticket properties as needed
+            //}).ToList();
+
+            return new OrderDetailsViewModel
+            {
+                OrderID = orderModel.OrderId,
+                Title=orderModel.Event.Title,
+                ImageUrl= orderModel.Event.ImageUrl,
+                NumberTickets=orderModel.NumberTickets,
+                OrderTotal=orderModel.OrderTotal
+            };
+        }
+
+
 
         public async Task <IEnumerable<TicketFormModel>> GetTicketsAsync(string eventId)
         {

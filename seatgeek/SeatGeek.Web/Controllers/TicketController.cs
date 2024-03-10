@@ -128,7 +128,7 @@
 
                 this.TempData[SuccessMessage] = "You Add tickets succesfully!";
 
-                return this.RedirectToAction("DetailsOrder", "Ticket");
+                return this.RedirectToAction("Details", "Ticket");
 
             }
             catch (Exception)
@@ -136,6 +136,26 @@
                 // Log the exception or handle it as needed
                 return this.GeneralError();
             }
+        }
+
+        [HttpGet]
+        
+        public async Task<IActionResult> Details( string orderId)
+        {
+            OrderDetailsViewModel viewModel = await this.ticketService
+                .GetDetailsByIdAsync(orderId);
+            if (viewModel == null)
+            {
+                this.TempData[ErrorMessage] = "Order with the provided id does not exist!";
+
+                return this.RedirectToAction("Add", "Ticket");
+            }
+
+
+            
+
+            return View(viewModel);
+
         }
         private IActionResult GeneralError()
         {

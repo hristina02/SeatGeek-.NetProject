@@ -31,7 +31,8 @@
                     </div>
                 }
 
-                <button type="submit" class="btn btn-primary">Buy it</button>
+                <<a class="btn btn-primary" asp-controller="Ticket" asp-action="Details"
+                    asp-route-id="@Model.OrderID">Buy </a>
             </form>
         </div>
     </div>
