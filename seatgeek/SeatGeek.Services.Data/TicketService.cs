@@ -33,6 +33,9 @@ namespace SeatGeek.Services.Data
         {
             Order orderModel = await this.dbContext
                 .Orders
+                .Include(e => e.Event)
+                //.ThenInclude(a=>User)
+
                 .FirstAsync(e => e.OrderId.ToString() == orderId);
 
             //var ticketModels = eventModel.Tickets.Select(t => new TicketFormModel
@@ -44,12 +47,14 @@ namespace SeatGeek.Services.Data
 
             return new OrderDetailsViewModel
             {
-                OrderID = orderModel.OrderId,
+                OrderId = orderModel.OrderId,
                 Title=orderModel.Event.Title,
                 ImageUrl= orderModel.Event.ImageUrl,
                 NumberTickets=orderModel.NumberTickets,
                 OrderTotal=orderModel.OrderTotal
             };
+
+
         }
 
 
@@ -90,7 +95,7 @@ namespace SeatGeek.Services.Data
 
             Order order = new Order
             {
-                OrderId = orderModel.OrderID,
+                OrderId = orderModel.OrderId,
                 EventID = orderModel.EventID,
                 UserId = Guid.Parse(userId),
                 OrderDate = orderModel.OrderDate,
@@ -104,7 +109,7 @@ namespace SeatGeek.Services.Data
 
             await this.dbContext.Orders.AddAsync(order);
             await this.dbContext.SaveChangesAsync();
-            return orderModel.OrderID.ToString();
+            return order.OrderId.ToString();
 
 
         }

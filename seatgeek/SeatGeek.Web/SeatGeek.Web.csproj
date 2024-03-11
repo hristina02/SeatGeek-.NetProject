@@ -24,4 +24,8 @@
     <ProjectReference Include="..\SeatGeek.Web.ViewModels\SeatGeek.Web.ViewModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Order\" />
+  </ItemGroup>
+
 </Project>

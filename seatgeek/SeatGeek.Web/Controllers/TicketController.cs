@@ -73,7 +73,6 @@
         public async Task<IActionResult> Add(OrderFormModel orderFormModel,string id)
         {
 
-
             bool eventExists = await this.eventService
                .ExistsByIdAsync(id);
             if (!eventExists)
@@ -115,6 +114,7 @@
                 }
                 OrderFormModel orderViewModel = new OrderFormModel()
                 {
+                    OrderId = orderFormModel.OrderId,
                     EventID = int.Parse(id),
                     OrderDate = DateTime.Now,
                     NumberTickets=num,
@@ -123,12 +123,12 @@
                 };
 
                 // Call the service method to create the orders
-                string result = await ticketService.CreateOrderIdAsync(orderViewModel, userId);
+                string orderId= await ticketService.CreateOrderIdAsync(orderViewModel, userId);
 
 
                 this.TempData[SuccessMessage] = "You Add tickets succesfully!";
 
-                return this.RedirectToAction("Details", "Ticket");
+                return this.RedirectToAction("Details", "Ticket", new {Id=orderId});
 
             }
             catch (Exception)
@@ -140,10 +140,10 @@
 
         [HttpGet]
         
-        public async Task<IActionResult> Details( string orderId)
+        public async Task<IActionResult> Details(string Id)
         {
             OrderDetailsViewModel viewModel = await this.ticketService
-                .GetDetailsByIdAsync(orderId);
+                .GetDetailsByIdAsync(Id);
             if (viewModel == null)
             {
                 this.TempData[ErrorMessage] = "Order with the provided id does not exist!";

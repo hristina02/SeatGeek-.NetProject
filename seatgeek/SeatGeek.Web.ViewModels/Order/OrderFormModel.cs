@@ -14,7 +14,8 @@
             Tickets = new List<TicketFormModel>();
 
         }
-        public int OrderID { get; set; }
+        [Required]
+        public int OrderId { get; set; }
 
         //foreign key
         [Required]

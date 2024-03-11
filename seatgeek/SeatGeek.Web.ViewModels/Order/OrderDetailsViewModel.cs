@@ -12,7 +12,7 @@ namespace SeatGeek.Web.ViewModels.Order
     public class OrderDetailsViewModel
     {
 
-        public int OrderID { get; set; }
+        public int OrderId { get; set; }
 
       
         public int EventID { get; set; }
