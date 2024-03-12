@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Web\\wwwroot\\images\\401.jpg",
+      "PackagePath": "staticwebassets\\images\\401.jpg"
+    },
+    {
+      "Id": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Web\\wwwroot\\images\\404.jpg",
+      "PackagePath": "staticwebassets\\images\\404.jpg"
+    },
+    {
       "Id": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Web\\wwwroot\\js\\jquery-override.js",
       "PackagePath": "staticwebassets\\js\\jquery-override.js"
     },
