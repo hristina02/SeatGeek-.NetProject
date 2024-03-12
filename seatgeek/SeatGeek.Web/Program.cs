@@ -5,6 +5,7 @@ using SeatGeek.Data;
 using SeatGeek.Web.Infrastructure.Extensions;
 using SeatGeek.Services.Data.Interfaces;
 using SeatGeek.Web.Infrastructure.ModelBinders;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +39,7 @@ builder.Services.AddControllersWithViews()
  .AddMvcOptions(options =>
   {
       options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+      options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
   });
 
 var app = builder.Build();

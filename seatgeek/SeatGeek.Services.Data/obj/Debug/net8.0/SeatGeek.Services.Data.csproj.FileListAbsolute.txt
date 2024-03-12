@@ -4,12 +4,10 @@ C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\b
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\bin\Debug\net8.0\SeatGeek.Common.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\bin\Debug\net8.0\SeatGeek.Data.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\bin\Debug\net8.0\SeatGeek.Data.Models.dll
-C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\bin\Debug\net8.0\SeatGeek.Services.Data.Model.Event.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\bin\Debug\net8.0\SeatGeek.Web.ViewModels.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\bin\Debug\net8.0\SeatGeek.Common.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\bin\Debug\net8.0\SeatGeek.Data.Models.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\bin\Debug\net8.0\SeatGeek.Data.pdb
-C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\bin\Debug\net8.0\SeatGeek.Services.Data.Model.Event.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\bin\Debug\net8.0\SeatGeek.Web.ViewModels.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\obj\Debug\net8.0\SeatGeek.Services.Data.csproj.AssemblyReference.cache
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\obj\Debug\net8.0\SeatGeek.Services.Data.GeneratedMSBuildEditorConfig.editorconfig
@@ -22,3 +20,5 @@ C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\o
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\obj\Debug\net8.0\refint\SeatGeek.Services.Data.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\obj\Debug\net8.0\SeatGeek.Services.Data.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\obj\Debug\net8.0\ref\SeatGeek.Services.Data.dll
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\bin\Debug\net8.0\SeatGeek.Services.Data.Models.dll
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Data\bin\Debug\net8.0\SeatGeek.Services.Data.Models.pdb

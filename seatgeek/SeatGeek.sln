@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeatGeek.Services.Data", "S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D4B79754-5999-4868-BBB4-3BE088D2791F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeatGeek.Services.Data.Model.Event", "SeatGeek.Services.Data.Model.Event\SeatGeek.Services.Data.Model.Event.csproj", "{33CC9EC4-03FF-435B-8B18-0CC1AEEC0C2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeatGeek.Services.Data.Models", "SeatGeek.Services.Data.Model.Event\SeatGeek.Services.Data.Models.csproj", "{33CC9EC4-03FF-435B-8B18-0CC1AEEC0C2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

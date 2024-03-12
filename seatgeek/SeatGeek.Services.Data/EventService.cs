@@ -9,10 +9,11 @@
     using System.Net.Sockets;
     using SeatGeek.Data.Models.Enums;
     using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
-    using SeatGeek.Services.Data.Model.Event;
+    using SeatGeek.Services.Data.Models.Event;
     using SeatGeek.Web.ViewModels.Event.Enums;
     using SeatGeek.Web.ViewModels.Agent;
     using SeatGeek.Web.ViewModels.Ticket;
+    using SeatGeek.Services.Data.Models.Statistics;
 
     public class EventService:IEventService
     {
@@ -305,7 +306,18 @@
             await this.dbContext.SaveChangesAsync();
         }
 
+        public async Task<StatisticsServiceModel> GetStatisticsAsync()
+        {
+            return new StatisticsServiceModel()
+            {
+                TotalEvents= await this.dbContext.Events.CountAsync(),
+                TotalTickets = await this.dbContext.Events
+                    .Where(t=>t.IsActive)
+                    .Where(e => e.IsActive)
+                    .SelectMany(e => e.Tickets) // Flatten the list of tickets for each event
+                    .SumAsync(t => t.Quantity)
+            };
+        }
 
-       
     }
 }

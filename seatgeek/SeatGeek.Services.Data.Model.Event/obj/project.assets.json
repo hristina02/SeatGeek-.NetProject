@@ -869,9 +869,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Data.Model.Event\\SeatGeek.Services.Data.Model.Event.csproj",
-      "projectName": "SeatGeek.Services.Data.Model.Event",
-      "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Data.Model.Event\\SeatGeek.Services.Data.Model.Event.csproj",
+      "projectUniqueName": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Data.Model.Event\\SeatGeek.Services.Data.Models.csproj",
+      "projectName": "SeatGeek.Services.Data.Models",
+      "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Data.Model.Event\\SeatGeek.Services.Data.Models.csproj",
       "packagesPath": "C:\\Users\\hristina\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Data.Model.Event\\obj\\",
       "projectStyle": "PackageReference",
