@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "lpzTybXWENQGX9PSOwFtEUZUwvXcMUqzG+faHSXiqB4=",
+  "Source": "SeatGeek.WebApi",
+  "BasePath": "_content/SeatGeek.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

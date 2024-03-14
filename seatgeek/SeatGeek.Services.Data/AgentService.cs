@@ -77,5 +77,21 @@
 
             return agent.Id.ToString();
         }
+
+        public async Task<bool> HasEventWithIdAsync(string? userId, string eventId)
+        {
+            Agent? agent = await this.dbContext
+                .Agents
+                .Include(a => a.OwnedEvents)
+                .FirstOrDefaultAsync(a => a.UserId.ToString() == userId);
+            if (agent == null)
+            {
+                return false;
+            }
+
+            eventId = eventId.ToLower();
+            return agent.OwnedEvents.Any(h => h.Id.ToString() == eventId);
+        }
+
     }
 }

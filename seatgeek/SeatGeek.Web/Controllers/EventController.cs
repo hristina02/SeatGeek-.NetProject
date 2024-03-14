@@ -4,7 +4,7 @@
     using Microsoft.AspNetCore.Mvc;
     using SeatGeek.Data.Models.Enums;
     using SeatGeek.Services.Data.Interfaces;
-    using SeatGeek.Services.Data.Model.Event;
+    using SeatGeek.Services.Data.Models.Event;
     using SeatGeek.Web.Infrastructure.Extensions;
     using SeatGeek.Web.ViewModels.Category;
     using SeatGeek.Web.ViewModels.Event;

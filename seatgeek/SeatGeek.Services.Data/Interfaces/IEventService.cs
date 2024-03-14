@@ -1,6 +1,6 @@
 ﻿namespace SeatGeek.Services.Data.Interfaces
 {
-    using SeatGeek.Services.Data.Model.Event;
+    using SeatGeek.Services.Data.Models.Event;
     using SeatGeek.Services.Data.Models.Statistics;
     using SeatGeek.Web.ViewModels.Event;
     using SeatGeek.Web.ViewModels.Home;

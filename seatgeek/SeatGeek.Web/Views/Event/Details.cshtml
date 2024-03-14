@@ -1,4 +1,16 @@
-﻿@model EventDetailsViewModel
+﻿@using SeatGeek.Services.Data.Interfaces
+@using SeatGeek.Web.Infrastructure.Extensions
+@using SeatGeek.Web.ViewModels.Event
+@using SeatGeek.Web.ViewModels.Order
+@model EventDetailsViewModel
+
+@inject IAgentService AgentService
+@inject IEventService HouseService
+@{
+    bool isUserAgent = await AgentService.AgentExistsByUserIdAsync(this.User.GetId()!);
+    bool isAgentOwnerOfTheEvent = await AgentService.HasEventWithIdAsync(this.User.GetId(), Model.Id.ToString());
+
+}
 
 @{
     ViewBag.Title = "Event Details";
@@ -13,8 +25,7 @@
             <img class="card-img-top" style="width: 20rem;"
                  src="@Model.ImageUrl" alt="Event Image">
             <a></a>
-          @*   <a class="btn btn-primary" asp-controller="Ticket" asp-action="BuyTicket"
-               asp-route-id="@Model.Id"> Buy Ticket</a> *@
+          
         </div>
         <div class="card col-8 border-0">
             <p style="font-size:25px;"><u>@Model.Title</u></p>
@@ -30,10 +41,15 @@
             <div class="form-inline">
                 @if (this.User.Identity?.IsAuthenticated ?? false)
                 {
-                    <a class="btn btn-warning" asp-controller="Event" asp-action="Edit"
-                   asp-route-id="@Model.Id">Edit</a>
-                    <a class="ml-2 btn btn-danger" asp-controller="Event" asp-action="Delete"
-                       asp-route-id="@Model.Id">Delete</a>
+
+                    @if (isUserAgent && isAgentOwnerOfTheEvent)
+                    {
+                        <a class="btn btn-warning" asp-controller="Event" asp-action="Edit"
+                           asp-route-id="@Model.Id">Edit</a>
+                        <a class="ml-2 btn btn-danger" asp-controller="Event" asp-action="Delete"
+                           asp-route-id="@Model.Id">Delete</a>
+                    }
+
                 }
                 else
                 {

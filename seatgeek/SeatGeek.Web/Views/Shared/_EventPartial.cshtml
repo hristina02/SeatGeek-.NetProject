@@ -1,4 +1,15 @@
-﻿@model EventAllViewModel
+﻿@using SeatGeek.Services.Data.Interfaces
+@using SeatGeek.Web.Infrastructure.Extensions
+@using SeatGeek.Web.ViewModels.Event
+@model EventAllViewModel
+
+@inject IAgentService AgentService
+@inject IEventService HouseService
+@{
+    bool isUserAgent = await AgentService.AgentExistsByUserIdAsync(this.User.GetId()!);
+    bool isAgentOwnerOfTheEvent = await AgentService.HasEventWithIdAsync(this.User.GetId(), Model.Id.ToString());
+   ;
+}
 
 <div class="col-md-4">
     <div class="card mb-3">
@@ -12,11 +23,17 @@
 
             @if (this.User.Identity?.IsAuthenticated ?? false)
             {
-                <a asp-controller="Event" asp-action="Edit" asp-route-id="@Model.Id"
-                   class="btn btn-warning">Edit</a>
-                <a asp-controller="Event" asp-action="Delete" asp-route-id="@Model.Id"
-                   class="btn btn-danger">Delete</a>
-                <p></p>
+
+                @if (isUserAgent && isAgentOwnerOfTheEvent)
+                {
+
+                    <a asp-controller="Event" asp-action="Edit" asp-route-id="@Model.Id"
+                       class="btn btn-warning">Edit</a>
+                    <a asp-controller="Event" asp-action="Delete" asp-route-id="@Model.Id"
+                       class="btn btn-danger">Delete</a>
+                    <p></p>
+                }
+               
 
                @*  @if (!Model.IsRented)
                 {

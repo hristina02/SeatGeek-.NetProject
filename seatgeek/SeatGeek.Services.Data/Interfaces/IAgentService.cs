@@ -11,5 +11,7 @@
         Task Create(string userId, BecomeAgentFormModel model);
 
         Task<string?> GetAgentIdByUserIdAsync(string userId);
+
+        Task<bool> HasEventWithIdAsync(string? userId, string eventId);
     }
 }
