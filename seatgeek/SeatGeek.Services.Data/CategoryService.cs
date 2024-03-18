@@ -2,15 +2,12 @@
 {
     using Microsoft.EntityFrameworkCore;
     using SeatGeek.Data;
-    using SeatGeek.Data.Models;
     using SeatGeek.Services.Data.Interfaces;
     using SeatGeek.Web.ViewModels.Category;
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
-    using static SeatGeek.Common.EntityValidationConstants;
+    using Category = SeatGeek.Data.Models.Category;
 
     public class CategoryService : ICategoryService
     {
@@ -55,6 +52,34 @@
             return allNames;
         }
 
+        public async Task<CategoryDetailsViewModel> GetDetailsByIdAsync(int id)
+        {
+            Category category = await this.dbContext
+                .Categories
+                .FirstAsync(c => c.Id == id);
 
+            CategoryDetailsViewModel viewModel = new CategoryDetailsViewModel()
+            {
+                Id = category.Id,
+                Name = category.Name
+            };
+            return viewModel;
+        }
+
+        public async Task<IEnumerable<AllCategoriesViewModel>> AllCategoriesForListAsync()
+        {
+            IEnumerable<AllCategoriesViewModel> allCategories = await this.dbContext
+              .Categories
+              .AsNoTracking()
+              .Select(c => new AllCategoriesViewModel()
+              {
+                  Id = c.Id,
+                  Name = c.Name,
+              })
+              .ToArrayAsync();
+
+            return allCategories;
+
+        }
     }
 }

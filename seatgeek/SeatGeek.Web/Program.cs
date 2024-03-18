@@ -68,7 +68,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
-/*app.UseEndpoints(config =>
+app.UseEndpoints(config =>
     {
         config.MapControllerRoute(
             name: "ProtectingUrlRoute",
@@ -76,6 +76,6 @@ app.MapRazorPages();
             defaults: new { Controller = "Category", Action = "Details" });
         config.MapDefaultControllerRoute();
         config.MapRazorPages();
-    });*/
+    });
 
 app.Run();

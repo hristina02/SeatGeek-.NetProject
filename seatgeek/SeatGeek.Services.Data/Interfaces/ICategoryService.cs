@@ -13,9 +13,13 @@
     {
         Task<IEnumerable<IndexCategoryFormModel>> AllCategoriesAsync();
 
-        Task<IEnumerable<string>> AllCategoryNamesAsync();
+        Task<IEnumerable<AllCategoriesViewModel>> AllCategoriesForListAsync();
 
         Task<bool> ExistsByIdAsync(int id);
+
+        Task<IEnumerable<string>> AllCategoryNamesAsync();
+
+        Task<CategoryDetailsViewModel> GetDetailsByIdAsync(int id);
 
     }
 }
