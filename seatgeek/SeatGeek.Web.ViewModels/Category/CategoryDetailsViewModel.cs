@@ -1,5 +1,4 @@
 ﻿
-
 namespace SeatGeek.Web.ViewModels.Category
 {
     using Interfaces;

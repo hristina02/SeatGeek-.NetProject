@@ -1,6 +1,4 @@
-﻿
-
-namespace SeatGeek.Web.Controllers
+﻿namespace SeatGeek.Web.Controllers
 {
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
