@@ -10,12 +10,12 @@ namespace SeatGeek.Data.Models
 {
     public class Order
     {
-        public int OrderId { get; set; }
+        public int Id { get; set; }
 
         //foreign key
         [Required]
         [ForeignKey("Event")]
-        public int EventID { get; set; }
+        public int EventId{ get; set; }
 
 
         [Required]

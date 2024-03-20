@@ -1,7 +1,9 @@
 ﻿namespace SeatGeek.Data.Models
 {
     using Microsoft.AspNetCore.Identity;
-   
+    using System.ComponentModel.DataAnnotations;
+    using static Common.EntityValidationConstants.User;
+
     /// <summary>
     /// This is custom user class that works with the default ASP.NET Core Identity.
     /// You can add additional info to the built-in users.
@@ -14,6 +16,14 @@
             this.EventTickets = new HashSet<Ticket>();
         }
 
+
+        [Required]
+        [MaxLength(FirstNameMaxLength)]
+        public string FirstName { get; set; } = null!;
+
+        [Required]
+        [MaxLength(LastNameMaxLength)]
+        public string LastName { get; set; } = null!;
         public virtual ICollection<Ticket> EventTickets { get; set; }
     }
 }
