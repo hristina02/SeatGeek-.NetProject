@@ -5,7 +5,7 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.DependencyInjection;
     using SeatGeek.Data.Models;
-    using static Common.GeneralValidationConstants;
+    using static Common.GeneralApplicationConstants;
     public static class WebApplicationBuilderExtensions
     {
         /// <summary>

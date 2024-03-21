@@ -13,7 +13,10 @@ using SeatGeek.Data;
     using Microsoft.AspNetCore.Mvc;
     using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
     using static System.Runtime.InteropServices.JavaScript.JSType;
-    using static Common.GeneralValidationConstants;
+    using static Common.GeneralApplicationConstants;
+    using SeatGeek.Services.Mapping;
+    using SeatGeek.Web.ViewModels.Home;
+    using System.Reflection;
 
     public class Program
     {
@@ -48,6 +51,8 @@ using SeatGeek.Data;
 
             builder.Services.AddApplicationServices(typeof(IEventService));
 
+            builder.Services.AddRecaptchaService();
+
             builder.Services.ConfigureApplicationCookie(cfg =>
             {
                 cfg.LoginPath = "/User/Login";
@@ -62,7 +67,7 @@ using SeatGeek.Data;
              });
 
             var app = builder.Build();
-
+            AutoMapperConfig.RegisterMappings(typeof(ErrorViewModel).GetTypeInfo().Assembly);
             if (app.Environment.IsDevelopment())
             {
                 app.UseMigrationsEndPoint();
@@ -83,7 +88,11 @@ using SeatGeek.Data;
 
             app.UseAuthorization();
 
-            app.SeedAdministrator(DevelopmentAdminEmail);
+            if (app.Environment.IsDevelopment())
+            {
+                app.SeedAdministrator(DevelopmentAdminEmail);
+            }
+
 
             app.MapControllerRoute(
                 name: "default",

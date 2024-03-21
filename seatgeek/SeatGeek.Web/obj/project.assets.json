@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "AutoMapper/13.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Azure.Core/1.35.0": {
         "type": "package",
         "dependencies": {
@@ -45,6 +61,25 @@
             "related": ".xml"
           }
         }
+      },
+      "Griesoft.AspNetCore.ReCaptcha/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "compile": {
+          "lib/net8.0/Griesoft.AspNetCore.ReCaptcha.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Griesoft.AspNetCore.ReCaptcha.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Humanizer/2.14.1": {
         "type": "package",
@@ -3263,7 +3298,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.1",
-          "SeatGeek.Data.Models": "1.0.0"
+          "SeatGeek.Data.Models": "1.0.0",
+          "SeatGeek.Services.Mapping": "1.0.0"
         },
         "compile": {
           "bin/placeholder/SeatGeek.Data.dll": {}
@@ -3294,6 +3330,7 @@
           "SeatGeek.Data": "1.0.0",
           "SeatGeek.Data.Models": "1.0.0",
           "SeatGeek.Services.Data.Models": "1.0.0",
+          "SeatGeek.Services.Mapping": "1.0.0",
           "SeatGeek.Web.ViewModels": "1.0.0"
         },
         "compile": {
@@ -3316,6 +3353,19 @@
           "bin/placeholder/SeatGeek.Services.Data.Models.dll": {}
         }
       },
+      "SeatGeek.Services.Mapping/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AutoMapper": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/SeatGeek.Services.Mapping.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SeatGeek.Services.Mapping.dll": {}
+        }
+      },
       "SeatGeek.Web.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -3335,7 +3385,8 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "SeatGeek.Common": "1.0.0",
-          "SeatGeek.Data.Models": "1.0.0"
+          "SeatGeek.Data.Models": "1.0.0",
+          "SeatGeek.Services.Mapping": "1.0.0"
         },
         "compile": {
           "bin/placeholder/SeatGeek.Web.ViewModels.dll": {}
@@ -3347,6 +3398,21 @@
     }
   },
   "libraries": {
+    "AutoMapper/13.0.1": {
+      "sha512": "/Fx1SbJ16qS7dU4i604Sle+U9VLX+WSNVJggk6MupKVkYvvBm4XqYaeFuf67diHefHKHs50uQIS2YEDFhPCakQ==",
+      "type": "package",
+      "path": "automapper/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.13.0.1.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/net6.0/AutoMapper.dll",
+        "lib/net6.0/AutoMapper.xml"
+      ]
+    },
     "Azure.Core/1.35.0": {
       "sha512": "hENcx03Jyuqv05F4RBEPbxz29UrM3Nbhnr6Wl6NQpoU9BCIbL3XLentrxDCTrH54NLS11Exxi/o8MYgT/cnKFA==",
       "type": "package",
@@ -3387,6 +3453,24 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Griesoft.AspNetCore.ReCaptcha/2.3.0": {
+      "sha512": "LqGH/pOe2MCd47PCsS3YOIIvBZT4aQVjbdJWHxnBM9gNRbPGbWSoqj+pYAeLsOln6oaNuLYkXLIehvCCDbtwOQ==",
+      "type": "package",
+      "path": "griesoft.aspnetcore.recaptcha/2.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "griesoft.aspnetcore.recaptcha.2.3.0.nupkg.sha512",
+        "griesoft.aspnetcore.recaptcha.nuspec",
+        "lib/net462/Griesoft.AspNetCore.ReCaptcha.dll",
+        "lib/net462/Griesoft.AspNetCore.ReCaptcha.xml",
+        "lib/net6.0/Griesoft.AspNetCore.ReCaptcha.dll",
+        "lib/net6.0/Griesoft.AspNetCore.ReCaptcha.xml",
+        "lib/net8.0/Griesoft.AspNetCore.ReCaptcha.dll",
+        "lib/net8.0/Griesoft.AspNetCore.ReCaptcha.xml"
       ]
     },
     "Humanizer/2.14.1": {
@@ -9031,6 +9115,11 @@
       "path": "../SeatGeek.Services.Data.Model.Event/SeatGeek.Services.Data.Models.csproj",
       "msbuildProject": "../SeatGeek.Services.Data.Model.Event/SeatGeek.Services.Data.Models.csproj"
     },
+    "SeatGeek.Services.Mapping/1.0.0": {
+      "type": "project",
+      "path": "../SeatGeek.Services.Mapping/SeatGeek.Services.Mapping.csproj",
+      "msbuildProject": "../SeatGeek.Services.Mapping/SeatGeek.Services.Mapping.csproj"
+    },
     "SeatGeek.Web.Infrastructure/1.0.0": {
       "type": "project",
       "path": "../SeatGeek.Web.Infrastructure/SeatGeek.Web.Infrastructure.csproj",
@@ -9044,6 +9133,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Griesoft.AspNetCore.ReCaptcha >= 2.3.0",
       "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter >= 8.0.3",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 8.0.1",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.3",
@@ -9056,6 +9146,7 @@
       "SeatGeek.Data >= 1.0.0",
       "SeatGeek.Data.Models >= 1.0.0",
       "SeatGeek.Services.Data >= 1.0.0",
+      "SeatGeek.Services.Mapping >= 1.0.0",
       "SeatGeek.Web.Infrastructure >= 1.0.0",
       "SeatGeek.Web.ViewModels >= 1.0.0"
     ]
@@ -9099,6 +9190,9 @@
             "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Data\\SeatGeek.Services.Data.csproj": {
               "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Data\\SeatGeek.Services.Data.csproj"
             },
+            "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Mapping\\SeatGeek.Services.Mapping.csproj": {
+              "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Mapping\\SeatGeek.Services.Mapping.csproj"
+            },
             "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Web.Infrastructure\\SeatGeek.Web.Infrastructure.csproj": {
               "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Web.Infrastructure\\SeatGeek.Web.Infrastructure.csproj"
             },
@@ -9118,6 +9212,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Griesoft.AspNetCore.ReCaptcha": {
+            "target": "Package",
+            "version": "[2.3.0, )"
+          },
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
             "target": "Package",
             "version": "[8.0.3, )"

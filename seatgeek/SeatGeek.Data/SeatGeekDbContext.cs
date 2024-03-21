@@ -5,6 +5,7 @@
     using Microsoft.EntityFrameworkCore;
     using System.Reflection;
     using SeatGeek.Data.Models;
+    
 
     public class SeatGeekDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
     {

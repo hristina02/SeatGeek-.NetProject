@@ -14,6 +14,7 @@
     using SeatGeek.Web.ViewModels.Agent;
     using SeatGeek.Web.ViewModels.Ticket;
     using SeatGeek.Services.Data.Models.Statistics;
+    using Mapping;
 
     public class EventService:IEventService
     {
@@ -31,12 +32,7 @@
               .Where(h=>h.IsActive)
               .OrderByDescending(h => h.CreatedOn)
               .Take(3)
-              .Select(h => new IndexViewModel()
-              {
-                  Id = h.Id.ToString(),
-                  Title = h.Title,
-                  ImageUrl = h.ImageUrl
-              })
+              .To<IndexViewModel>()
               .ToArrayAsync();
 
             return lastFiveEvents;
@@ -173,8 +169,10 @@
         {
             IQueryable<Event> eventsQuery = this.dbContext
                 .Events
+                .Include(t=>t.Tickets)
                 .AsQueryable();
-
+            
+        
             if (!string.IsNullOrWhiteSpace(queryModel.Category))
             {
                 eventsQuery = eventsQuery
@@ -197,7 +195,10 @@
                     .OrderByDescending(e => e.CreatedOn),
                 EventSorting.Oldest => eventsQuery
                     .OrderBy(e => e.CreatedOn),
-               
+                EventSorting.PriceTicketsAscending =>eventsQuery
+                         .OrderBy(e => e.Tickets.Min(t => t.Price))
+
+
             };
 
             IEnumerable<EventAllViewModel>allEvents= await eventsQuery

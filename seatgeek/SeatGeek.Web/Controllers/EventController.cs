@@ -60,13 +60,7 @@
 
                     Categories = await this.categoryService.AllCategoriesAsync(),
                     Tickets = new List<TicketFormModel>()
-                    //Tickets = new List<TicketFormModel>
-                    // {
-                    //     new TicketFormModel { Type = "Gold" },
-                    //     new TicketFormModel { Type = "Silver" },
-                    //     new TicketFormModel { Type = "Bronze" }
-                    //     // Добавете други видове билети, ако е необходимо
-                    // }
+                   
                 };
 
                 foreach (TicketTypeEnum type in Enum.GetValues(typeof(TicketTypeEnum)))
@@ -87,7 +81,7 @@
         {
             bool isAgent =
                 await this.agentService.AgentExistsByUserIdAsync(this.User.GetId()!);
-            if (!isAgent)
+            if (!isAgent && !this.User.IsAdmin())
             {
                 this.TempData[ErrorMessage] = "You must become an agent in order to add new event!";
 
@@ -174,7 +168,7 @@
 
             bool isUserAgent = await this.agentService
                 .AgentExistsByUserIdAsync(this.User.GetId()!);
-            if (!isUserAgent)
+            if (!isUserAgent && !this.User.IsAdmin())
             {
                 this.TempData[ErrorMessage] = "You must become an agent in order to edit event info!";
 
@@ -185,7 +179,7 @@
                 await this.agentService.GetAgentIdByUserIdAsync(this.User.GetId()!);
             bool isAgentOwner = await this.eventService
                 .IsAgentWithIdOwnerOfEventWithIdAsync(id, agentId!);
-            if (!isAgentOwner)
+            if (!isAgentOwner || !this.User.IsAdmin())
             {
                 this.TempData[ErrorMessage] = "You must be the agent owner of the Event you want to edit!";
 
@@ -282,7 +276,22 @@
 
             try
             {
-                if (isUserAgent)
+                if(this.User.IsAdmin())
+                {
+                    string? agentId =
+                        await this.agentService.GetAgentIdByUserIdAsync(userId);
+
+                    myEvents.AddRange(await eventService.AllByAgentIdAsync(agentId!));
+                    myEvents.AddRange(await eventService.AllByUserIdAsync(agentId!));
+
+                    
+
+                    myEvents = myEvents
+                        .DistinctBy(h => h.Id)
+                        .ToList();
+
+                }
+                else if (isUserAgent)
                 {
                     string? agentId =
                         await this.agentService.GetAgentIdByUserIdAsync(userId);
@@ -298,7 +307,7 @@
 
 
 
-                return this.View(myEvents);
+                return this.View(myEvents.DistinctBy(h=>h.Id).ToList());
 
             }
             catch(Exception)
@@ -326,7 +335,7 @@
 
             bool isUserAgent = await this.agentService
                 .AgentExistsByUserIdAsync(this.User.GetId()!);
-            if (!isUserAgent)
+            if (!isUserAgent && !this.User.IsAdmin())
             {
                 this.TempData[ErrorMessage] = "You must become an agent in order to edit event info!";
 
@@ -339,7 +348,7 @@
                 .IsAgentWithIdOwnerOfEventWithIdAsync(id, agentId!);
             if (!isAgentOwner)
             {
-                this.TempData[ErrorMessage] = "You must be the agent owner of the house you want to edit!";
+                this.TempData[ErrorMessage] = "You must be the agent owner of the event you want to edit!";
 
                 return this.RedirectToAction("Mine", "Event");
             }

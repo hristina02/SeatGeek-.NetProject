@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "J/A0lOIhVS27Kz0576Ig2iuyzBj+heeIDNmf1RAR02yzlQKWpYTKUvIq/arTC6ogtr4Y3FlNgcNHmN0Z+DtjRw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Mapping\\SeatGeek.Services.Mapping.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hristina\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\hristina\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\hristina\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\hristina\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\hristina\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

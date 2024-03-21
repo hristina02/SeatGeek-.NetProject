@@ -11,6 +11,7 @@
     <ProjectReference Include="..\SeatGeek.Data.Models\SeatGeek.Data.Models.csproj" />
     <ProjectReference Include="..\SeatGeek.Data\SeatGeek.Data.csproj" />
     <ProjectReference Include="..\SeatGeek.Services.Data.Model.Event\SeatGeek.Services.Data.Models.csproj" />
+    <ProjectReference Include="..\SeatGeek.Services.Mapping\SeatGeek.Services.Mapping.csproj" />
     <ProjectReference Include="..\SeatGeek.Web.ViewModels\SeatGeek.Web.ViewModels.csproj" />
   </ItemGroup>
 

@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "AutoMapper/13.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Azure.Core/1.25.0": {
         "type": "package",
         "dependencies": {
@@ -1060,7 +1076,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.1",
-          "SeatGeek.Data.Models": "1.0.0"
+          "SeatGeek.Data.Models": "1.0.0",
+          "SeatGeek.Services.Mapping": "1.0.0"
         },
         "compile": {
           "bin/placeholder/SeatGeek.Data.dll": {}
@@ -1096,12 +1113,26 @@
           "bin/placeholder/SeatGeek.Services.Data.Models.dll": {}
         }
       },
+      "SeatGeek.Services.Mapping/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AutoMapper": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/SeatGeek.Services.Mapping.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SeatGeek.Services.Mapping.dll": {}
+        }
+      },
       "SeatGeek.Web.ViewModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "SeatGeek.Common": "1.0.0",
-          "SeatGeek.Data.Models": "1.0.0"
+          "SeatGeek.Data.Models": "1.0.0",
+          "SeatGeek.Services.Mapping": "1.0.0"
         },
         "compile": {
           "bin/placeholder/SeatGeek.Web.ViewModels.dll": {}
@@ -1113,6 +1144,21 @@
     }
   },
   "libraries": {
+    "AutoMapper/13.0.1": {
+      "sha512": "/Fx1SbJ16qS7dU4i604Sle+U9VLX+WSNVJggk6MupKVkYvvBm4XqYaeFuf67diHefHKHs50uQIS2YEDFhPCakQ==",
+      "type": "package",
+      "path": "automapper/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.13.0.1.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/net6.0/AutoMapper.dll",
+        "lib/net6.0/AutoMapper.xml"
+      ]
+    },
     "Azure.Core/1.25.0": {
       "sha512": "X8Dd4sAggS84KScWIjEbFAdt2U1KDolQopTPoHVubG2y3CM54f9l6asVrP5Uy384NWXjsspPYaJgz5xHc+KvTA==",
       "type": "package",
@@ -2912,6 +2958,11 @@
       "path": "../SeatGeek.Services.Data.Model.Event/SeatGeek.Services.Data.Models.csproj",
       "msbuildProject": "../SeatGeek.Services.Data.Model.Event/SeatGeek.Services.Data.Models.csproj"
     },
+    "SeatGeek.Services.Mapping/1.0.0": {
+      "type": "project",
+      "path": "../SeatGeek.Services.Mapping/SeatGeek.Services.Mapping.csproj",
+      "msbuildProject": "../SeatGeek.Services.Mapping/SeatGeek.Services.Mapping.csproj"
+    },
     "SeatGeek.Web.ViewModels/1.0.0": {
       "type": "project",
       "path": "../SeatGeek.Web.ViewModels/SeatGeek.Web.ViewModels.csproj",
@@ -2924,6 +2975,7 @@
       "SeatGeek.Data >= 1.0.0",
       "SeatGeek.Data.Models >= 1.0.0",
       "SeatGeek.Services.Data.Models >= 1.0.0",
+      "SeatGeek.Services.Mapping >= 1.0.0",
       "SeatGeek.Web.ViewModels >= 1.0.0"
     ]
   },
@@ -2965,6 +3017,9 @@
             },
             "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Data.Model.Event\\SeatGeek.Services.Data.Models.csproj": {
               "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Data.Model.Event\\SeatGeek.Services.Data.Models.csproj"
+            },
+            "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Mapping\\SeatGeek.Services.Mapping.csproj": {
+              "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Mapping\\SeatGeek.Services.Mapping.csproj"
             },
             "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Web.ViewModels\\SeatGeek.Web.ViewModels.csproj": {
               "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Web.ViewModels\\SeatGeek.Web.ViewModels.csproj"

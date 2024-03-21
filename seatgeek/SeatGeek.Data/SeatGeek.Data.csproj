@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SeatGeek.Data.Models\SeatGeek.Data.Models.csproj" />
+    <ProjectReference Include="..\SeatGeek.Services.Mapping\SeatGeek.Services.Mapping.csproj" />
   </ItemGroup>
 
   <ItemGroup>

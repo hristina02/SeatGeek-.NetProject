@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CgfVesaXlX1rlfpfelIxGTQFf7noHWWS53Z5ze4QSb2I/LLNzQYFoSE/yTrB2xUCN/ddhtC/C74s8CyP9RHU0Q==",
+  "dgSpecHash": "MasAqLf9pBcI3z4krykDYZ8PeJ2w1QAZTmPvjQS+alOaO3f1MfxUjoPwTCm3z+/vrg2MD2+vRDduwnh09vdySQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.WebApi\\SeatGeek.WebApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hristina\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.1\\microsoft.aspnetcore.cryptography.internal.8.0.1.nupkg.sha512",

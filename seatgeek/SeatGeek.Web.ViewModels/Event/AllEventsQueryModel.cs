@@ -3,7 +3,7 @@
 
     using System.ComponentModel.DataAnnotations;
     using Enums;
-    using static Common.GeneralValidationConstants;
+    using static Common.GeneralApplicationConstants;
     public class AllEventsQueryModel
     {
         public AllEventsQueryModel()

@@ -7,7 +7,7 @@ namespace SeatGeek.WebApi
     using Data;
     using Services.Data.Interfaces;
     using Web.Infrastructure.Extensions;
-    using static Common.GeneralValidationConstants;
+    using static Common.GeneralApplicationConstants;
 
     public class Program
     {

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xPF1GlmsEVgScx9OFz5C4bc1up9M8iPNeWELjNf7WpE90U/UwmfF3skUgtwMsAQIGFVIaGWx2yV6sHG5W7buuA==",
+  "dgSpecHash": "XBVAWRasMF8JM9MroIHkToc9/Y7RkxZHTzfkGMn9/X3yb95jvEMYhgjzNBaEgG40F4fZ9Czzw2e/TxA8XHk2Ug==",
   "success": true,
   "projectFilePath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Data\\SeatGeek.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hristina\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\hristina\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

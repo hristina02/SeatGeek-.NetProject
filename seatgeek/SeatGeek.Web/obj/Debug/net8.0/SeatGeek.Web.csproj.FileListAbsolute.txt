@@ -312,7 +312,6 @@ C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\obj\Debug\n
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\obj\Debug\net8.0\ref\SeatGeek.Web.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\net8.0\SeatGeek.Services.Data.Models.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\net8.0\SeatGeek.Services.Data.Models.pdb
-C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\obj\Debug\net8.0\SeatGeek.Web.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\net8.0\Microsoft.Build.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\net8.0\Microsoft.Build.Framework.dll
@@ -469,3 +468,8 @@ C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\n
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\net8.0\Griesoft.AspNetCore.ReCaptcha.dll
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\net8.0\SeatGeek.Services.Mapping.dll
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\bin\Debug\net8.0\SeatGeek.Services.Mapping.pdb
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web\obj\Debug\net8.0\SeatGeek.Web.MvcApplicationPartsAssemblyInfo.cs

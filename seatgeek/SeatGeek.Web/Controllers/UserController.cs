@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using Griesoft.AspNetCore.ReCaptcha;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SeatGeek.Data.Models;
@@ -25,8 +26,8 @@ namespace SeatGeek.Web.Controllers
         }
 
         [HttpPost]
-        //[ValidateRecaptcha(Action = nameof(Register),
-        //    ValidationFailedAction = ValidationFailedAction.ContinueRequest)]
+        [ValidateRecaptcha(Action = nameof(Register),
+            ValidationFailedAction = ValidationFailedAction.ContinueRequest)]
         public async Task<IActionResult> Register(RegisterFormModel model)
         {
             if (!ModelState.IsValid)
