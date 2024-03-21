@@ -7,6 +7,7 @@ namespace SeatGeek.WebApi
     using Data;
     using Services.Data.Interfaces;
     using Web.Infrastructure.Extensions;
+    using static Common.GeneralValidationConstants;
 
     public class Program
     {
@@ -47,7 +48,7 @@ namespace SeatGeek.WebApi
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
+          
             app.MapControllers();
 
             app.UseCors("SeatGeek");

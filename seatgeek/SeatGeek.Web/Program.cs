@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using SeatGeek.Data;
  namespace SeatGeek.Web
 {
     using Microsoft.AspNetCore.Identity;
@@ -10,6 +13,7 @@
     using Microsoft.AspNetCore.Mvc;
     using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
     using static System.Runtime.InteropServices.JavaScript.JSType;
+    using static Common.GeneralValidationConstants;
 
     public class Program
     {
@@ -39,9 +43,16 @@
 
 
             })
-                .AddEntityFrameworkStores<SeatGeekDbContext>();
+            .AddRoles<IdentityRole<Guid>>()
+            .AddEntityFrameworkStores<SeatGeekDbContext>();
 
             builder.Services.AddApplicationServices(typeof(IEventService));
+
+            builder.Services.ConfigureApplicationCookie(cfg =>
+            {
+                cfg.LoginPath = "/User/Login";
+                
+            });
 
             builder.Services.AddControllersWithViews()
              .AddMvcOptions(options =>
@@ -71,6 +82,8 @@
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.SeedAdministrator(DevelopmentAdminEmail);
 
             app.MapControllerRoute(
                 name: "default",

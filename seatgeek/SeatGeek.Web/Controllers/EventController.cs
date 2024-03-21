@@ -16,12 +16,14 @@
         private readonly IAgentService agentService;
         private readonly IEventService eventService;
         private readonly ICategoryService categoryService;
+        private readonly IUserService userService;
         public EventController(ICategoryService categoryService, IAgentService agentService,
-            IEventService eventService)
+            IEventService eventService, IUserService userService)
         {
             this.categoryService = categoryService;
             this.agentService = agentService;
             this.eventService = eventService;
+            this.userService = userService;
         }
 
         [HttpGet]
@@ -141,6 +143,7 @@
         {
             EventDetailsViewModel? viewModel = await this.eventService
                 .GetDetailsByIdAsync(id);
+            viewModel.Agent.FullName=await this.userService.GetFullNameByEmailAsync(this.User.Identity?.Name!);
             if (viewModel==null)
             {
                 this.TempData[ErrorMessage] = "Event with the provided id does not exist!";

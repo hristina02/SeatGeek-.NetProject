@@ -68,7 +68,7 @@
                 return this.RedirectToAction("Index", "Home");
             }
 
-            return this.RedirectToAction("All", "House");
+            return this.RedirectToAction("All", "Event");
         }
     }
 }
