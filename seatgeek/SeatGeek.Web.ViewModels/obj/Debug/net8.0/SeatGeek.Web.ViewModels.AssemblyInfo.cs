@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SeatGeek.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28a9f7fdafe6981bf12167709ed36b274088c468")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee0093ad2cdc1d6dfbc602fa36cb7a8eea944992")]
 [assembly: System.Reflection.AssemblyProductAttribute("SeatGeek.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SeatGeek.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -56,7 +56,8 @@ using SeatGeek.Data;
             builder.Services.ConfigureApplicationCookie(cfg =>
             {
                 cfg.LoginPath = "/User/Login";
-                
+                cfg.AccessDeniedPath = "/Home/Error/401";
+
             });
 
             builder.Services.AddControllersWithViews()
@@ -86,6 +87,7 @@ using SeatGeek.Data;
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             if (app.Environment.IsDevelopment())
@@ -93,20 +95,28 @@ using SeatGeek.Data;
                 app.SeedAdministrator(DevelopmentAdminEmail);
             }
 
-
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-            app.MapRazorPages();
             app.UseEndpoints(config =>
             {
+                config.MapControllerRoute(
+                   name: "areas",
+                   pattern: "/{area:exists}/{controller=Home}/{action=Index}/{id?}"
+               );
+
                 config.MapControllerRoute(
                     name: "ProtectingUrlRoute",
                     pattern: "/{controller}/{action}/{id}/{information}",
                     defaults: new { Controller = "Category", Action = "Details" });
+
                 config.MapDefaultControllerRoute();
+
                 config.MapRazorPages();
             });
+
+            //app.MapControllerRoute(
+            //    name: "default",
+            //    pattern: "{controller=Home}/{action=Index}/{id?}");
+            //app.MapRazorPages();
+         
             app.Run();
 
         }

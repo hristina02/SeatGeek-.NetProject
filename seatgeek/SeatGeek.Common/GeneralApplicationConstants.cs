@@ -1,6 +1,4 @@
-﻿
-
-namespace SeatGeek.Common
+﻿ namespace SeatGeek.Common
 {
     public class GeneralApplicationConstants
     {
@@ -8,6 +6,7 @@ namespace SeatGeek.Common
         public const int EntitiesPerPage = 3;
 
 
+        public const string AdminAreaName = "Admin";
         public const string AdminRoleName = "Administrator";
         public const string DevelopmentAdminEmail = "administrator@gmail.com";
     }

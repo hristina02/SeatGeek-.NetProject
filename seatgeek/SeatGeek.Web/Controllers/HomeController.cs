@@ -2,9 +2,9 @@ namespace SeatGeek.Web.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
     using SeatGeek.Services.Data.Interfaces;
-    using SeatGeek.Web.ViewModels;
     using SeatGeek.Web.ViewModels.Home;
-    using System.Diagnostics;
+    using static Common.GeneralApplicationConstants;
+    
 
     public class HomeController : Controller
     {
@@ -18,6 +18,12 @@ namespace SeatGeek.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
+
+            if (this.User.IsInRole(AdminRoleName))
+            {
+                return this.RedirectToAction("Index", "Home", new { Area = AdminAreaName });
+            }
+
             IEnumerable<IndexViewModel> viewModel =
                 await this.eventService.LastFiveEventsAsync();
 
