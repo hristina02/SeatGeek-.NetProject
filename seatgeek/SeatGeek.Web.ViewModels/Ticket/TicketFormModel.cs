@@ -16,8 +16,8 @@
         [EnumDataType(typeof(TicketTypeEnum), ErrorMessage = "Type is unvalid")]
         public string Type { get; set; } = null!;
 
-        [Required(ErrorMessage = "Quantity is required")]
-        [Range(1, MaxQuantity, ErrorMessage = "Quantity must be between 1 and {1}")]
+        
+        //[Range(1, MaxQuantity, ErrorMessage = "Quantity must be between 1 and {1}")]
         public int Quantity { get; set; }
 
 

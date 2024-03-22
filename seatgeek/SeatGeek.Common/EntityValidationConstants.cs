@@ -36,6 +36,8 @@
 
             public const string PricePerMonthMinValue = "0";
             public const string PricePerMonthMaxValue = "2000";
+
+            public const string dateTimeFormat = "yyyy-MM-dd H:mm";
         }
 
         public static class Agent

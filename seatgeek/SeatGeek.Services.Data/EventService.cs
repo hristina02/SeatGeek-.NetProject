@@ -15,7 +15,8 @@
     using SeatGeek.Web.ViewModels.Ticket;
     using SeatGeek.Services.Data.Models.Statistics;
     using Mapping;
-
+    using System.Runtime.Serialization;
+    using static Common.EntityValidationConstants.Event;
     public class EventService:IEventService
     {
         private readonly SeatGeekDbContext dbContext;
@@ -51,7 +52,7 @@
                 {
                      Id = h.Id,
                      Title = h.Title,
-                     City = h.Address,
+                     City = h.City,
                     ImageUrl = h.ImageUrl,
                 })
                .ToArrayAsync();
@@ -60,8 +61,9 @@
         }
 
 
-        public async Task<string> CreateAndReturnIdAsync(EventFormModel formModel, string agentId)
+        public async Task<string> CreateAndReturnIdAsync(EventFormModel formModel, string agentId,DateTime start,DateTime end)
         {
+
             // Create the Event entity
             Event eventModel = new Event
             {
@@ -70,6 +72,8 @@
                 Address = formModel.Address,
                 Description = formModel.Description,
                 City=formModel.City,
+                Start=start,
+                End=end,
                 ImageUrl = formModel.ImageUrl,
                 MaxCapacity= formModel.MaxCapacity,
                 CategoryId = formModel.CategoryId,
@@ -81,18 +85,23 @@
             // Create and add tickets to the event
             foreach (var ticketModel in formModel.Tickets)
             {
-                TicketTypeEnum ticketType;
-                if (Enum.TryParse(ticketModel.Type, out ticketType))
+                if (ticketModel.Quantity > 0)
                 {
-                    Ticket ticket = new Ticket
+                    TicketTypeEnum ticketType;
+                    if (Enum.TryParse(ticketModel.Type, out ticketType))
                     {
-                        Type = ticketType,
-                        Quantity = ticketModel.Quantity,
-                        Price = ticketModel.Price,
-                    };
+                        Ticket ticket = new Ticket
+                        {
+                            Type = ticketType,
+                            Quantity = ticketModel.Quantity,
+                            Price = ticketModel.Price,
+                        };
 
-                    eventModel.Tickets.Add(ticket);
+                        eventModel.Tickets.Add(ticket);
+                    }
+
                 }
+              
             }
 
             
@@ -121,6 +130,8 @@
                 Title = eventModel.Title,
                 Address = eventModel.Address,
                 City = eventModel.City,
+                Start = eventModel.Start.ToString(dateTimeFormat), // Format the start date
+                End = eventModel.End.ToString(dateTimeFormat),
                 Description = eventModel.Description,
                 ImageUrl = eventModel.ImageUrl,
                 CategoryId = eventModel.CategoryId
@@ -277,6 +288,8 @@
                 Title = eventModel.Title,
                 Address = eventModel.Address,
                 ImageUrl = eventModel.ImageUrl,
+                Start=eventModel.Start.ToString(dateTimeFormat),
+                End=eventModel.End.ToString(dateTimeFormat),
                 City = eventModel.City,
                 Description = eventModel.Description,
                 Category = eventModel.Category.Name,
@@ -290,7 +303,7 @@
             };
         }
 
-        public async Task EditEventByIdAndFormModelAsync(string eventId, EventFormModel formModel)
+        public async Task EditEventByIdAndFormModelAsync(string eventId, EventFormModel formModel, DateTime start, DateTime end)
         {
             Event eventModel = await this.dbContext
                  .Events
@@ -300,6 +313,8 @@
             eventModel.Title = formModel.Title;
             eventModel.Address = formModel.Address;
             eventModel.City=formModel.City;
+            eventModel.Start= start;
+            eventModel.End= end;
             eventModel.Description = formModel.Description;
             eventModel.ImageUrl = formModel.ImageUrl;
             eventModel.CategoryId = formModel.CategoryId;

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SeatGeek.Services.Mapping")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28a9f7fdafe6981bf12167709ed36b274088c468")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c13b756cc1e40b3a7069f68fccf4ab9e147ea480")]
 [assembly: System.Reflection.AssemblyProductAttribute("SeatGeek.Services.Mapping")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SeatGeek.Services.Mapping")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

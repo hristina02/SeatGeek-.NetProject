@@ -28,6 +28,12 @@
         public string City { get; set; } = null!;
 
         [Required]
+        public DateTime Start { get; set; }
+
+        [Required]
+        public DateTime End { get; set; } 
+
+        [Required]
         [MaxLength(DescriptionMaxLength)]
         public string Description { get; set; } = null!;
 

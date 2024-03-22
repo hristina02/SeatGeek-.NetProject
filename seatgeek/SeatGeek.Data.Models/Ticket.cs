@@ -34,7 +34,6 @@
    
        public TicketTypeEnum Type { get; set; }
 
-        [Required]
         [MaxLength(MaxQuantity)]
         public int Quantity { get; set; }
 

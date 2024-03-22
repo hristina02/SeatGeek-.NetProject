@@ -9,7 +9,10 @@
     using SeatGeek.Web.ViewModels.Category;
     using SeatGeek.Web.ViewModels.Event;
     using SeatGeek.Web.ViewModels.Ticket;
+    using System.Globalization;
+    using System.Runtime.Serialization;
     using static Common.NotificationMessagesConstants;
+    using static Common.EntityValidationConstants.Event;
     [Authorize]
     public class EventController : Controller
     {
@@ -87,6 +90,18 @@
 
                 return this.RedirectToAction("Become", "Agent");
             }
+           
+            DateTime startDate;
+            DateTime endDate;
+
+            if (!DateTime.TryParseExact(model.Start, dateTimeFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out startDate))
+            {
+                ModelState.AddModelError(nameof(model.Start), $"Invalid date! Format must be {dateTimeFormat}");
+            }
+            if (!DateTime.TryParseExact(model.End, dateTimeFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out endDate))
+            {
+                ModelState.AddModelError(nameof(model.End), $"Invalid date! Format must be {dateTimeFormat}");
+            }
 
             bool categoryExists =
                 await this.categoryService.ExistsByIdAsync(model.CategoryId);
@@ -99,7 +114,7 @@
             int totalTicketQuantity = model.Tickets.Sum(ticket => ticket.Quantity);
             if (totalTicketQuantity >model.MaxCapacity) // Use MaxCapacity for comparison
             {
-                this.TempData[ErrorMessage] = "Yout Tickets are more than the evenr quantity!";
+                this.TempData[ErrorMessage] = "Yout Tickets are more than the event quantity!";
                 model.Categories = await this.categoryService.AllCategoriesAsync();
                 return this.View(model);
             }
@@ -117,7 +132,7 @@
                     await this.agentService.GetAgentIdByUserIdAsync(this.User.GetId()!);
 
                 string eventId =
-                    await this.eventService.CreateAndReturnIdAsync(model, agentId!);
+                    await this.eventService.CreateAndReturnIdAsync(model, agentId!,startDate,endDate);
 
                 this.TempData[SuccessMessage] = "Event was added successfully!";
                 return this.RedirectToAction("Details", "Event", new { id = eventId });
@@ -208,6 +223,18 @@
         [HttpPost]
         public async Task<IActionResult> Edit(string id, EventFormModel model)
         {
+            DateTime startDate;
+            DateTime endDate;
+
+            if (!DateTime.TryParseExact(model.Start, dateTimeFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out startDate))
+            {
+                ModelState.AddModelError(nameof(model.Start), $"Invalid date! Format must be {dateTimeFormat}");
+            }
+            if (!DateTime.TryParseExact(model.End, dateTimeFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out endDate))
+            {
+                ModelState.AddModelError(nameof(model.End), $"Invalid date! Format must be {dateTimeFormat}");
+            }
+
             if (!this.ModelState.IsValid)
             {
                 model.Categories = await this.categoryService.AllCategoriesAsync();
@@ -246,7 +273,7 @@
 
             try
             {
-                await this.eventService.EditEventByIdAndFormModelAsync(id, model);
+                await this.eventService.EditEventByIdAndFormModelAsync(id, model,startDate,endDate);
             }
             catch (Exception)
             {

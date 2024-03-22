@@ -2,6 +2,8 @@
 @using SeatGeek.Web.Infrastructure.Extensions
 @using SeatGeek.Web.ViewModels.Event
 @using SeatGeek.Web.ViewModels.Order
+@using System.Runtime.Serialization
+@using static SeatGeek.Common.EntityValidationConstants.Event;
 @model EventDetailsViewModel
 
 @inject IAgentService AgentService
@@ -30,9 +32,12 @@
         <div class="card col-8 border-0">
             <p style="font-size:25px;"><u>@Model.Title</u></p>
             <p>Located in: <b>@Model.Address</b></p>
+            <p>Start : <b>@Model.Start</b></p>
+            <p>End : <b>@Model.End</b></p>
             <p>City: <b>@Model.City</b></p>
             <p>@Model.Description</p>
             <p>Category: <b>@Model.Category</b></p>
+
             <div class="form-inline">
                 @if (this.User.Identity?.IsAuthenticated ?? false)
                 {

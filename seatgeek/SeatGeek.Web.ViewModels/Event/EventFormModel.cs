@@ -1,5 +1,6 @@
 ﻿namespace SeatGeek.Web.ViewModels.Event
 {
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Logging.Abstractions;
     using SeatGeek.Web.ViewModels.Category;
     using SeatGeek.Web.ViewModels.Ticket;
@@ -25,6 +26,15 @@
         [Required]
         [StringLength(CityMaxLength, MinimumLength = CityMinLength)]
         public string City { get; set; }=null!;
+
+
+        [Required]
+        [Comment("Event's start date and hour")]
+        public string Start { get; set; }
+
+        [Required]
+        [Comment("Event's end date and hour")]
+        public string End{ get; set; }
 
         [Required]
         [StringLength(DescriptionMaxLength, MinimumLength = DescriptionMinLength)]

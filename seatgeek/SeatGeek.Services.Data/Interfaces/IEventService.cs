@@ -7,7 +7,7 @@
     public interface IEventService
     {
         Task<IEnumerable<IndexViewModel>> LastFiveEventsAsync();
-        Task<string> CreateAndReturnIdAsync(EventFormModel formModel, string agentId);
+        Task<string> CreateAndReturnIdAsync(EventFormModel formModel, string agentId,DateTime start,DateTime end);
 
         Task<AllEventsFilteredAndPagedServiceModel> AllAsync(AllEventsQueryModel queryModel);
 
@@ -23,7 +23,7 @@
 
         Task<EventFormModel> GetEventForEditByIdAsync(string eventId);
 
-        Task EditEventByIdAndFormModelAsync(string eventId, EventFormModel formModel);
+        Task EditEventByIdAndFormModelAsync(string eventId, EventFormModel formModel, DateTime start, DateTime end);
 
         Task<EventPreDeleteDetailsViewModel> GetEventForDeleteByIdAsync(string eventId);
 

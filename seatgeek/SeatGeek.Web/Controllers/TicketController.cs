@@ -102,15 +102,19 @@
 
                 foreach (var ticketModel in orderFormModel.Tickets)
                 {
-                    totalSum += ticketModel.Price * ticketModel.NumberForEveryModel;
-
-                    num += ticketModel.NumberForEveryModel;
-                    if(num<ticketModel.Quantity)
+                    if (ticketModel.Quantity > 0)
                     {
-                        this.TempData[ErrorMessage] = "Even with the provided id does not exist!";
+                        totalSum += ticketModel.Price * ticketModel.NumberForEveryModel;
 
-                        return this.RedirectToAction("All", "Event");
+                        num += ticketModel.NumberForEveryModel;
+                        if (num < ticketModel.Quantity)
+                        {
+                            this.TempData[ErrorMessage] = "Even with the provided id does not exist!";
+
+                            return this.RedirectToAction("All", "Event");
+                        }
                     }
+                 
                 }
                 OrderFormModel orderViewModel = new OrderFormModel()
                 {

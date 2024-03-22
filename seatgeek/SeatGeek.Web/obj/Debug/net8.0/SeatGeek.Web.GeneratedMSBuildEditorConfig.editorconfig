@@ -26,6 +26,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/hristina/Desktop/SeatGeek-.NetProject/seatgeek/SeatGeek.Web/Areas/Admin/Views/Event/Mine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRcTWluZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/hristina/Desktop/SeatGeek-.NetProject/seatgeek/SeatGeek.Web/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
