@@ -18,7 +18,7 @@
             <h4>@Model.Title</h4>
             <h6>: <b>@Model.City</b></h6>
          
-            <a asp-controller="Event" asp-action="Details" asp-route-id="@Model.Id"
+            <a asp-area=""  asp-controller="Event" asp-action="Details" asp-route-id="@Model.Id"
                class="btn btn-success">Details</a>
 
             @if (this.User.Identity?.IsAuthenticated ?? false)
@@ -27,9 +27,9 @@
                 @if ((isUserAgent && isAgentOwnerOfTheEvent) || this.User.IsAdmin())
                 {
 
-                    <a asp-controller="Event" asp-action="Edit" asp-route-id="@Model.Id"
+                    <a asp-area="" asp-controller="Event" asp-action="Edit" asp-route-id="@Model.Id"
                        class="btn btn-warning">Edit</a>
-                    <a asp-controller="Event" asp-action="Delete" asp-route-id="@Model.Id"
+                    <a asp-area=""  asp-controller="Event" asp-action="Delete" asp-route-id="@Model.Id"
                        class="btn btn-danger">Delete</a>
                     <p></p>
                 }

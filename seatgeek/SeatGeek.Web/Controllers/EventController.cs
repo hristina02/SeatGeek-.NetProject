@@ -13,6 +13,7 @@
     using System.Runtime.Serialization;
     using static Common.NotificationMessagesConstants;
     using static Common.EntityValidationConstants.Event;
+    using static Common.GeneralApplicationConstants;
     [Authorize]
     public class EventController : Controller
     {
@@ -299,6 +300,11 @@
             string userId = this.User.GetId()!;
             bool isUserAgent = await this.agentService
                 .AgentExistsByUserIdAsync(userId);
+
+            if (this.User.IsInRole(AdminRoleName))
+            {
+                return this.RedirectToAction("Mine", "Event", new { Area = AdminAreaName });
+            }
 
 
             try
