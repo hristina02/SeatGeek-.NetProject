@@ -5,6 +5,7 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.DependencyInjection;
     using SeatGeek.Data.Models;
+    using SeatGeek.Web.Infrastructure.Middlewares;
     using static Common.GeneralApplicationConstants;
     public static class WebApplicationBuilderExtensions
     {
@@ -72,6 +73,11 @@
             .GetResult();
 
             return app;
+        }
+
+        public static IApplicationBuilder EnableOnlineUsersCheck(this IApplicationBuilder app)
+        {
+            return app.UseMiddleware<OnlineUsersMiddleware>();
         }
     }
 }

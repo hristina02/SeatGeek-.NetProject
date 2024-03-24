@@ -5,6 +5,7 @@ C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debu
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.WebApi.runtimeconfig.json
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.WebApi.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.WebApi.pdb
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -59,14 +60,16 @@ C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debu
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Data.Models.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Services.Data.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Services.Data.Models.dll
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Services.Mapping.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Web.Infrastructure.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Web.ViewModels.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Common.pdb
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Data.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Services.Data.Models.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Services.Data.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Web.Infrastructure.pdb
-C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Data.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Data.Models.pdb
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Services.Mapping.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Web.ViewModels.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\obj\Debug\net8.0\SeatGeek.WebApi.csproj.AssemblyReference.cache
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\obj\Debug\net8.0\SeatGeek.WebApi.GeneratedMSBuildEditorConfig.editorconfig
@@ -90,6 +93,3 @@ C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\obj\Debu
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\obj\Debug\net8.0\SeatGeek.WebApi.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\obj\Debug\net8.0\SeatGeek.WebApi.genruntimeconfig.cache
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\obj\Debug\net8.0\ref\SeatGeek.WebApi.dll
-C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\AutoMapper.dll
-C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Services.Mapping.dll
-C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.WebApi\bin\Debug\net8.0\SeatGeek.Services.Mapping.pdb

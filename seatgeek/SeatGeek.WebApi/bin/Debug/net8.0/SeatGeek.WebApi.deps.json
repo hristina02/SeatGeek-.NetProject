@@ -686,6 +686,7 @@
       "SeatGeek.Web.Infrastructure/1.0.0": {
         "dependencies": {
           "Mvc.ModelBinding.MultiParameter": "1.1.8",
+          "SeatGeek.Common": "1.0.0",
           "SeatGeek.Services.Data": "1.0.0"
         },
         "runtime": {

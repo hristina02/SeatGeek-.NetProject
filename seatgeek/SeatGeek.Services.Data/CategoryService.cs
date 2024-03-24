@@ -1,9 +1,12 @@
 ﻿namespace SeatGeek.Services.Data
 {
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Logging;
     using SeatGeek.Data;
+    using SeatGeek.Data.Models.Enums;
     using SeatGeek.Services.Data.Interfaces;
     using SeatGeek.Web.ViewModels.Category;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -22,6 +25,7 @@
         {
             IEnumerable<IndexCategoryFormModel> allCategories = await this.dbContext
                 .Categories
+                .Where(c => c.IsActive)
                 .AsNoTracking()
                 .Select(c => new IndexCategoryFormModel()
                 {
@@ -70,6 +74,7 @@
         {
             IEnumerable<AllCategoriesViewModel> allCategories = await this.dbContext
               .Categories
+              .Where(c=>c.IsActive)
               .AsNoTracking()
               .Select(c => new AllCategoriesViewModel()
               {
@@ -80,6 +85,44 @@
 
             return allCategories;
 
+        }
+
+        public async Task DeleteEventByIdAsync(string categoryId)
+        {
+            Category categoryToDelete = await this.dbContext
+                .Categories
+                .FirstAsync(h => h.Id.ToString() == categoryId);
+
+           
+
+            await this.dbContext.SaveChangesAsync();
+        }
+        public async Task<string> CreateAndReturnIdAsync(IndexCategoryFormModel formModel,string agentId)
+        {
+            // Create the Category entity
+            Category categoryModel = new Category()
+            {
+                Name= formModel.Name,
+                IsActive=true
+            };
+        
+
+            await this.dbContext.Categories.AddAsync(categoryModel);
+            await this.dbContext.SaveChangesAsync();
+            return categoryModel.Id.ToString();
+
+        }
+
+        public async Task DeleteCategoryByIdAsync(string categoryId)
+        {
+            Category categoryToDelete = await this.dbContext
+                .Categories
+            .Where(c => c.IsActive)
+                .FirstAsync(c => c.Id.ToString() == categoryId);
+
+            categoryToDelete.IsActive = false;
+
+            await this.dbContext.SaveChangesAsync();
         }
     }
 }

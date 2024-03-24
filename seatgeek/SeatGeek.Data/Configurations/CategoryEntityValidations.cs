@@ -22,7 +22,7 @@
             {
                 Id = 1,
                 Name = "Music",
-                
+                IsActive = true
 
 
             };
@@ -32,7 +32,7 @@
             {
                 Id = 2,
                 Name = "Sport",
-              
+               IsActive = true
 
 
             };
@@ -42,6 +42,7 @@
             {
                 Id = 3,
                 Name = "Theatre",
+                IsActive = true 
                 
 
 

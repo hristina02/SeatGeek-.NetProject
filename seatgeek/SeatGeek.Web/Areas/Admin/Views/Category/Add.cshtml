@@ -1,0 +1,16 @@
+﻿
+@model IndexCategoryFormModel
+@{
+    ViewData["Title"] = "Add Category";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+<hr />
+<form asp-area="Admin" asp-action="Add" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Category</button>
+</form>

@@ -2,6 +2,7 @@
 {
     using SeatGeek.Data.Models;
     using SeatGeek.Web.ViewModels.Category;
+    using SeatGeek.Web.ViewModels.Event;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -15,11 +16,15 @@
 
         Task<IEnumerable<AllCategoriesViewModel>> AllCategoriesForListAsync();
 
+        Task<string> CreateAndReturnIdAsync(IndexCategoryFormModel formModel,string agentId);
+
         Task<bool> ExistsByIdAsync(int id);
 
         Task<IEnumerable<string>> AllCategoryNamesAsync();
 
         Task<CategoryDetailsViewModel> GetDetailsByIdAsync(int id);
+
+        Task DeleteCategoryByIdAsync(string categoryId);
 
     }
 }

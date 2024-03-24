@@ -3,10 +3,10 @@
     using System.ComponentModel.DataAnnotations.Schema;
     public class CategoryEvent
     {
-        public int ChildCategoryId { get; set; }
+        public int CategoryId { get; set; }
        
-        [ForeignKey(nameof(ChildCategoryId))]
-        public Category ChildCategory { get; set; } = null!;
+        [ForeignKey(nameof(CategoryId))]
+        public Category Category { get; set; } = null!;
 
         public int EventId { get; set; }
 

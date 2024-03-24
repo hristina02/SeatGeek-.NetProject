@@ -89,6 +89,7 @@ using SeatGeek.Data;
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.EnableOnlineUsersCheck();   
 
             if (app.Environment.IsDevelopment())
             {
@@ -112,10 +113,7 @@ using SeatGeek.Data;
                 config.MapRazorPages();
             });
 
-            //app.MapControllerRoute(
-            //    name: "default",
-            //    pattern: "{controller=Home}/{action=Index}/{id?}");
-            //app.MapRazorPages();
+         
          
             app.Run();
 

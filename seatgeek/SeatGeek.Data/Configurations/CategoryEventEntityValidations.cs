@@ -8,7 +8,7 @@
         public void Configure(EntityTypeBuilder<CategoryEvent> builder)
         {
             builder
-                .HasKey(x => new { x.ChildCategoryId, x.EventId });
+                .HasKey(x => new { x.CategoryId, x.EventId });
 
 
 

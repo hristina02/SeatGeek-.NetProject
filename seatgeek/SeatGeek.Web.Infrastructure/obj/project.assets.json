@@ -3021,6 +3021,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Mvc.ModelBinding.MultiParameter >= 1.1.8",
+      "SeatGeek.Common >= 1.0.0",
       "SeatGeek.Services.Data >= 1.0.0"
     ]
   },
@@ -3051,6 +3052,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Common\\SeatGeek.Common.csproj": {
+              "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Common\\SeatGeek.Common.csproj"
+            },
             "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Data\\SeatGeek.Services.Data.csproj": {
               "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Data\\SeatGeek.Services.Data.csproj"
             }

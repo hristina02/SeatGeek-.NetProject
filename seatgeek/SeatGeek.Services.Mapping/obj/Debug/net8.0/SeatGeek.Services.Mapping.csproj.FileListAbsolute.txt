@@ -1,12 +1,12 @@
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\bin\Debug\net8.0\SeatGeek.Services.Mapping.deps.json
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\bin\Debug\net8.0\SeatGeek.Services.Mapping.dll
+C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\bin\Debug\net8.0\SeatGeek.Services.Mapping.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\obj\Debug\net8.0\SeatGeek.Services.Mapping.csproj.AssemblyReference.cache
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\obj\Debug\net8.0\SeatGeek.Services.Mapping.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\obj\Debug\net8.0\SeatGeek.Services.Mapping.AssemblyInfoInputs.cache
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\obj\Debug\net8.0\SeatGeek.Services.Mapping.AssemblyInfo.cs
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\obj\Debug\net8.0\SeatGeek.Services.Mapping.csproj.CoreCompileInputs.cache
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\obj\Debug\net8.0\SeatGeek.Services.Mapping.sourcelink.json
-C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\bin\Debug\net8.0\SeatGeek.Services.Mapping.deps.json
-C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\bin\Debug\net8.0\SeatGeek.Services.Mapping.dll
-C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\bin\Debug\net8.0\SeatGeek.Services.Mapping.pdb
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\obj\Debug\net8.0\SeatGeek.Services.Mapping.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\obj\Debug\net8.0\refint\SeatGeek.Services.Mapping.dll
 C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Services.Mapping\obj\Debug\net8.0\SeatGeek.Services.Mapping.pdb

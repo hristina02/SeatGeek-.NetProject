@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SeatGeek.Common\SeatGeek.Common.csproj" />
     <ProjectReference Include="..\SeatGeek.Services.Data\SeatGeek.Services.Data.csproj" />
   </ItemGroup>
 

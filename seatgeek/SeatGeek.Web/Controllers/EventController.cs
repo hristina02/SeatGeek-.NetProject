@@ -357,11 +357,11 @@
         [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
-            bool houseExists = await this.eventService
+            bool eventExists = await this.eventService
                 .ExistsByIdAsync(id);
-            if (!houseExists)
+            if (!eventExists)
             {
-                this.TempData[ErrorMessage] = "Evant with the provided id does not exist!";
+                this.TempData[ErrorMessage] = "Event with the provided id does not exist!";
 
                 return this.RedirectToAction("All", "Event");
             }

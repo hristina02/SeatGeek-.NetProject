@@ -420,6 +420,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Common\\SeatGeek.Common.csproj": {
+                "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Common\\SeatGeek.Common.csproj"
+              },
               "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Data\\SeatGeek.Services.Data.csproj": {
                 "projectPath": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Services.Data\\SeatGeek.Services.Data.csproj"
               }

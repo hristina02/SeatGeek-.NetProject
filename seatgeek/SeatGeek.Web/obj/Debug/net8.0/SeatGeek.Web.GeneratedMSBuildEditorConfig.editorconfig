@@ -26,6 +26,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\hristina\Desktop\SeatGeek-.NetProject\seatgeek\SeatGeek.Web
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/hristina/Desktop/SeatGeek-.NetProject/seatgeek/SeatGeek.Web/Areas/Admin/Views/Category/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hristina/Desktop/SeatGeek-.NetProject/seatgeek/SeatGeek.Web/Areas/Admin/Views/Category/All.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcQWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hristina/Desktop/SeatGeek-.NetProject/seatgeek/SeatGeek.Web/Areas/Admin/Views/Category/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/hristina/Desktop/SeatGeek-.NetProject/seatgeek/SeatGeek.Web/Areas/Admin/Views/Event/Mine.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRcTWluZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

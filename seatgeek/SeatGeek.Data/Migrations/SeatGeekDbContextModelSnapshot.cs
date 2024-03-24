@@ -281,6 +281,9 @@ namespace SeatGeek.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -294,29 +297,32 @@ namespace SeatGeek.Data.Migrations
                         new
                         {
                             Id = 1,
+                            IsActive = true,
                             Name = "Music"
                         },
                         new
                         {
                             Id = 2,
+                            IsActive = true,
                             Name = "Sport"
                         },
                         new
                         {
                             Id = 3,
+                            IsActive = true,
                             Name = "Theatre"
                         });
                 });
 
             modelBuilder.Entity("SeatGeek.Data.Models.CategoryEvent", b =>
                 {
-                    b.Property<int>("ChildCategoryId")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<int>("EventId")
                         .HasColumnType("int");
 
-                    b.HasKey("ChildCategoryId", "EventId");
+                    b.HasKey("CategoryId", "EventId");
 
                     b.HasIndex("EventId");
 
@@ -562,9 +568,9 @@ namespace SeatGeek.Data.Migrations
 
             modelBuilder.Entity("SeatGeek.Data.Models.CategoryEvent", b =>
                 {
-                    b.HasOne("SeatGeek.Data.Models.Category", "ChildCategory")
+                    b.HasOne("SeatGeek.Data.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("ChildCategoryId")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -574,7 +580,7 @@ namespace SeatGeek.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ChildCategory");
+                    b.Navigation("Category");
 
                     b.Navigation("Event");
                 });
