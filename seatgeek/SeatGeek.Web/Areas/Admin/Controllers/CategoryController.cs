@@ -2,16 +2,12 @@
 using SeatGeek.Data.Models.Enums;
 using SeatGeek.Services.Data.Interfaces;
 using SeatGeek.Web.Infrastructure.Extensions;
-using SeatGeek.Web.ViewModels.Event;
-using SeatGeek.Web.ViewModels.Ticket;
-using System.Globalization;
-using System.Runtime.Serialization;
 using static SeatGeek.Common.NotificationMessagesConstants;
 using static SeatGeek.Common.EntityValidationConstants.Event;
 using static SeatGeek.Common.GeneralApplicationConstants;
 using SeatGeek.Web.ViewModels.Category;
-using SeatGeek.Services.Data;
-using SeatGeek.Web.ViewModels.Home;
+
+using Microsoft.Extensions.Caching.Memory;
 namespace SeatGeek.Web.Areas.Admin.Controllers
 {
     public class CategoryController : BaseAdminController
@@ -20,20 +16,34 @@ namespace SeatGeek.Web.Areas.Admin.Controllers
         private readonly IAgentService agentService;
         private readonly IEventService eventService;
         private readonly ICategoryService categoryService;
-        public CategoryController(IAgentService agentService, IEventService eventService, ICategoryService categoryService)
+        private readonly IMemoryCache memoryCache;
+        public CategoryController(IAgentService agentService, IEventService eventService, ICategoryService categoryService, IMemoryCache memoryCache)
         {
             this.agentService = agentService;
             this.eventService = eventService;
             this.categoryService = categoryService;
+            this.memoryCache = memoryCache;
         }
 
         [HttpGet]
+        [ResponseCache(Duration = 120, Location = ResponseCacheLocation.Client, NoStore = false)]
         public async Task<IActionResult> All()
         {
-            IEnumerable<AllCategoriesViewModel> viewModel =
-                await this.categoryService.AllCategoriesForListAsync();
+            IEnumerable<AllCategoriesViewModel> allCategories =
+               this.memoryCache.Get<IEnumerable<AllCategoriesViewModel>>(CategoriesCacheKey);
 
-            return View(viewModel);
+            if (allCategories == null)
+            {
+                allCategories = await this.categoryService.AllCategoriesForListAsync();
+
+                MemoryCacheEntryOptions cacheOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(CategoriesCacheDurationMinutes));
+
+                this.memoryCache.Set(UsersCacheKey, allCategories, cacheOptions);
+            }
+
+            return this.View(allCategories);
+           
         }
 
         [HttpGet]

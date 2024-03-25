@@ -1,22 +1,27 @@
-﻿using Griesoft.AspNetCore.ReCaptcha;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using SeatGeek.Data.Models;
-using SeatGeek.Web.ViewModels.User;
-
-namespace SeatGeek.Web.Controllers
+﻿namespace SeatGeek.Web.Controllers
 {
+    using Griesoft.AspNetCore.ReCaptcha;
+    using Microsoft.AspNetCore.Authentication;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Caching.Memory;
+    using SeatGeek.Data.Models;
+    using SeatGeek.Web.ViewModels.User;
+    using static Common.GeneralApplicationConstants;
+    using static Common.NotificationMessagesConstants;
     public class UserController : Controller
     {
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly IMemoryCache memoryCache;
 
         public UserController(SignInManager<ApplicationUser> signInManager,
-                              UserManager<ApplicationUser> userManager)
+                              UserManager<ApplicationUser> userManager,
+                              IMemoryCache memoryCache)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
+            this.memoryCache = memoryCache;
         }
 
         [HttpGet]
@@ -58,6 +63,7 @@ namespace SeatGeek.Web.Controllers
             }
 
             await signInManager.SignInAsync(user, false);
+            this.memoryCache.Remove(UsersCacheKey);
 
             return RedirectToAction("Index", "Home");
         }
@@ -88,8 +94,8 @@ namespace SeatGeek.Web.Controllers
 
             if (!result.Succeeded)
             {
-                //TempData[ErrorMessage] =
-                //    "There was an error while logging you in! Please try again later or contact an administrator.";
+                TempData[ErrorMessage] =
+                    "There was an error while logging you in! Please try again later or contact an administrator.";
 
                 return View(model);
             }

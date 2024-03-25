@@ -53,6 +53,10 @@ using SeatGeek.Data;
 
             builder.Services.AddRecaptchaService();
 
+            builder.Services.AddMemoryCache();
+
+            builder.Services.AddResponseCaching();
+
             builder.Services.ConfigureApplicationCookie(cfg =>
             {
                 cfg.LoginPath = "/User/Login";
@@ -86,7 +90,7 @@ using SeatGeek.Data;
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseResponseCaching();
             app.UseAuthentication();
             app.UseAuthorization();
             app.EnableOnlineUsersCheck();   
