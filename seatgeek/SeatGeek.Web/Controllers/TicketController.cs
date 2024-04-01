@@ -82,15 +82,15 @@
                 return this.RedirectToAction("All", "Event");
             }
 
-
+            
             var userId = this.User.GetId();
 
             try
             {
-                // Validate the ticketModels
-                if (orderFormModel == null )
+                
+                if (orderFormModel == null || orderFormModel.Tickets == null || orderFormModel.Tickets.Count == 0)
                 {
-                    return BadRequest("No ticket models provided");
+                    return BadRequest("No tickets provided");
                 }
 
                 // Assuming EventId is already a string
@@ -102,14 +102,14 @@
 
                 foreach (var ticketModel in orderFormModel.Tickets)
                 {
-                    if (ticketModel.Quantity > 0)
+                    if (ticketModel.NumberForEveryModel > 0)
                     {
                         totalSum += ticketModel.Price * ticketModel.NumberForEveryModel;
 
                         num += ticketModel.NumberForEveryModel;
-                        if (num < ticketModel.Quantity)
+                        if (num < ticketModel.NumberForEveryModel)
                         {
-                            this.TempData[ErrorMessage] = "Even with the provided id does not exist!";
+                            this.TempData[ErrorMessage] = "Event with the provided id does not exist!";
 
                             return this.RedirectToAction("All", "Event");
                         }
@@ -127,7 +127,7 @@
                 };
 
                 // Call the service method to create the orders
-                string orderId= await ticketService.CreateOrderIdAsync(orderViewModel, userId);
+                string orderId = await ticketService.CreateOrderIdAsync(orderViewModel, userId);
 
 
                 this.TempData[SuccessMessage] = "You Add tickets succesfully!";

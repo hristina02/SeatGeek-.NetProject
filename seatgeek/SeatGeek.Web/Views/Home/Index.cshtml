@@ -6,12 +6,32 @@
     var events = Model.ToList();
 }
 
+<div class="d-sm-flex align-items-center justify-content-between w-100" style="height: 100vh;">
+    <div class="col-md-4 mx-4 mb-2 mb-sm-0 headline">
+        <span class="text-secondary text-uppercase">Right place for you!</span>
+        <h1 class="display-4 my-4 font-weight-bold">Welcome <span style="color: #42035F;">to SeatGeek</span></h1>
+        <a href="#" class="btn px-5 py-3 text-white mt-3 mt-sm-0" style="border-radius: 30px; background-color: #A058C1;">
+            Check Events
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="18" fill="currentColor" style="vertical-align"class="bi bi-fire" viewBox="0 0 14 16">
+                <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16m0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15" />
+            </svg>
+        </a>
+    </div>
+    <!-- in mobile remove the clippath -->
+    <div class="col-md-8 h-100 clipped" style="min-height: 450px; background-image: url('/images/bigLogo.png'); background-position: center; background-size: contain;">
+    </div>
+</div>
+
+
+
+
+
 @if (!events.Any())
 {
     <div class="mt-4 p-5 bg-light">
-        <h1 class="display-4">Welcome to the best place events!</h1>
+        <h1 class="display-4">Welcome to the best place for events!</h1>
         <p class="lead">
-            There are no houses in the system currently available
+            There are no events in the system currently available
             so why don't you just add one?
         </p>
         <hr class="my-4">
@@ -27,18 +47,36 @@
 
 <div class="mb-5"></div>
 
+<div class="container">
+    <div class="row">
+        <div class="grow col-md-3">
+            <img src="~/images/Index/music.png" class="img-fluid" alt="Picture 1">
+        </div>
+        <div class="grow col-md-3">
+            <img src="~/images/Index/sport.png" class="img-fluid" alt="Picture 2" style="paddding: 10px">
+        </div>
+        <div class="grow col-md-3">
+            <img src="~/images/Index/theatre.png" class="img-fluid" alt="Picture 3">
+        </div>
+        <div class="grow col-md-3">
+            <img src="~/images/Index/charity.png" class="img-fluid" alt="Picture 4">
+        </div>
+    </div>
+</div>
+
+<div class="mb-5"></div>
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         @for (int i = 0; i < events.Count(); i++)
         {
             var eventModel = events[i];
             <div class="carousel-item @(i == 0 ? "active" : string.Empty)">
-                <img class="d-block w-100" style="height:500px"
+                <img class="d-block w-100" style="height:650px"
                      src="@eventModel.ImageUrl" alt="@eventModel.Title">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>
                         <div>
-                            <a class="btn btn-primary" asp-controller="Event" asp-action="Details"
+                            <a class="btn btn-primary " asp-controller="Event" asp-action="Details"
                                asp-route-id="@eventModel.Id"> @eventModel.Title</a>
 
                             <a class="btn btn-primary" asp-controller="Ticket" asp-action="Add"
@@ -51,15 +89,15 @@
         }
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="carousel-control-prev-icon " aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="carousel-control-next-icon " aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-
+@* 
 <div class="row">
     <div class="col-12 text-center">
         <button class="btn btn-primary" id="statistics_btn">Show Statistics</button>
@@ -71,7 +109,7 @@
         <h2 class="col-md-6 text-center" id="total_events"></h2>
         <h2 class="col-md-6 text-center" id="total_tickets"></h2>
     </div>
-</div>
+</div> *@
 
 @section Scripts
 {

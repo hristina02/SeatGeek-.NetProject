@@ -50,9 +50,10 @@
         {
            
             public const int MaxQuantity = 10000;
-           
+            public const int MaxNumberForBuy = 30;
             public const string MinPrice ="0";
             public const string MaxPrice = "1000";
+
 
         }
 

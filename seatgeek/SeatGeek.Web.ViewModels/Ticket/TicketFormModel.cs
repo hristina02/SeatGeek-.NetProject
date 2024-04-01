@@ -11,6 +11,8 @@
         [Required(ErrorMessage = "Price is required")]
         public decimal Price { get; set; }
 
+        [Required]
+        [Range(1, MaxNumberForBuy, ErrorMessage = "Number must be between 1 and {2}")]
         public int NumberForEveryModel { get; set; }
        
         [EnumDataType(typeof(TicketTypeEnum), ErrorMessage = "Type is unvalid")]

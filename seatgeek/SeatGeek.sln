@@ -27,7 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeatGeek.Services.Data.Mode
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeatGeek.WebApi", "SeatGeek.WebApi\SeatGeek.WebApi.csproj", "{853C3D8A-CFEF-47B0-8B45-0F87291E9284}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeatGeek.Services.Mapping", "SeatGeek.Services.Mapping\SeatGeek.Services.Mapping.csproj", "{F006E29A-A65F-40E0-9463-D5818D1C54C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeatGeek.Services.Mapping", "SeatGeek.Services.Mapping\SeatGeek.Services.Mapping.csproj", "{F006E29A-A65F-40E0-9463-D5818D1C54C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{199A7FBA-587E-4853-8098-746CF35CBDBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeatGeek.Services.Tests", "SeatGeek.Services.Tests\SeatGeek.Services.Tests.csproj", "{F2006D1C-3C62-4DAC-B18A-A332F24670BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +79,10 @@ Global
 		{F006E29A-A65F-40E0-9463-D5818D1C54C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F006E29A-A65F-40E0-9463-D5818D1C54C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F006E29A-A65F-40E0-9463-D5818D1C54C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2006D1C-3C62-4DAC-B18A-A332F24670BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2006D1C-3C62-4DAC-B18A-A332F24670BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2006D1C-3C62-4DAC-B18A-A332F24670BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2006D1C-3C62-4DAC-B18A-A332F24670BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +97,7 @@ Global
 		{33CC9EC4-03FF-435B-8B18-0CC1AEEC0C2F} = {D4B79754-5999-4868-BBB4-3BE088D2791F}
 		{853C3D8A-CFEF-47B0-8B45-0F87291E9284} = {F7EC5A69-1995-45F4-B342-68A2226414F4}
 		{F006E29A-A65F-40E0-9463-D5818D1C54C6} = {D4B79754-5999-4868-BBB4-3BE088D2791F}
+		{F2006D1C-3C62-4DAC-B18A-A332F24670BC} = {199A7FBA-587E-4853-8098-746CF35CBDBF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93430258-FAB1-48AF-8FB8-EBF0F6ACE4A4}

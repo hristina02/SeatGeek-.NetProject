@@ -326,7 +326,9 @@
         {
             return new StatisticsServiceModel()
             {
-                TotalEvents= await this.dbContext.Events.CountAsync(),
+                TotalEvents= await this.dbContext.Events
+                                .Where(e=>e.IsActive)
+                                .CountAsync(),
                 TotalTickets = await this.dbContext.Events
                     .Where(t=>t.IsActive)
                     .Where(e => e.IsActive)

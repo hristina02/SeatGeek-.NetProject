@@ -3,12 +3,15 @@
     ViewData["Title"] = "Register";
 }
 
-<h1 class="text-center">@ViewData["Title"]</h1>
+<a href="https://componentity.com" target="_blank" class="block">
+    <img src="~/images/bigLogo.png" alt="Big Logo" width="120px" class="d-block mx-auto my-4 img-fluid">
+</a>
 
+<h1 class="text-center">@ViewData["Title"]</h1>
 <div class="row">
     <div class="col-md-4 offset-md-4">
         <form id="registerForm" method="post">
-            <h2>Create a new account.</h2>
+            <h5 class="text-center text-black-50">Create a new account.</h5>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-floating mb-2">

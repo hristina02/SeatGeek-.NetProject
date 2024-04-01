@@ -3,9 +3,13 @@
     ViewData["Title"] = "Add Event";
 }
 
-<h2 class="text-center">@ViewData["Title"]</h2>
+<hr />
+<h1 class="text-center" style="color:indigo !important">@ViewBag.Title</h1>
 <hr />
 
+<a href="https://componentity.com" target="_blank" class="block">
+    <img src="~/images/bigLogo.png" alt="Big Logo" width="120px" class="d-block mx-auto my-5 img-fluid">
+</a>
 <partial name="_EventFormPartial" model="@Model" />
 
 @section Scripts

@@ -8,15 +8,15 @@
 @{
     bool isUserAgent = await AgentService.AgentExistsByUserIdAsync(this.User.GetId()!);
     bool isAgentOwnerOfTheEvent = await AgentService.HasEventWithIdAsync(this.User.GetId(), Model.Id.ToString());
-   ;
+   
 }
 
-<div class="col-md-4">
-    <div class="card mb-3">
+<div class="col-md-4 grow img">
+    <div class="card mb-1 " >
         <img class="card-img-top" src="@Model.ImageUrl" alt="Event Image">
         <div class="card-body text-center">
             <h4>@Model.Title</h4>
-            <h6>: <b>@Model.City</b></h6>
+            <h6><b>@Model.City</b></h6>
          
             <a asp-area=""  asp-controller="Event" asp-action="Details" asp-route-id="@Model.Id"
                class="btn btn-success">Details</a>
@@ -31,24 +31,11 @@
                        class="btn btn-warning">Edit</a>
                     <a asp-area=""  asp-controller="Event" asp-action="Delete" asp-route-id="@Model.Id"
                        class="btn btn-danger">Delete</a>
-                    <p></p>
+                    
                 }
                
 
-               @*  @if (!Model.IsRented)
-                {
-                    <form class="input-group-sm" asp-controller="House"
-                          asp-action="Rent" asp-route-id="@Model.Id" method="post">
-                        <input class="btn btn-primary" type="submit" value="Rent" />
-                    </form>
-                }
-                else
-                {
-                    <form asp-controller="House" asp-action="Leave"
-                          asp-route-id="@Model.Id" method="post">
-                        <input class="btn btn-primary" type="submit" value="Leave" />
-                    </form>
-                } *@
+            
             }
         </div>
     </div>

@@ -8,6 +8,8 @@ namespace SeatGeek.Services.Data.Interfaces
         Task<string> GetFullNameByEmailAsync(string email);
 
         Task<string> GetFullNameByIdAsync(string userId);
+        Task<string> GetNameByEmailAsync(string email);
+
         Task<IEnumerable<UserViewModel>> AllAsync();
     }
 }

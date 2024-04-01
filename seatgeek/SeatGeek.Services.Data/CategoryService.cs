@@ -50,6 +50,7 @@
         {
             IEnumerable<string> allNames = await this.dbContext
                 .Categories
+                .Where(c=>c.IsActive)
                 .Select(c => c.Name)
                 .ToArrayAsync();
 

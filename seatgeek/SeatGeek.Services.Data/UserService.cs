@@ -28,6 +28,18 @@
             return $"{user.FirstName} {user.LastName}";
         }
 
+        public async Task<string> GetNameByEmailAsync(string email)
+        {
+            ApplicationUser? user = await dbContext
+                .Users
+                .FirstOrDefaultAsync(u => u.Email == email);
+            if (user == null)
+            {
+                return string.Empty;
+            }
+
+            return $"{user.FirstName}";
+        }
 
         public async Task<string> GetFullNameByIdAsync(string userId)
         {
@@ -41,6 +53,10 @@
 
             return $"{user.FirstName} {user.LastName}";
         }
+
+    
+
+
 
         public async Task<IEnumerable<UserViewModel>> AllAsync()
         {

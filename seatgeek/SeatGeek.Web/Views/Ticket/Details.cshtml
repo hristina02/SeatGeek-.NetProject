@@ -1,16 +1,19 @@
-﻿
+﻿@using SeatGeek.Services.Data.Interfaces
+@using SeatGeek.Web.Infrastructure.Extensions
+@inject IEventService EventService
 @model OrderDetailsViewModel
 
-
-
 @{
-    ViewBag.Title = "Order Details";
+    ViewBag.Title = "Your Ticket Details";
 }
 
-<h2 class="text-center">@ViewBag.Title</h2>
+
+<hr />
+<h1 class="text-center" style="color:indigo !important">@ViewBag.Title</h1>
 <hr />
 
-<div class="container" style="display:inline">
+
+ <div class="ticket" style="display:inline">
     <div class="row">
         <div class="col-4">
             <img class="card-img-top" style="width: 20rem;"
@@ -20,10 +23,9 @@
         <div class="card col-8 border-0">
             <p style="font-size:25px;"><u>@Model.Title</u></p>
             <p>Number of Tickets: <b>@Model.NumberTickets</b></p>
-            <p>Total Prce: <b>@Model.OrderTotal BGN</b></p>
+            <p>Total Price: <b>@Model.OrderTotal BGN</b></p>
            
         </div>
     </div>
-</div>
-
+</div>  
 

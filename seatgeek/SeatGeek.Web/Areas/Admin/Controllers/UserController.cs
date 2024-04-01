@@ -4,7 +4,6 @@
     using Microsoft.Extensions.Caching.Memory;
     using SeatGeek.Services.Data.Interfaces;
     using SeatGeek.Web.ViewModels.User;
-    using static SeatGeek.Common.EntityValidationConstants;
     using static Common.GeneralApplicationConstants;
 
 

@@ -1,16 +1,14 @@
-﻿
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using SeatGeek.Data;
-using SeatGeek.Data.Models;
-using SeatGeek.Data.Models.Enums;
-using SeatGeek.Services.Data.Interfaces;
-using SeatGeek.Web.ViewModels.Agent;
-using SeatGeek.Web.ViewModels.Event;
-using SeatGeek.Web.ViewModels.Order;
-using SeatGeek.Web.ViewModels.Ticket;
-namespace SeatGeek.Services.Data
+﻿namespace SeatGeek.Services.Data
 {
+    using Microsoft.EntityFrameworkCore;
+    using SeatGeek.Data;
+    using SeatGeek.Data.Models;
+    using SeatGeek.Data.Models.Enums;
+    using SeatGeek.Services.Data.Interfaces;
+    using SeatGeek.Web.ViewModels.Order;
+    using SeatGeek.Web.ViewModels.Ticket;
+
+
     public class TicketService:ITicketService
     {
 
@@ -20,6 +18,8 @@ namespace SeatGeek.Services.Data
         {
             this.dbContext = dbContext;
         }
+        
+        
         //public async Task<bool> UserExistsByIdAsync(string userId)
         //{
         //    bool result = await this.dbContext
@@ -34,16 +34,9 @@ namespace SeatGeek.Services.Data
             Order orderModel = await this.dbContext
                 .Orders
                 .Include(e => e.Event)
-                //.ThenInclude(a=>User)
+              
 
                 .FirstAsync(e => e.Id.ToString() == orderId);
-
-            //var ticketModels = eventModel.Tickets.Select(t => new TicketFormModel
-            //{
-            //    Type = t.Type.ToString(),
-            //    Price = t.Price
-            //    // Add other ticket properties as needed
-            //}).ToList();
 
             return new OrderDetailsViewModel
             {
