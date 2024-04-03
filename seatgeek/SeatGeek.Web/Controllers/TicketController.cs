@@ -69,6 +69,37 @@
 
         }
 
+
+        [HttpGet]
+        public async Task<IActionResult> Mine()
+        {
+            List<MineOrdersViewModel> myOrderedTickets =
+                new List<MineOrdersViewModel>();
+
+
+
+            try
+            {
+                string userId = this.User.GetId()!;
+
+
+                myOrderedTickets.AddRange(await this.ticketService.AllOrderedTicketsByUserIdAsync(userId!));
+
+
+
+                return View(myOrderedTickets);
+            }
+            catch (Exception)
+            {
+               return this.GeneralError();
+            }
+
+
+
+
+
+        }
+
         [HttpPost]
         public async Task<IActionResult> Add(OrderFormModel orderFormModel,string id)
         {
@@ -77,7 +108,7 @@
                .ExistsByIdAsync(id);
             if (!eventExists)
             {
-                this.TempData[ErrorMessage] = "Even with the provided id does not exist!";
+                this.TempData[ErrorMessage] = "Event with the provided id does not exist!";
 
                 return this.RedirectToAction("All", "Event");
             }
@@ -116,6 +147,9 @@
                     }
                  
                 }
+
+                var start=eventService.GetDetailsByIdAsync(userId);
+                
                 OrderFormModel orderViewModel = new OrderFormModel()
                 {
                     OrderId = orderFormModel.OrderId,
@@ -123,6 +157,7 @@
                     OrderDate = DateTime.Now,
                     NumberTickets=num,
                     OrderTotal = totalSum
+                   
                     // Include other properties from TicketFormModel as needed
                 };
 

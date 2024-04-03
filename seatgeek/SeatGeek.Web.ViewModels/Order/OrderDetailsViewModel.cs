@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SeatGeek.Web.ViewModels.Ticket;
-using static SeatGeek.Common.EntityValidationConstants.Order;
-
+﻿
 namespace SeatGeek.Web.ViewModels.Order
 {
+    using SeatGeek.Web.ViewModels.Ticket;
+    using static SeatGeek.Common.EntityValidationConstants.Order;
     public class OrderDetailsViewModel
     {
 
@@ -17,7 +11,7 @@ namespace SeatGeek.Web.ViewModels.Order
       
         public int EventID { get; set; }
 
-
+       
         public DateTime OrderDate { get; set; }
 
 
@@ -25,7 +19,9 @@ namespace SeatGeek.Web.ViewModels.Order
 
         public string ImageUrl { get; set; } = null!;
 
+        public string Start { get; set; } = null!;
 
+        public string End { get; set; } = null!;
         public int NumberTickets { get; set; }
 
         public decimal OrderTotal { get; set; }

@@ -11,7 +11,7 @@ namespace SeatGeek.Services.Data.Interfaces
 {
     public interface ITicketService
     {
-
+        Task<IEnumerable<MineOrdersViewModel> >AllOrderedTicketsByUserIdAsync(string userId);
         Task<IEnumerable<TicketFormModel>> GetTicketsAsync(string eventId);
         Task<string>CreateOrderIdAsync(OrderFormModel orderModel,string userId);
 

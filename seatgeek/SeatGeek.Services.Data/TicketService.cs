@@ -5,6 +5,7 @@
     using SeatGeek.Data.Models;
     using SeatGeek.Data.Models.Enums;
     using SeatGeek.Services.Data.Interfaces;
+    using SeatGeek.Web.ViewModels.Event;
     using SeatGeek.Web.ViewModels.Order;
     using SeatGeek.Web.ViewModels.Ticket;
 
@@ -18,8 +19,8 @@
         {
             this.dbContext = dbContext;
         }
-        
-        
+
+
         //public async Task<bool> UserExistsByIdAsync(string userId)
         //{
         //    bool result = await this.dbContext
@@ -28,7 +29,26 @@
         //    return result;
         //}
 
+        public async Task<IEnumerable<MineOrdersViewModel>>AllOrderedTicketsByUserIdAsync(string userId)
+        {
 
+            IEnumerable<MineOrdersViewModel> allUsersTickets = await dbContext.Orders
+               .Where(o => o.UserId.ToString() == userId)
+               .Select(o => new MineOrdersViewModel
+               {
+          
+                   Id = o.Id,
+                   EventId = o.EventId,
+                   OrderDate = o.OrderDate,
+                   NumberTickets = o.NumberTickets,
+                   OrderTotal = o.OrderTotal,
+                   ImageUrl=o.Event.ImageUrl
+               })
+               .ToArrayAsync();
+
+            return allUsersTickets;
+
+        }
         public async Task<OrderDetailsViewModel> GetDetailsByIdAsync(string orderId)
         {
             Order orderModel = await this.dbContext
@@ -44,7 +64,11 @@
                 Title=orderModel.Event.Title,
                 ImageUrl= orderModel.Event.ImageUrl,
                 NumberTickets=orderModel.NumberTickets,
-                OrderTotal=orderModel.OrderTotal
+                OrderTotal=orderModel.OrderTotal,
+                Start=orderModel.Event.Start.ToString(),
+                End=orderModel.Event.End.ToString()
+
+                
             };
 
 

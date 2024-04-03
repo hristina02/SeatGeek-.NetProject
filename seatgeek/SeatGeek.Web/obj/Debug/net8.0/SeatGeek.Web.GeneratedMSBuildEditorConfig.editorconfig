@@ -134,6 +134,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb25QYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/hristina/Desktop/SeatGeek-.NetProject/seatgeek/SeatGeek.Web/Views/Shared/_TicketPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9UaWNrZXRQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/hristina/Desktop/SeatGeek-.NetProject/seatgeek/SeatGeek.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -142,12 +146,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hristina/Desktop/SeatGeek-.NetProject/seatgeek/SeatGeek.Web/Views/Ticket/All.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XEFsbC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/hristina/Desktop/SeatGeek-.NetProject/seatgeek/SeatGeek.Web/Views/Ticket/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hristina/Desktop/SeatGeek-.NetProject/seatgeek/SeatGeek.Web/Views/Ticket/Mine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XE1pbmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hristina/Desktop/SeatGeek-.NetProject/seatgeek/SeatGeek.Web/Views/User/Login.cshtml]

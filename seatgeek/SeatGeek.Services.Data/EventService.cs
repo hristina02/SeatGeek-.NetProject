@@ -32,7 +32,7 @@
               .Events
               .Where(h=>h.IsActive)
               .OrderByDescending(h => h.CreatedOn)
-              .Take(3)
+              .Take(5)
               .To<IndexViewModel>()
               .ToArrayAsync();
 

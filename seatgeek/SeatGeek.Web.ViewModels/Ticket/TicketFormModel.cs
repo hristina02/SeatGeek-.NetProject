@@ -5,7 +5,7 @@
     using static Common.EntityValidationConstants.Ticket;
     public class TicketFormModel
     {
-        [Required(ErrorMessage = "Event ID is required")]
+        [Required(ErrorMessage = "Event Id is required")]
         public int EventId { get; set; }
 
         [Required(ErrorMessage = "Price is required")]

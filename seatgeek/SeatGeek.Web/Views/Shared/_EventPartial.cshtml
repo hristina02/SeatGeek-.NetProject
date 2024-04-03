@@ -4,7 +4,7 @@
 @model EventAllViewModel
 
 @inject IAgentService AgentService
-@inject IEventService HouseService
+@inject IEventService EventService
 @{
     bool isUserAgent = await AgentService.AgentExistsByUserIdAsync(this.User.GetId()!);
     bool isAgentOwnerOfTheEvent = await AgentService.HasEventWithIdAsync(this.User.GetId(), Model.Id.ToString());

@@ -1,0 +1,25 @@
+﻿@model List<MineOrdersViewModel>
+@{
+    ViewData["Title"] = "My Tickets";
+}
+
+
+<hr />
+<h1 class="text-center" style="color:indigo !important">@ViewBag.Title</h1>
+<hr />
+
+@if (!Model.Any())
+{
+    <h2 class="text-center">You do not have any tickets yet!</h2>
+}
+else
+{
+    <div class="row">
+        @foreach (MineOrdersViewModel ticketModel in Model)
+        {
+            <div class="col-md-6 mb-4">
+                <partial name="_TicketPartial" model="ticketModel" />
+            </div>
+        }
+    </div>
+}

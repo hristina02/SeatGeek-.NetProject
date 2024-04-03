@@ -8,24 +8,25 @@
 }
 
 
+
 <hr />
 <h1 class="text-center" style="color:indigo !important">@ViewBag.Title</h1>
 <hr />
 
 
- <div class="ticket" style="display:inline">
-    <div class="row">
-        <div class="col-4">
-            <img class="card-img-top" style="width: 20rem;"
-                 src="@Model.ImageUrl" alt="Event Image">
-            <a></a>
-        </div>
-        <div class="card col-8 border-0">
-            <p style="font-size:25px;"><u>@Model.Title</u></p>
-            <p>Number of Tickets: <b>@Model.NumberTickets</b></p>
-            <p>Total Price: <b>@Model.OrderTotal BGN</b></p>
-           
+
+<div class="d-flex align-items-center justify-content-center grow im">
+    <div class="card" style="border: 5px solid #481252; border-radius: 10px; width: 40%;">
+        <img class="card-img-top" src="@Model.ImageUrl" alt="Event Image">
+        <div class="card-body text-center">
+            <h3>@Model.Title</h3>
+            <div class="card col-12 border-0" style="background-color :whitesmoke; border-radius: 8px;">
+               
+                <p1>@Model.Start - @Model.End</p1>
+                <p1>Number of Tickets:<p1>@Model.NumberTickets</p1></p1>
+                <p1>Total Price: <b style="font-size: 20px; font-weight: bold;">@Model.OrderTotal BGN</b></p1>
+
+            </div>
         </div>
     </div>
-</div>  
-
+</div>
