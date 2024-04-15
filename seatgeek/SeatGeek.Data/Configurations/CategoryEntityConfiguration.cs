@@ -5,7 +5,7 @@
     using SeatGeek.Data.Models;
     using static SeatGeek.Common.EntityValidationConstants;
 
-    public class CategoryEntityValidations : IEntityTypeConfiguration<Models.Category>
+    public class CategoryEntityConfiguration : IEntityTypeConfiguration<Models.Category>
     {
         public void Configure(EntityTypeBuilder<Models.Category> builder)
         {

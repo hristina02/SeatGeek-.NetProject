@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeatGeek.Services.Mapping",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{199A7FBA-587E-4853-8098-746CF35CBDBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeatGeek.Services.Tests", "SeatGeek.Services.Tests\SeatGeek.Services.Tests.csproj", "{F2006D1C-3C62-4DAC-B18A-A332F24670BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeatGeek.Services.Tests", "SeatGeek.Services.Tests\SeatGeek.Services.Tests.csproj", "{F2006D1C-3C62-4DAC-B18A-A332F24670BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

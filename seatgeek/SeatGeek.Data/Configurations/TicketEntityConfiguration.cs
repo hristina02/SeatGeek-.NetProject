@@ -5,7 +5,7 @@
     using SeatGeek.Data.Models;
     using SeatGeek.Data.Models.Enums;
    
-    public class TicketEntityValidations : IEntityTypeConfiguration<Ticket>
+    public class TicketEntityConfiguration : IEntityTypeConfiguration<Ticket>
     {
         public void Configure(EntityTypeBuilder<Ticket> builder)
         {

@@ -33,7 +33,7 @@
         {
 
             IEnumerable<MineOrdersViewModel> allUsersTickets = await dbContext.Orders
-               .Where(o => o.UserId.ToString() == userId)
+               .Where(o => o.UserId.ToString() == userId && o.NumberTickets>0  )
                .Select(o => new MineOrdersViewModel
                {
           

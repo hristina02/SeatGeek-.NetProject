@@ -52,20 +52,17 @@
                             <div class="form-group">
 
                                 <div class="form-group">
-                                    <label asp-for="Tickets[i].NumberForEveryModel" asp-route="Tickets[i].NumberForEveryModel" class="font-weight-bold">Quantity</label>
+                                    @* <label asp-for="Tickets[i].NumberForEveryModel" asp-route="Tickets[i].NumberForEveryModel" class="font-weight-bold"></label>  *@
                                     <input asp-for="Tickets[i].NumberForEveryModel" asp-route="Tickets[i].NumberForEveryModel" class="form-control" />
                                     <span asp-validation-for="Tickets[i].NumberForEveryModel" class="text-danger"></span>
                                 </div>
-                                @*input asp-for="Tickets[i].NumberForEveryModel" asp-route="Tickets[i].NumberForEveryModel" class="form-control" />
-                                 <!-- Adjust this text as needed -->
-                                <span asp-validation-for="Tickets[i].NumberForEveryModel" class="text-danger"></span> 
-                                <label asp-for="Tickets[i].NumberForEveryModel" asp-route="Tickets[i].NumberForEveryModel">Quantity</label>
-                                <input asp-for="Tickets[i].NumberForEveryModel" asp-route="Tickets[i].NumberForEveryModel" class="form-control" />
-                                <span asp-validation-for="Tickets[i].NumberForEveryModel" class="text-danger"></span>*@
+                              
                             </div>
                             
                         </div>
                     </div>
+
+
                 }
           </div>
 

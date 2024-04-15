@@ -82,8 +82,11 @@
             {
                 string userId = this.User.GetId()!;
 
+       
+
 
                 myOrderedTickets.AddRange(await this.ticketService.AllOrderedTicketsByUserIdAsync(userId!));
+
 
 
 
@@ -167,7 +170,7 @@
 
                 this.TempData[SuccessMessage] = "You Add tickets succesfully!";
 
-                return this.RedirectToAction("Details", "Ticket", new {Id=orderId});
+                return this.RedirectToAction("Add", "Ticket");
 
             }
             catch (Exception)

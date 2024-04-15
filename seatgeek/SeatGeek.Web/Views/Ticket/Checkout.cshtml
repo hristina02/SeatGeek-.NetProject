@@ -1,0 +1,52 @@
+﻿@* @using SeatGeek.Services.Data.Interfaces
+@using SeatGeek.Web.Infrastructure.Extensions
+@inject IEventService EventService
+@model OrderFormModel
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Checkout</h1>
+            <hr />
+            <h2>Selected Tickets:</h2>
+            @foreach (var ticket in Model.Tickets)
+            {
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="font-weight-bold">Type:</label>
+                        <p>@ticket.Type</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="font-weight-bold">Price:</label>
+                        <p>@ticket.Price BGN</p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label class="font-weight-bold">Number:</label>
+                        <p>@ticket.NumberForEveryModel</p>
+                    </div>
+                </div>
+            }
+            <hr />
+            <h2>Payment Details:</h2>
+            <!-- Add payment form fields here -->
+            <form>
+                <div class="form-group">
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number" required>
+                </div>
+                <div class="form-group">
+                    <label for="expiryDate">Expiry Date:</label>
+                    <input type="text" class="form-control" id="expiryDate" placeholder="MM/YYYY" required>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV:</label>
+                    <input type="text" class="form-control" id="cvv" placeholder="CVV" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Pay Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+ *@

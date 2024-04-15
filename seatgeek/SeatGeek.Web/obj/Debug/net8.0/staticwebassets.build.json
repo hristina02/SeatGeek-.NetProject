@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wLqgONPSdKTLccsLnDxVsx92b5jMA3w7KiT94DTpBWg=",
+  "Hash": "obmSoUoXEg+hIaARN5LVsmf71drJsNxYMfGlhUqfeaM=",
   "Source": "SeatGeek.Web",
   "BasePath": "_content/SeatGeek.Web",
   "Mode": "Default",
@@ -1423,12 +1423,12 @@
       "OriginalItemSpec": "wwwroot\\images\\Index\\theatre.png"
     },
     {
-      "Identity": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Web\\wwwroot\\images\\lila.png",
+      "Identity": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Web\\wwwroot\\images\\lila.jpg",
       "SourceId": "SeatGeek.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Web\\wwwroot\\",
       "BasePath": "_content/SeatGeek.Web",
-      "RelativePath": "images/lila.png",
+      "RelativePath": "images/lila.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1439,7 +1439,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\lila.png"
+      "OriginalItemSpec": "wwwroot\\images\\lila.jpg"
     },
     {
       "Identity": "C:\\Users\\hristina\\Desktop\\SeatGeek-.NetProject\\seatgeek\\SeatGeek.Web\\wwwroot\\js\\jquery-override.js",

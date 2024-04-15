@@ -6,7 +6,7 @@
     using Models;
    
 
-    public class EventEntityValidations : IEntityTypeConfiguration<Event>
+    public class SeedEventEntityConfiguration : IEntityTypeConfiguration<Event>
     {
         public void Configure(EntityTypeBuilder<Event> builder)
         {

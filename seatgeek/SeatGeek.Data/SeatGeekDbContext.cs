@@ -5,14 +5,16 @@
     using Microsoft.EntityFrameworkCore;
     using System.Reflection;
     using SeatGeek.Data.Models;
-    
+    using SeatGeek.Data.Configurations;
+    using System.Reflection.Emit;
 
     public class SeatGeekDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
     {
-        public SeatGeekDbContext(DbContextOptions<SeatGeekDbContext> options)
+        private readonly bool seedDb;
+        public SeatGeekDbContext(DbContextOptions<SeatGeekDbContext> options, bool seedDb=true)
            : base(options)
         {
-
+            this.seedDb = seedDb;
         }
 
         public DbSet<Category> Categories{ get; set; } = null!;
@@ -30,11 +32,21 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            Assembly configAssembly = Assembly.GetAssembly(typeof(SeatGeekDbContext)) ??
-                                      Assembly.GetExecutingAssembly();
-            builder.ApplyConfigurationsFromAssembly(configAssembly);
+            builder.Entity<CategoryEvent>().HasNoKey();
+            // Apply entity configurations
+            builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
+            builder.ApplyConfiguration(new SeedEventEntityConfiguration());
 
+            // Apply seed data configurations (if applicable)
+            if (seedDb)
+            {
+                builder.ApplyConfiguration(new CategoryEntityConfiguration());
+                
+                builder.ApplyConfiguration(new TicketEntityConfiguration());
+                // Add more seed data configurations if needed
+            }
             base.OnModelCreating(builder);
+
         }
     }
 }
