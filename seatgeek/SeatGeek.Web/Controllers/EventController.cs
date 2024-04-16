@@ -123,8 +123,9 @@
             if (!this.ModelState.IsValid)
             {
                 model.Categories = await this.categoryService.AllCategoriesAsync();
-
+                
                 return this.View(model);
+
             }
 
             try
@@ -195,7 +196,7 @@
                 await this.agentService.GetAgentIdByUserIdAsync(this.User.GetId()!);
             bool isAgentOwner = await this.eventService
                 .IsAgentWithIdOwnerOfEventWithIdAsync(id, agentId!);
-            if (!isAgentOwner || !this.User.IsAdmin())
+            if (!isAgentOwner && !this.User.IsAdmin())
             {
                 this.TempData[ErrorMessage] = "You must be the agent owner of the Event you want to edit!";
 

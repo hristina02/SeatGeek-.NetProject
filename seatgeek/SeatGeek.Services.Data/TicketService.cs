@@ -49,6 +49,16 @@
             return allUsersTickets;
 
         }
+        public async Task DeleteOrderByIdAsync(string orderId)
+        {
+           Order orderToDelete = await this.dbContext
+                .Orders
+                .FirstAsync(o=> o.Id.ToString() == orderId);
+
+            this.dbContext.Orders.Remove(orderToDelete);
+
+            await this.dbContext.SaveChangesAsync();
+        }
         public async Task<OrderDetailsViewModel> GetDetailsByIdAsync(string orderId)
         {
             Order orderModel = await this.dbContext

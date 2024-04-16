@@ -15,9 +15,9 @@
                 <p1>@Model.Start - @Model.End</p1>
                 <p1>Number of Tickets:<p1>@Model.NumberTickets</p1></p1>
                 <p1>Total Price: <b style="font-size: 20px; font-weight: bold;">@Model.OrderTotal BGN</b></p1>
+                <a asp-area="" asp-controller="Ticket" asp-action="Delete" asp-route-id="@Model.Id"
+                   class="btn btn-danger">Remove</a>
 
-                <!-- "Remove" button -->
-                <button type="button" class="btn btn-danger mt-3" onclick="removeOrder(@Model.Id)">Remove</button>
             </div>
         </div>
     </div>

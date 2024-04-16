@@ -16,5 +16,6 @@ namespace SeatGeek.Services.Data.Interfaces
         Task<string>CreateOrderIdAsync(OrderFormModel orderModel,string userId);
 
         Task<OrderDetailsViewModel> GetDetailsByIdAsync(string orderId);
+        Task DeleteOrderByIdAsync(string ordertId);
     }
 }

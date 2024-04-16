@@ -199,6 +199,27 @@
             return View(viewModel);
 
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(string Id)
+        {
+            try
+            {
+                // Call the service method to delete the order
+                await ticketService.DeleteOrderByIdAsync(Id);
+
+                // Optionally, return a success message
+                TempData[SuccessMessage] = "Order deleted successfully.";
+
+                return RedirectToAction("Mine");
+            }
+            catch (Exception ex)
+            {
+                return this.GeneralError();
+            }
+        }
+
+        [HttpGet]
         private IActionResult GeneralError()
         {
             this.TempData[ErrorMessage] =
